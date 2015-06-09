@@ -488,6 +488,7 @@
 		CBBAB391171D0C0E009B955F /* OALTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALTools.m; sourceTree = "<group>"; };
 		CBBAB392171D0C0F009B955F /* ObjectALMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectALMacros.h; sourceTree = "<group>"; };
 		CBBAB393171D0C0F009B955F /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		CF61237A1B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D369B53219C8E73C00BA46EA /* libObjectAL (Mac).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libObjectAL (Mac).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC39961219C3B80E00C93E5E /* libObjectAL (Android).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libObjectAL (Android).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC64014119C797E8003E595A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -950,6 +951,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = CBBAA820171D05AA009B955F;
 			productRefGroup = CBBAA82A171D05AA009B955F /* Products */;
@@ -1095,6 +1097,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CBBAB348171D0BC4009B955F /* en */,
+				CF61237A1B269106008AED91 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

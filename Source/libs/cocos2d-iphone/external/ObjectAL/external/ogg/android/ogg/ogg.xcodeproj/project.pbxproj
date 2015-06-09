@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF6123781B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC76224319919E3B0001BCF4 /* libogg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libogg.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC76224719919E3B0001BCF4 /* ogg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ogg-Info.plist"; sourceTree = "<group>"; };
 		FC76224919919E3B0001BCF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = FC76223A19919E3B0001BCF4;
 			productRefGroup = FC76224419919E3B0001BCF4 /* Products */;
@@ -150,6 +152,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FC76224919919E3B0001BCF4 /* en */,
+				CF6123781B269106008AED91 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -94,6 +94,9 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF61236F1B269004008AED91 /* InfoPlist.strings */; };
+		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
+		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +215,12 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		CF6123711B269065008AED91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF6123751B2690C9008AED91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF6123761B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF6123771B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CF61237B1B269406008AED91 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
+		CF61237C1B269406008AED91 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -383,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				5B121034197485FE004C1E1D /* Info.plist */,
+				CF61236F1B269004008AED91 /* InfoPlist.strings */,
+				CF6123741B2690C5008AED91 /* Localizable.strings */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -440,6 +451,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				CF61237B1B269406008AED91 /* TitleScene.h */,
+				CF61237C1B269406008AED91 /* TitleScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -627,6 +640,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = B77F1B2517B978D7009739AE;
 			productRefGroup = B77F1B2F17B978D7009739AE /* Products */;
@@ -727,7 +741,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6123721B2690C5008AED91 /* Localizable.strings in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
+				CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -819,6 +835,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				CF61237D1B269406008AED91 /* TitleScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +858,27 @@
 			targetProxy = 7A97912119E6321C001FFC4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF61236F1B269004008AED91 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF6123711B269065008AED91 /* en */,
+				CF6123761B269106008AED91 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CF6123741B2690C5008AED91 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF6123751B2690C9008AED91 /* en */,
+				CF6123771B269106008AED91 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7A40361919DDEE84007B6E8F /* Debug */ = {

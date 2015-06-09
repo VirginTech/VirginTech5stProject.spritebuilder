@@ -57,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF6123791B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC76226219919ECD0001BCF4 /* libtremor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtremor.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC76226619919ECD0001BCF4 /* tremor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tremor-Info.plist"; sourceTree = "<group>"; };
 		FC76226819919ECD0001BCF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -241,6 +242,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = FC76225919919ECD0001BCF4;
 			productRefGroup = FC76226319919ECD0001BCF4 /* Products */;
@@ -304,6 +306,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FC76226819919ECD0001BCF4 /* en */,
+				CF6123791B269106008AED91 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
