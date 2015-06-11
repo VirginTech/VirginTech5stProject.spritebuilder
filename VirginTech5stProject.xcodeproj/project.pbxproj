@@ -97,6 +97,9 @@
 		CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF61236F1B269004008AED91 /* InfoPlist.strings */; };
 		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
 		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
+		CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */; };
+		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
+		CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B91B2932F400A8A9D8 /* Ground.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +224,12 @@
 		CF6123771B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CF61237B1B269406008AED91 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		CF61237C1B269406008AED91 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
+		CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene.h; sourceTree = "<group>"; };
+		CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene.m; sourceTree = "<group>"; };
+		CFDBE3B51B292CAE00A8A9D8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		CFDBE3B61B292CAE00A8A9D8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		CFDBE3B81B2932F400A8A9D8 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
+		CFDBE3B91B2932F400A8A9D8 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ground.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -453,6 +462,9 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				CF61237B1B269406008AED91 /* TitleScene.h */,
 				CF61237C1B269406008AED91 /* TitleScene.m */,
+				CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */,
+				CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */,
+				CFDBE3B41B292C9100A8A9D8 /* Object */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -550,6 +562,17 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFDBE3B41B292C9100A8A9D8 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				CFDBE3B51B292CAE00A8A9D8 /* Player.h */,
+				CFDBE3B61B292CAE00A8A9D8 /* Player.m */,
+				CFDBE3B81B2932F400A8A9D8 /* Ground.h */,
+				CFDBE3B91B2932F400A8A9D8 /* Ground.m */,
+			);
+			name = Object;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -836,6 +859,9 @@
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				CF61237D1B269406008AED91 /* TitleScene.m in Sources */,
+				CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */,
+				CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */,
+				CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

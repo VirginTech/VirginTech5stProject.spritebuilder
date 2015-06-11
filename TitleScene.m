@@ -8,6 +8,7 @@
 
 #import "TitleScene.h"
 
+#import "StageScene.h"
 
 @implementation TitleScene
 
@@ -35,8 +36,19 @@ CGSize winSize;
     titleLogo.position=ccp(winSize.width/2,winSize.height/2+50);
     [self addChild:titleLogo];
     
+    //プレイボタン
+    CCButton* playButton=[CCButton buttonWithTitle:@"[ プレイ ]" fontName:@"Verdana-Bold" fontSize:20];
+    playButton.position=ccp(winSize.width/2,winSize.height/2-20);
+    [playButton setTarget:self selector:@selector(onPlayClick:)];
+    [self addChild:playButton];
     
     return self;
+}
+
+-(void)onPlayClick:(id)sender
+{
+    [[CCDirector sharedDirector] replaceScene:[StageScene scene]
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 @end
