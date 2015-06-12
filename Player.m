@@ -19,7 +19,7 @@ CGSize winSize;
     if(self=[super init])
     {
         self=(id)[CCBReader load:@"Player"];
-        self.position=ccp(winSize.width/2-100,winSize.height/2);
+        self.position=ccp(winSize.width/3,winSize.height/2);
     }
     return self;
 }
