@@ -18,6 +18,7 @@ CGSize winSize;
 
 CCPhysicsNode* physicWorld;
 Player* player;
+NSTimeInterval touchTime;
 
 Ground* ground1;
 Ground* ground2;
@@ -41,6 +42,8 @@ NSArray* grounds; //地面ループ処理用のArray
     //Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
     [self addChild:background];
+    
+    //初期化
     
     //タイトルボタン
     CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
@@ -120,17 +123,23 @@ NSArray* grounds; //地面ループ処理用のArray
 
 -(void)rocket_Control_Schedule:(CCTime)dt
 {
-    float maxVelocity=100.f;//速度Max
-    float forceParam=100.f;//Forceパラメーター
-    float angularImpulse=100.f;//角力積
+    float maxVelocity=120.f;//速度Max
     float maxAngle=45;//角度Max
+    
+    //タッチ経過時間
+    touchTime+=dt;
+    
+    float angularVelocity=touchTime*3.f;//角速度
+    float angularImpulse=touchTime*50.f;//角力積
+    float forceParam=touchTime*100.f;//Forceパラメーター
     
     //機首を上げる
     if(player.rotation >= -maxAngle){
+        player.physicsBody.angularVelocity = angularVelocity;
         [player.physicsBody applyAngularImpulse:angularImpulse];
     }
     //機首の方角へ進める
-    float rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +90);
+    float rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +80);
     CGPoint directionVector=ccp(sinf(rotationRadians),cosf(rotationRadians));
     CGPoint force=ccpMult(directionVector,forceParam);
     [player.physicsBody applyImpulse:force];
@@ -146,19 +155,22 @@ NSArray* grounds; //地面ループ処理用のArray
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    //機首を上げる
+    /*/機首を上げる
     if(player.rotation >= -45){
-        [player.physicsBody applyAngularImpulse:1000];
-    }
+        player.physicsBody.angularVelocity = 5;
+        [player.physicsBody applyAngularImpulse:100];
+    }*/
     //ロケット制御スケジュール開始
     [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
+    
+    touchTime=0;
 }
 
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     //機首を下げる
     player.physicsBody.angularVelocity = -1;
-    [player.physicsBody applyAngularImpulse:-200.f];
+    [player.physicsBody applyAngularImpulse:-100.f];
     
     //ロケット制御スケジュール停止
     [self unschedule:@selector(rocket_Control_Schedule:)];
