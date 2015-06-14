@@ -79,7 +79,10 @@
 			<true/>
 		</dict>
 		<key>Sprites</key>
-		<dict/>
+		<dict>
+			<key>previewFolderHidden</key>
+			<false/>
+		</dict>
 		<key>ccbResources</key>
 		<dict>
 			<key>previewFolderHidden</key>

@@ -1,50 +1,29 @@
 //
-//  StageScene.m
+//  StageScene_01.m
 //  VirginTech5stProject
 //
-//  Created by VirginTech LLC. on 2015/06/11.
+//  Created by VirginTech LLC. on 2015/06/14.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
 
-#import "StageScene.h"
+#import "StageScene_01.h"
 
-#import "BasicMath.h"
 #import "TitleScene.h"
+#import "BasicMath.h"
 #import "Player.h"
-#import "Ground.h"
 
-@implementation StageScene
+@implementation StageScene_01
 
 CGSize winSize;
 
-CCPhysicsNode* physicWorld;
 Player* player;
 NSTimeInterval touchTime;
 
-Ground* ground1;
-Ground* ground2;
-NSArray* grounds; //地面ループ処理用のArray
-
-+ (StageScene *)scene
+- (void)didLoadFromCCB
 {
-    return [[self alloc] init];
-}
-
-- (id)init
-{
-    // Apple recommend assigning self with supers return value
-    self = [super init];
-    if (!self) return(nil);
-    
     self.userInteractionEnabled = TRUE;
     
     winSize=[[CCDirector sharedDirector]viewSize];
-    
-    //Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
-    [self addChild:background];
-    
-    //初期化
     
     //タイトルボタン
     CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
@@ -53,51 +32,13 @@ NSArray* grounds; //地面ループ処理用のArray
     [titleButton setTarget:self selector:@selector(onTitleClick:)];
     [self addChild:titleButton];
     
-    return self;
-}
-
--(void)dealloc
-{
-    // clean up code goes here
-}
-
--(void)onEnter
-{
-    [super onEnter];
-    
-    //物理ワールド生成
-    physicWorld=[CCPhysicsNode node];
-    physicWorld.gravity = ccp(0,-300);
-    //physicWorld.debugDraw = true;
-    [self addChild:physicWorld];
-    
-    //衝突判定デリゲート設定
-    physicWorld.collisionDelegate = self;
-    
-    //地面生成
-    ground1=[Ground createGround];
-    ground1.position=ccp(winSize.width/2,10);
-    [physicWorld addChild:ground1];
-    
-    ground2=[Ground createGround];
-    ground2.position=ccp(ground1.position.x+ground1.contentSize.width*ground1.scale,20);
-    [physicWorld addChild:ground2];
-    
-    //地面配列作成
-    grounds = @[ground1, ground2];
-    
     //プレイヤー生成
     player=[Player createPlayer];
     [physicWorld addChild:player];
     
     //審判スケジュール開始
     [self schedule:@selector(judgement_Schedule:)interval:0.01];
-}
-
--(void)onExit
-{
-    // always call super onExit last
-    [super onExit];
+    
 }
 
 -(void)judgement_Schedule:(CCTime)dt
@@ -105,18 +46,6 @@ NSArray* grounds; //地面ループ処理用のArray
     //物理ワールド移動
     float offSet=player.position.x - winSize.width/3;
     physicWorld.position=ccp(-offSet,physicWorld.position.y);
-    
-    //地面切り替え
-    for(CCNode *ground in grounds){
-        //地面のワールド座標を取得
-        CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:ground.position];
-        //地面のスクリーン座標を取得
-        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
-        //地面ループ移動
-        if(groundScreenPosition.x < -(ground.contentSize.width*ground.scale)/2){
-            ground.position=ccp(ground.position.x+ground.contentSize.width*2,ground.position.y);
-        }
-    }
 }
 
 -(void)rocket_Control_Schedule:(CCTime)dt
@@ -133,7 +62,7 @@ NSArray* grounds; //地面ループ処理用のArray
     
     //角度を正規化
     player.rotation=[BasicMath getNormalize_Degree:player.rotation];
-
+    
     //機首を上げる
     player.physicsBody.angularVelocity = angularVelocity;
     [player.physicsBody applyAngularImpulse:angularImpulse];

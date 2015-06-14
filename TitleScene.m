@@ -47,8 +47,11 @@ CGSize winSize;
 
 -(void)onPlayClick:(id)sender
 {
-    [[CCDirector sharedDirector] replaceScene:[StageScene scene]
+    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"StageScene_01"]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
+    
+    //[[CCDirector sharedDirector] replaceScene:[StageScene_01 scene]
+    //                           withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 @end

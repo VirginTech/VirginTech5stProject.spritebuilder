@@ -100,6 +100,8 @@
 		CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */; };
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
 		CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B91B2932F400A8A9D8 /* Ground.m */; };
+		CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
+		CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +232,10 @@
 		CFDBE3B61B292CAE00A8A9D8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		CFDBE3B81B2932F400A8A9D8 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
 		CFDBE3B91B2932F400A8A9D8 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ground.m; sourceTree = "<group>"; };
+		CFE0815A1B2D2090008426B0 /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
+		CFE0815B1B2D2090008426B0 /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
+		CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_01.h; sourceTree = "<group>"; };
+		CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene_01.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -464,6 +470,9 @@
 				CF61237C1B269406008AED91 /* TitleScene.m */,
 				CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */,
 				CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */,
+				CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */,
+				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
+				CFE081571B2D204E008426B0 /* Lib */,
 				CFDBE3B41B292C9100A8A9D8 /* Object */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
@@ -573,6 +582,15 @@
 				CFDBE3B91B2932F400A8A9D8 /* Ground.m */,
 			);
 			name = Object;
+			sourceTree = "<group>";
+		};
+		CFE081571B2D204E008426B0 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				CFE0815A1B2D2090008426B0 /* BasicMath.h */,
+				CFE0815B1B2D2090008426B0 /* BasicMath.m */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -857,6 +875,8 @@
 			files = (
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
+				CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */,
+				CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				CF61237D1B269406008AED91 /* TitleScene.m in Sources */,
 				CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */,
