@@ -19,6 +19,9 @@ CGSize winSize;
 Player* player;
 NSTimeInterval touchTime;
 
+CCSprite* backGround;
+CCSprite* bgCloud;
+
 - (void)didLoadFromCCB
 {
     self.userInteractionEnabled = TRUE;
@@ -32,9 +35,19 @@ NSTimeInterval touchTime;
     [titleButton setTarget:self selector:@selector(onTitleClick:)];
     [self addChild:titleButton];
     
+    //バックグラウンド
+    backGround=[CCSprite spriteWithImageNamed:@"bg.png"];
+    backGround.position=ccp(winSize.width/2,winSize.height/2);
+    [physicWorld addChild:backGround z:-2];
+    
+    //バックグラウンド
+    bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud.png"];
+    bgCloud.position=ccp(winSize.width/2,winSize.height/2);
+    [physicWorld addChild:bgCloud z:-1];
+    
     //プレイヤー生成
     player=[Player createPlayer];
-    [physicWorld addChild:player];
+    [physicWorld addChild:player z:0];
     
     //審判スケジュール開始
     [self schedule:@selector(judgement_Schedule:)interval:0.01];
@@ -44,8 +57,21 @@ NSTimeInterval touchTime;
 -(void)judgement_Schedule:(CCTime)dt
 {
     //物理ワールド移動
-    float offSet=player.position.x - winSize.width/3;
-    physicWorld.position=ccp(-offSet,physicWorld.position.y);
+    CGPoint offSet;
+    offSet.x=player.position.x - winSize.width/2;
+    offSet.y=player.position.y - winSize.height/2;
+    physicWorld.position=ccp(-offSet.x,-offSet.y);
+    
+    //背景移動
+    backGround.position=player.position;
+    
+    //雲移動
+    bgCloud.position=ccp(player.position.x,bgCloud.position.y);//X軸は通常
+    if(player.position.y > bgCloud.position.y + (bgCloud.contentSize.height/2 -50)){//上昇
+        bgCloud.position=ccp(player.position.x, player.position.y - (bgCloud.contentSize.height/2 -50));
+    }else if(player.position.y < bgCloud.position.y - (bgCloud.contentSize.height/2 -50)){//下降
+        bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
+    }
 }
 
 -(void)rocket_Control_Schedule:(CCTime)dt

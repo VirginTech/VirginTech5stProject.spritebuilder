@@ -102,6 +102,8 @@
 		CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B91B2932F400A8A9D8 /* Ground.m */; };
 		CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
 		CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
+		CFF0A9E71B303CC4008241A8 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E61B303CC4008241A8 /* bg.png */; };
+		CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E81B30574C008241A8 /* bgCloud.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +238,8 @@
 		CFE0815B1B2D2090008426B0 /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_01.h; sourceTree = "<group>"; };
 		CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene_01.m; sourceTree = "<group>"; };
+		CFF0A9E61B303CC4008241A8 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		CFF0A9E81B30574C008241A8 /* bgCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgCloud.png; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -552,6 +556,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CFF0A9E21B303CA3008241A8 /* Images */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -591,6 +596,23 @@
 				CFE0815B1B2D2090008426B0 /* BasicMath.m */,
 			);
 			name = Lib;
+			sourceTree = "<group>";
+		};
+		CFF0A9E21B303CA3008241A8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CFF0A9E51B303CB0008241A8 /* bg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CFF0A9E51B303CB0008241A8 /* bg */ = {
+			isa = PBXGroup;
+			children = (
+				CFF0A9E81B30574C008241A8 /* bgCloud.png */,
+				CFF0A9E61B303CC4008241A8 /* bg.png */,
+			);
+			name = bg;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,6 +806,7 @@
 			files = (
 				CF6123721B2690C5008AED91 /* Localizable.strings in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
+				CFF0A9E71B303CC4008241A8 /* bg.png in Resources */,
 				CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
@@ -799,6 +822,7 @@
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
+				CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
