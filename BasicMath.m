@@ -50,12 +50,22 @@
     angle=atanf(dy/dx);
     
     if(dx<0 && dy>0){//座標左上
-        angle=M_PI+angle;
+        //angle=M_PI+angle;
+        //angle=(3*M_PI)/2-angle;
+        angle=1.5*M_PI-angle;
     }else if(dx<0 && dy<=0){//座標左下
-        angle=M_PI+angle;
+        //angle=M_PI+angle;
+        //angle=(3*M_PI)/2-angle;
+        angle=1.5*M_PI-angle;
     }else if(dx>=0 && dy<=0){//座標右下
-        angle=M_PI*2+angle;
+        //angle=M_PI*2+angle;
+        angle=(2*M_PI+M_PI_2)-angle;
     }else{//座標右上（修正なし）
+        angle=M_PI_2-angle;
+    }
+    //2PIを超えていたら2PIマイナス
+    if(angle>2*M_PI){
+        angle=angle-2*M_PI;
     }
     return angle;
 }

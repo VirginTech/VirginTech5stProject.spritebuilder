@@ -11,6 +11,7 @@
 #import "TitleScene.h"
 #import "BasicMath.h"
 #import "Player.h"
+#import "Jet.h"
 
 @implementation StageScene_01
 
@@ -18,6 +19,7 @@ CGSize winSize;
 
 Player* player;
 NSTimeInterval touchTime;
+int touchCount;
 
 CCSprite* backGround;
 CCSprite* bgCloud;
@@ -47,7 +49,7 @@ CCSprite* bgCloud;
     
     //プレイヤー生成
     player=[Player createPlayer];
-    [physicWorld addChild:player z:0];
+    [physicWorld addChild:player z:1];
     
     //審判スケジュール開始
     [self schedule:@selector(judgement_Schedule:)interval:0.01];
@@ -81,13 +83,11 @@ CCSprite* bgCloud;
     //タッチ経過時間
     touchTime+=dt;
     touchTime=clampf(touchTime, 0.f, 2.f);
+    touchCount++;
     
     float angularVelocity=touchTime*3.f;//角速度
     float angularImpulse=touchTime*50.f;//角力積
     float forceParam=touchTime*100.f;//Forceパラメーター
-    
-    //角度を正規化
-    player.rotation=[BasicMath getNormalize_Degree:player.rotation];
     
     //機首を上げる
     player.physicsBody.angularVelocity = angularVelocity;
@@ -104,6 +104,14 @@ CCSprite* bgCloud;
     float yVelocity = clampf(player.physicsBody.velocity.y, -maxVelocity, maxVelocity);
     player.physicsBody.velocity = ccp(xVelocity, yVelocity);
     
+    //ジェット噴射
+    if(touchCount%5==0){
+        rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +90);
+        CGPoint pos=ccp(player.position.x - ((player.contentSize.width*player.scale)/2) * sinf(rotationRadians),
+                        player.position.y - ((player.contentSize.width*player.scale)/2) * cosf(rotationRadians));
+        Jet* jet=[Jet createJet:pos];
+        [physicWorld addChild:jet z:0];
+    }
 }
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -112,10 +120,14 @@ CCSprite* bgCloud;
     [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
     
     touchTime=0;
+    touchCount=0;
 }
 
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    //角度を正規化
+    player.rotation=[BasicMath getNormalize_Degree:player.rotation];
+    
     //機首を下げる
     if(player.rotation > 90 && player.rotation < 270){
         player.physicsBody.angularVelocity = 1;
