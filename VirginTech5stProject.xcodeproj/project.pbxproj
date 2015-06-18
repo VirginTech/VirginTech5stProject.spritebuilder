@@ -97,6 +97,7 @@
 		CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF61236F1B269004008AED91 /* InfoPlist.strings */; };
 		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
 		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
+		CFB25EDA1B32DB7D0023616E /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB25ED91B32DB7D0023616E /* GameManager.m */; };
 		CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */; };
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
 		CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B91B2932F400A8A9D8 /* Ground.m */; };
@@ -230,6 +231,8 @@
 		CF6123771B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CF61237B1B269406008AED91 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		CF61237C1B269406008AED91 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
+		CFB25ED81B32DB7D0023616E /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		CFB25ED91B32DB7D0023616E /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene.h; sourceTree = "<group>"; };
 		CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene.m; sourceTree = "<group>"; };
 		CFDBE3B51B292CAE00A8A9D8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -481,6 +484,7 @@
 				CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */,
 				CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */,
 				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
+				CFB25ECF1B32DB250023616E /* Manager */,
 				CFE081571B2D204E008426B0 /* Lib */,
 				CFDBE3B41B292C9100A8A9D8 /* Object */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -581,6 +585,15 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFB25ECF1B32DB250023616E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CFB25ED81B32DB7D0023616E /* GameManager.h */,
+				CFB25ED91B32DB7D0023616E /* GameManager.m */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 		CFDBE3B41B292C9100A8A9D8 /* Object */ = {
@@ -914,6 +927,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFB25EDA1B32DB7D0023616E /* GameManager.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CFF19E8F1B3122E10021005A /* Jet.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,

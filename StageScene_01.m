@@ -8,6 +8,7 @@
 
 #import "StageScene_01.h"
 
+#import "GameManager.h"
 #import "TitleScene.h"
 #import "BasicMath.h"
 #import "Player.h"
@@ -29,6 +30,19 @@ CCSprite* bgCloud;
     self.userInteractionEnabled = TRUE;
     
     winSize=[[CCDirector sharedDirector]viewSize];
+    
+    //衝突判定デリゲート設定
+    physicWorld.collisionDelegate = self;
+    surface_01.physicsBody.collisionType = @"cSurface";
+    surface_02.physicsBody.collisionType = @"cSurface";
+    surface_03.physicsBody.collisionType = @"cSurface";
+    surface_04.physicsBody.collisionType = @"cSurface";
+    surface_05.physicsBody.collisionType = @"cSurface";
+    surface_06.physicsBody.collisionType = @"cSurface";
+    surface_07.physicsBody.collisionType = @"cSurface";
+    
+    //初期化
+    [GameManager setPause:false];
     
     //タイトルボタン
     CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
@@ -58,6 +72,8 @@ CCSprite* bgCloud;
 
 -(void)judgement_Schedule:(CCTime)dt
 {
+    if([GameManager getPause])return;//ポーズ脱出
+    
     //物理ワールド移動
     CGPoint offSet;
     offSet.x=player.position.x - winSize.width/2;
@@ -73,6 +89,35 @@ CCSprite* bgCloud;
         bgCloud.position=ccp(player.position.x, player.position.y - (bgCloud.contentSize.height/2 -50));
     }else if(player.position.y < bgCloud.position.y - (bgCloud.contentSize.height/2 -50)){//下降
         bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
+    }
+}
+
+//================================
+//　プレイヤー墜落判定
+//================================
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cSurface:(CCSprite*)cSurface
+{
+    [GameManager setPause:true];
+    
+    [self unscheduleAllSelectors];
+    [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
+
+    //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
+    
+    //地面振動スケジュール
+    touchCount=0;
+    [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
+    
+    return TRUE;
+}
+
+-(void)ground_Vibration_Schedule:(CCTime)dt
+{
+    touchCount++;
+    if(touchCount%2==0){
+        physicWorld.position=ccp(physicWorld.position.x+10,physicWorld.position.y+10);
+    }else{
+        physicWorld.position=ccp(physicWorld.position.x-10,physicWorld.position.y-10);
     }
 }
 
@@ -109,6 +154,12 @@ CCSprite* bgCloud;
         rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +90);
         CGPoint pos=ccp(player.position.x - ((player.contentSize.width*player.scale)/2) * sinf(rotationRadians),
                         player.position.y - ((player.contentSize.width*player.scale)/2) * cosf(rotationRadians));
+        
+        /*/ワールド座標を取得
+        CGPoint worldPosition = [physicWorld convertToWorldSpace:pos];
+        //スクリーン座標を取得
+        CGPoint screenPosition = [self convertToNodeSpace:worldPosition];*/
+        
         Jet* jet=[Jet createJet:pos];
         [physicWorld addChild:jet z:0];
     }
@@ -116,28 +167,33 @@ CCSprite* bgCloud;
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    //ロケット制御スケジュール開始
-    [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
-    
-    touchTime=0;
-    touchCount=0;
+    if(![GameManager getPause])
+    {
+        //ロケット制御スケジュール開始
+        [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
+        touchTime=0;
+        touchCount=0;
+    }
 }
 
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    //角度を正規化
-    player.rotation=[BasicMath getNormalize_Degree:player.rotation];
-    
-    //機首を下げる
-    if(player.rotation > 90 && player.rotation < 270){
-        player.physicsBody.angularVelocity = 1;
-        [player.physicsBody applyAngularImpulse:100.f];
-    }else{
-        player.physicsBody.angularVelocity = -1;
-        [player.physicsBody applyAngularImpulse:-100.f];
+    if(![GameManager getPause])
+    {
+        //角度を正規化
+        player.rotation=[BasicMath getNormalize_Degree:player.rotation];
+        
+        //機首を下げる
+        if(player.rotation > 90 && player.rotation < 270){
+            player.physicsBody.angularVelocity = 1;
+            [player.physicsBody applyAngularImpulse:100.f];
+        }else{
+            player.physicsBody.angularVelocity = -1;
+            [player.physicsBody applyAngularImpulse:-100.f];
+        }
+        //ロケット制御スケジュール停止
+        [self unschedule:@selector(rocket_Control_Schedule:)];
     }
-    //ロケット制御スケジュール停止
-    [self unschedule:@selector(rocket_Control_Schedule:)];
 }
 
 -(void)onTitleClick:(id)sender

@@ -20,6 +20,8 @@ CGSize winSize;
     {
         self=(id)[CCBReader load:@"Player"];
         self.position=ccp(winSize.width/2,winSize.height/2);
+        
+        self.physicsBody.collisionType = @"cPlayer";
     }
     return self;
 }
