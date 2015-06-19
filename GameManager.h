@@ -13,4 +13,7 @@
 +(void)setPause:(bool)flg;
 +(bool)getPause;
 
++(void)setClearPoint:(int)point;
++(int)getClearPoint;
+    
 @end

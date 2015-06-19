@@ -9,10 +9,10 @@
 #import "StageScene_01.h"
 
 #import "GameManager.h"
-#import "TitleScene.h"
 #import "BasicMath.h"
 #import "Player.h"
 #import "Jet.h"
+#import "CheckPoint.h"
 
 @implementation StageScene_01
 
@@ -25,6 +25,10 @@ int touchCount;
 CCSprite* backGround;
 CCSprite* bgCloud;
 
+NaviLayer* naviLayer;
+CCButton* pauseButton;
+CCButton* resumeButton;
+
 - (void)didLoadFromCCB
 {
     self.userInteractionEnabled = TRUE;
@@ -33,30 +37,33 @@ CCSprite* bgCloud;
     
     //衝突判定デリゲート設定
     physicWorld.collisionDelegate = self;
-    surface_01.physicsBody.collisionType = @"cSurface";
-    surface_02.physicsBody.collisionType = @"cSurface";
-    surface_03.physicsBody.collisionType = @"cSurface";
-    surface_04.physicsBody.collisionType = @"cSurface";
-    surface_05.physicsBody.collisionType = @"cSurface";
-    surface_06.physicsBody.collisionType = @"cSurface";
-    surface_07.physicsBody.collisionType = @"cSurface";
     
     //初期化
     [GameManager setPause:false];
+    [GameManager setClearPoint:0];
     
-    //タイトルボタン
-    CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
-    titleButton.position=ccp(winSize.width-titleButton.contentSize.width/2,
-                             winSize.height-titleButton.contentSize.height/2);
-    [titleButton setTarget:self selector:@selector(onTitleClick:)];
-    [self addChild:titleButton];
+    //ポーズボタン
+    pauseButton=[CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15];
+    pauseButton.position=ccp(winSize.width-pauseButton.contentSize.width/2,
+                             winSize.height-pauseButton.contentSize.height/2);
+    [pauseButton setTarget:self selector:@selector(onPauseClick:)];
+    pauseButton.visible=true;
+    [self addChild:pauseButton z:1];
+    
+    //レジュームボタン
+    resumeButton=[CCButton buttonWithTitle:@"[レジューム]" fontName:@"Verdana-Bold" fontSize:15];
+    resumeButton.position=ccp(winSize.width-resumeButton.contentSize.width/2,
+                             winSize.height-resumeButton.contentSize.height/2);
+    [resumeButton setTarget:self selector:@selector(onResumeClick:)];
+    resumeButton.visible=false;
+    [self addChild:resumeButton z:1];
     
     //バックグラウンド
     backGround=[CCSprite spriteWithImageNamed:@"bg.png"];
     backGround.position=ccp(winSize.width/2,winSize.height/2);
     [physicWorld addChild:backGround z:-2];
     
-    //バックグラウンド
+    //バックグラウンド(雲)
     bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud.png"];
     bgCloud.position=ccp(winSize.width/2,winSize.height/2);
     [physicWorld addChild:bgCloud z:-1];
@@ -90,6 +97,7 @@ CCSprite* bgCloud;
     }else if(player.position.y < bgCloud.position.y - (bgCloud.contentSize.height/2 -50)){//下降
         bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
     }
+    
 }
 
 //================================
@@ -97,16 +105,38 @@ CCSprite* bgCloud;
 //================================
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cSurface:(CCSprite*)cSurface
 {
+    //全停止
     [GameManager setPause:true];
-    
     [self unscheduleAllSelectors];
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
-
     //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
     
     //地面振動スケジュール
     touchCount=0;
     [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
+    
+    //ナビレイヤー
+    naviLayer=[[NaviLayer alloc]init];
+    naviLayer.delegate=self;
+    [self addChild:naviLayer];
+    
+    //ポーズボタン非表示
+    pauseButton.visible=false;
+    resumeButton.visible=false;
+    
+    return TRUE;
+}
+
+//================================
+//　チェックポイント通過
+//================================
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cPoint:(CheckPoint*)cPoint
+{
+    if([GameManager getClearPoint]+1 == cPoint.pointNum)
+    {
+        [GameManager setClearPoint:cPoint.pointNum];
+        cPoint.opacity=0.1;
+    }
     
     return TRUE;
 }
@@ -196,10 +226,79 @@ CCSprite* bgCloud;
     }
 }
 
--(void)onTitleClick:(id)sender
+//=====================
+// デリゲートメソッド
+//=====================
+-(void)onContinueButtonClicked
 {
-    [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
-                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
+    //オフセット量
+    CGPoint offSet;
+    if([GameManager getClearPoint]==0){
+        offSet=ccpSub(player.position, airport.position);
+        offSet=ccp(offSet.x+50,offSet.y-50);
+    }else if([GameManager getClearPoint]==1){
+        offSet=ccpSub(player.position, checkPoint_01.position);
+    }else if([GameManager getClearPoint]==2){
+        offSet=ccpSub(player.position, checkPoint_02.position);
+    }
+    
+    //プレイヤー移動
+    player.position=ccpSub(player.position,offSet);
+    player.rotation=0;
+    
+    //プレイヤーを動的にして停止
+    [player.physicsBody setType:CCPhysicsBodyTypeDynamic];
+    if([GameManager getClearPoint]!=0){
+        [player.physicsBody setSleeping:true];
+    }
+    
+    //背景移動
+    backGround.position=player.position;
+    bgCloud.position=player.position;
+
+    //物理ワールド移動
+    physicWorld.position=ccpAdd(physicWorld.position,offSet);
+    
+    //ボタン切り替え
+    pauseButton.visible=true;
+    resumeButton.visible=false;
+    
+    //再開
+    [GameManager setPause:false];
+    [self schedule:@selector(judgement_Schedule:)interval:0.01];
+}
+
+-(void)onPauseClick:(id)sender
+{
+    //全停止
+    [GameManager setPause:true];
+    [self unscheduleAllSelectors];
+    if(!player.physicsBody.sleeping){
+        [player.physicsBody setSleeping:true];
+    }
+    
+    //ボタン切り替え
+    pauseButton.visible=false;
+    resumeButton.visible=true;
+    
+    //ナビレイヤー
+    naviLayer=[[NaviLayer alloc]init];
+    naviLayer.delegate=self;
+    [self addChild:naviLayer z:0];
+}
+
+-(void)onResumeClick:(id)sender
+{
+    //再開
+    [GameManager setPause:false];
+    [self schedule:@selector(judgement_Schedule:)interval:0.01];
+    
+    //ボタン切り替え
+    pauseButton.visible=true;
+    resumeButton.visible=false;
+    
+    //ナビレイヤー
+    [self removeChild:naviLayer cleanup:YES];
 }
 
 @end

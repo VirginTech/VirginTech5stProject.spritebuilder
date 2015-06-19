@@ -9,17 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface StageScene_01 : CCScene <CCPhysicsCollisionDelegate>
+#import "NaviLayer.h"
+
+@interface StageScene_01 : CCScene <ContinueDelegate, CCPhysicsCollisionDelegate>
 {    
     CCPhysicsNode* physicWorld;//CCB定義
-
-    CCSprite* surface_01;//CCB定義
-    CCSprite* surface_02;//CCB定義
-    CCSprite* surface_03;//CCB定義
-    CCSprite* surface_04;//CCB定義
-    CCSprite* surface_05;//CCB定義
-    CCSprite* surface_06;//CCB定義
-    CCSprite* surface_07;//CCB定義
+    
+    CCSprite* airport;//CCB定義
+    CCSprite* checkPoint_01;//CCB定義
+    CCSprite* checkPoint_02;//CCB定義
+    CCSprite* checkPoint_03;//CCB定義
 }
 
 @end

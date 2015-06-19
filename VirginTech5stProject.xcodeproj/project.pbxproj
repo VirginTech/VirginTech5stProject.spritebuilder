@@ -107,6 +107,9 @@
 		CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E81B30574C008241A8 /* bgCloud.png */; };
 		CFF19E8C1B3122BC0021005A /* jet.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF19E8B1B3122BC0021005A /* jet.png */; };
 		CFF19E8F1B3122E10021005A /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
+		CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
+		CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */; };
+		CFF515F81B33E14600D0BB88 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F71B33E14600D0BB88 /* NaviLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +251,12 @@
 		CFF19E8B1B3122BC0021005A /* jet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jet.png; sourceTree = "<group>"; };
 		CFF19E8D1B3122E10021005A /* Jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jet.h; sourceTree = "<group>"; };
 		CFF19E8E1B3122E10021005A /* Jet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jet.m; sourceTree = "<group>"; };
+		CFF515E11B33C55A00D0BB88 /* CheckPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPoint.h; sourceTree = "<group>"; };
+		CFF515E21B33C55A00D0BB88 /* CheckPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPoint.m; sourceTree = "<group>"; };
+		CFF515F21B33D16C00D0BB88 /* CollisionSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSurface.h; sourceTree = "<group>"; };
+		CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSurface.m; sourceTree = "<group>"; };
+		CFF515F61B33E14600D0BB88 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
+		CFF515F71B33E14600D0BB88 /* NaviLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviLayer.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -486,6 +495,7 @@
 				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
 				CFB25ECF1B32DB250023616E /* Manager */,
 				CFE081571B2D204E008426B0 /* Lib */,
+				CFF515F51B33E11A00D0BB88 /* Layer */,
 				CFDBE3B41B292C9100A8A9D8 /* Object */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
@@ -605,6 +615,10 @@
 				CFDBE3B91B2932F400A8A9D8 /* Ground.m */,
 				CFF19E8D1B3122E10021005A /* Jet.h */,
 				CFF19E8E1B3122E10021005A /* Jet.m */,
+				CFF515E11B33C55A00D0BB88 /* CheckPoint.h */,
+				CFF515E21B33C55A00D0BB88 /* CheckPoint.m */,
+				CFF515F21B33D16C00D0BB88 /* CollisionSurface.h */,
+				CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -642,6 +656,15 @@
 				CFF19E8B1B3122BC0021005A /* jet.png */,
 			);
 			name = Object;
+			sourceTree = "<group>";
+		};
+		CFF515F51B33E11A00D0BB88 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				CFF515F61B33E14600D0BB88 /* NaviLayer.h */,
+				CFF515F71B33E14600D0BB88 /* NaviLayer.m */,
+			);
+			name = Layer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -928,12 +951,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB25EDA1B32DB7D0023616E /* GameManager.m in Sources */,
+				CFF515F81B33E14600D0BB88 /* NaviLayer.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CFF19E8F1B3122E10021005A /* Jet.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
+				CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */,
 				CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */,
 				CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */,
 				CF61237D1B269406008AED91 /* TitleScene.m in Sources */,
 				CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */,
 				CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */,

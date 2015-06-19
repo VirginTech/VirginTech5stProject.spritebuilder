@@ -11,6 +11,7 @@
 @implementation GameManager
 
 bool pauseFlg;//ポーズ
+int clearPoint;//クリアチェックポイント
 
 //ポーズフラグ
 +(void)setPause:(bool)flg{
@@ -18,6 +19,13 @@ bool pauseFlg;//ポーズ
 }
 +(bool)getPause{
     return pauseFlg;
+}
+//クリアチェックポイント
++(void)setClearPoint:(int)point{
+    clearPoint=point;
+}
++(int)getClearPoint{
+    return clearPoint;
 }
 
 @end
