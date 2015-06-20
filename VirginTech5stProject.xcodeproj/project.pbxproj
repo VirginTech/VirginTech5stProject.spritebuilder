@@ -107,6 +107,11 @@
 		CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E81B30574C008241A8 /* bgCloud.png */; };
 		CFF19E8C1B3122BC0021005A /* jet.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF19E8B1B3122BC0021005A /* jet.png */; };
 		CFF19E8F1B3122E10021005A /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
+		CFF4225D1B3502AF004A5F6E /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF4225C1B3502AF004A5F6E /* ResultLayer.m */; };
+		CFF422621B351066004A5F6E /* SelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF422611B351066004A5F6E /* SelectScene.m */; };
+		CFF4226A1B35190D004A5F6E /* bgLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF422691B35190D004A5F6E /* bgLayer.png */; };
+		CFF4226E1B35598E004A5F6E /* title_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF4226C1B35598E004A5F6E /* title_default.plist */; };
+		CFF4226F1B35598E004A5F6E /* title_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF4226D1B35598E004A5F6E /* title_default.png */; };
 		CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
 		CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */; };
 		CFF515F81B33E14600D0BB88 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F71B33E14600D0BB88 /* NaviLayer.m */; };
@@ -251,6 +256,13 @@
 		CFF19E8B1B3122BC0021005A /* jet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jet.png; sourceTree = "<group>"; };
 		CFF19E8D1B3122E10021005A /* Jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jet.h; sourceTree = "<group>"; };
 		CFF19E8E1B3122E10021005A /* Jet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jet.m; sourceTree = "<group>"; };
+		CFF4225B1B3502AF004A5F6E /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
+		CFF4225C1B3502AF004A5F6E /* ResultLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultLayer.m; sourceTree = "<group>"; };
+		CFF422601B351066004A5F6E /* SelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectScene.h; sourceTree = "<group>"; };
+		CFF422611B351066004A5F6E /* SelectScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectScene.m; sourceTree = "<group>"; };
+		CFF422691B35190D004A5F6E /* bgLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer.png; sourceTree = "<group>"; };
+		CFF4226C1B35598E004A5F6E /* title_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = title_default.plist; sourceTree = "<group>"; };
+		CFF4226D1B35598E004A5F6E /* title_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_default.png; sourceTree = "<group>"; };
 		CFF515E11B33C55A00D0BB88 /* CheckPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPoint.h; sourceTree = "<group>"; };
 		CFF515E21B33C55A00D0BB88 /* CheckPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPoint.m; sourceTree = "<group>"; };
 		CFF515F21B33D16C00D0BB88 /* CollisionSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionSurface.h; sourceTree = "<group>"; };
@@ -493,6 +505,8 @@
 				CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */,
 				CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */,
 				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
+				CFF422601B351066004A5F6E /* SelectScene.h */,
+				CFF422611B351066004A5F6E /* SelectScene.m */,
 				CFB25ECF1B32DB250023616E /* Manager */,
 				CFE081571B2D204E008426B0 /* Lib */,
 				CFF515F51B33E11A00D0BB88 /* Layer */,
@@ -635,6 +649,7 @@
 		CFF0A9E21B303CA3008241A8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CFF4226B1B35596E004A5F6E /* Sheet */,
 				CFF19E881B3121BE0021005A /* Object */,
 				CFF0A9E51B303CB0008241A8 /* bg */,
 			);
@@ -644,6 +659,7 @@
 		CFF0A9E51B303CB0008241A8 /* bg */ = {
 			isa = PBXGroup;
 			children = (
+				CFF422691B35190D004A5F6E /* bgLayer.png */,
 				CFF0A9E81B30574C008241A8 /* bgCloud.png */,
 				CFF0A9E61B303CC4008241A8 /* bg.png */,
 			);
@@ -658,11 +674,22 @@
 			name = Object;
 			sourceTree = "<group>";
 		};
+		CFF4226B1B35596E004A5F6E /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				CFF4226C1B35598E004A5F6E /* title_default.plist */,
+				CFF4226D1B35598E004A5F6E /* title_default.png */,
+			);
+			name = Sheet;
+			sourceTree = "<group>";
+		};
 		CFF515F51B33E11A00D0BB88 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
 				CFF515F61B33E14600D0BB88 /* NaviLayer.h */,
 				CFF515F71B33E14600D0BB88 /* NaviLayer.m */,
+				CFF4225B1B3502AF004A5F6E /* ResultLayer.h */,
+				CFF4225C1B3502AF004A5F6E /* ResultLayer.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -872,10 +899,13 @@
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
+				CFF4226A1B35190D004A5F6E /* bgLayer.png in Resources */,
+				CFF4226E1B35598E004A5F6E /* title_default.plist in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 				CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */,
+				CFF4226F1B35598E004A5F6E /* title_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,6 +986,8 @@
 				CFF19E8F1B3122E10021005A /* Jet.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */,
+				CFF422621B351066004A5F6E /* SelectScene.m in Sources */,
+				CFF4225D1B3502AF004A5F6E /* ResultLayer.m in Sources */,
 				CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */,
 				CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,

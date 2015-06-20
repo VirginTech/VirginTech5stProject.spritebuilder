@@ -13,6 +13,7 @@
 #import "Player.h"
 #import "Jet.h"
 #import "CheckPoint.h"
+#import "ResultLayer.h"
 
 @implementation StageScene_01
 
@@ -25,9 +26,13 @@ int touchCount;
 CCSprite* backGround;
 CCSprite* bgCloud;
 
+int maxCheckPoint;
+
 NaviLayer* naviLayer;
 CCButton* pauseButton;
 CCButton* resumeButton;
+
+CCLabelTTF* tapStart;
 
 - (void)didLoadFromCCB
 {
@@ -41,6 +46,7 @@ CCButton* resumeButton;
     //初期化
     [GameManager setPause:false];
     [GameManager setClearPoint:0];
+    maxCheckPoint=3;
     
     //ポーズボタン
     pauseButton=[CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15];
@@ -71,6 +77,12 @@ CCButton* resumeButton;
     //プレイヤー生成
     player=[Player createPlayer];
     [physicWorld addChild:player z:1];
+    
+    //タップスタートメッセージ
+    tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
+    tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
+    tapStart.visible=false;
+    [self addChild:tapStart];
     
     //審判スケジュール開始
     [self schedule:@selector(judgement_Schedule:)interval:0.01];
@@ -137,8 +149,28 @@ CCButton* resumeButton;
         [GameManager setClearPoint:cPoint.pointNum];
         cPoint.opacity=0.1;
     }
+    //終了判定
+    if([GameManager getClearPoint]==maxCheckPoint){
+        [player.physicsBody setCollisionType:@""];//当たり判定無効化
+        [self schedule:@selector(result_Delay_Schedule:) interval:0.1f repeat:0 delay:0.5f];
+    }
     
     return TRUE;
+}
+
+-(void)result_Delay_Schedule:(CCTime)dt
+{
+    //全停止
+    [GameManager setPause:true];
+    [self unscheduleAllSelectors];
+    [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
+
+    //ポーズ非表示
+    pauseButton.visible=false;
+
+    //リザルトレイヤー
+    ResultLayer* resultLayer=[[ResultLayer alloc]init];
+    [self addChild:resultLayer];
 }
 
 -(void)ground_Vibration_Schedule:(CCTime)dt
@@ -203,6 +235,10 @@ CCButton* resumeButton;
         [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
         touchTime=0;
         touchCount=0;
+        
+        //タップスタートメッセージ
+        tapStart.visible=false;
+
     }
 }
 
@@ -263,6 +299,9 @@ CCButton* resumeButton;
     pauseButton.visible=true;
     resumeButton.visible=false;
     
+    //タップスタートメッセージ
+    tapStart.visible=true;
+    
     //再開
     [GameManager setPause:false];
     [self schedule:@selector(judgement_Schedule:)interval:0.01];
@@ -297,6 +336,9 @@ CCButton* resumeButton;
     pauseButton.visible=true;
     resumeButton.visible=false;
     
+    //タップスタートメッセージ
+    tapStart.visible=true;
+
     //ナビレイヤー
     [self removeChild:naviLayer cleanup:YES];
 }
