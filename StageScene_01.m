@@ -32,6 +32,10 @@ NaviLayer* naviLayer;
 CCButton* pauseButton;
 CCButton* resumeButton;
 
+CGPoint movePos;
+float moveAngle;
+float checkPointDistance;
+
 CCLabelTTF* tapStart;
 
 - (void)didLoadFromCCB
@@ -117,25 +121,27 @@ CCLabelTTF* tapStart;
 //================================
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cSurface:(CCSprite*)cSurface
 {
-    //全停止
-    [GameManager setPause:true];
-    [self unscheduleAllSelectors];
-    [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
-    //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
-    
-    //地面振動スケジュール
-    touchCount=0;
-    [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
-    
-    //ナビレイヤー
-    naviLayer=[[NaviLayer alloc]init];
-    naviLayer.delegate=self;
-    [self addChild:naviLayer];
-    
-    //ポーズボタン非表示
-    pauseButton.visible=false;
-    resumeButton.visible=false;
-    
+    if(!naviLayer.isRunningInActiveScene){
+        //全停止
+        [GameManager setPause:true];
+        [self unscheduleAllSelectors];
+        [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
+        //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
+        
+        //地面振動スケジュール
+        touchCount=0;
+        [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
+        
+        //ナビレイヤー
+        naviLayer=[[NaviLayer alloc]init];
+        naviLayer.delegate=self;
+        [self addChild:naviLayer];
+        
+        //ポーズボタン非表示
+        pauseButton.visible=false;
+        resumeButton.visible=false;
+        
+    }
     return TRUE;
 }
 
@@ -267,7 +273,19 @@ CCLabelTTF* tapStart;
 //=====================
 -(void)onContinueButtonClicked
 {
-    //オフセット量
+    movePos=player.position;
+    
+    if([GameManager getClearPoint]==0){
+        moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:ccp(airport.position.x-50,airport.position.y+50)];
+    }else if([GameManager getClearPoint]==1){
+        moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:checkPoint_01.position];
+    }else if([GameManager getClearPoint]==2){
+        moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:checkPoint_02.position];
+    }
+    
+    [self schedule:@selector(continue_Move_Schedule:) interval:0.01];
+    
+    /*/オフセット量
     CGPoint offSet;
     if([GameManager getClearPoint]==0){
         offSet=ccpSub(player.position, airport.position);
@@ -304,26 +322,89 @@ CCLabelTTF* tapStart;
     
     //再開
     [GameManager setPause:false];
-    [self schedule:@selector(judgement_Schedule:)interval:0.01];
+    [self schedule:@selector(judgement_Schedule:)interval:0.01];*/
+}
+
+-(void)continue_Move_Schedule:(CCTime)dt
+{
+    //次地点算出
+    float velocity=2.0;
+    CGPoint nextPos=ccp(movePos.x+velocity*sinf(moveAngle),movePos.y+velocity*cosf(moveAngle));
+    
+    //背景移動
+    backGround.position=nextPos;
+    bgCloud.position=nextPos;
+    
+    //物理ワールド移動
+    CGPoint offSet;
+    offSet=ccpSub(movePos, nextPos);
+    physicWorld.position=ccpAdd(physicWorld.position,offSet);
+    
+    //距離算出
+    if([GameManager getClearPoint]==0){
+        checkPointDistance=[BasicMath getPosDistance:movePos pos2:ccp(airport.position.x-50,airport.position.y+50)];
+    }else if([GameManager getClearPoint]==1){
+        checkPointDistance=[BasicMath getPosDistance:movePos pos2:checkPoint_01.position];
+    }else if([GameManager getClearPoint]==2){
+        checkPointDistance=[BasicMath getPosDistance:movePos pos2:checkPoint_02.position];
+    }
+    
+    //移動終了
+    if(checkPointDistance<=velocity)
+    {
+        //スケジュル停止
+        [self unschedule:@selector(continue_Move_Schedule:)];
+
+        //プレイヤー移動
+        player.position=movePos;
+        player.rotation=0;
+        
+        //プレイヤーを動的にして停止
+        [player.physicsBody setType:CCPhysicsBodyTypeDynamic];
+        if([GameManager getClearPoint]!=0){
+            [player.physicsBody setSleeping:true];
+        }
+        
+        //ボタン切り替え
+        pauseButton.visible=true;
+        resumeButton.visible=false;
+        
+        //タップスタートメッセージ
+        tapStart.visible=true;
+        
+        //再開
+        [GameManager setPause:false];
+        [self schedule:@selector(judgement_Schedule:)interval:0.01];
+        
+    }
+    
+    //加算
+    movePos=nextPos;
+    
 }
 
 -(void)onPauseClick:(id)sender
 {
-    //全停止
-    [GameManager setPause:true];
-    [self unscheduleAllSelectors];
-    if(!player.physicsBody.sleeping){
-        [player.physicsBody setSleeping:true];
+    if(!naviLayer.isRunningInActiveScene){
+        //全停止
+        [GameManager setPause:true];
+        [self unscheduleAllSelectors];
+        if(!player.physicsBody.sleeping){
+            [player.physicsBody setSleeping:true];
+        }
+        
+        //ボタン切り替え
+        pauseButton.visible=false;
+        resumeButton.visible=true;
+        
+        //タップスタートメッセージ
+        tapStart.visible=false;
+        
+        //ナビレイヤー
+        naviLayer=[[NaviLayer alloc]init];
+        naviLayer.delegate=self;
+        [self addChild:naviLayer z:0];
     }
-    
-    //ボタン切り替え
-    pauseButton.visible=false;
-    resumeButton.visible=true;
-    
-    //ナビレイヤー
-    naviLayer=[[NaviLayer alloc]init];
-    naviLayer.delegate=self;
-    [self addChild:naviLayer z:0];
 }
 
 -(void)onResumeClick:(id)sender
