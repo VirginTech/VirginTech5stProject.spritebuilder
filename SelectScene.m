@@ -9,6 +9,7 @@
 #import "SelectScene.h"
 
 #import "TitleScene.h"
+#import "GameManager.h"
 
 @implementation SelectScene
 
@@ -36,8 +37,13 @@ CCScrollView* scrollView;
     
     //画面サイズ設定
     UIImage *image = [UIImage imageNamed:@"bgLayer.png"];
-    UIGraphicsBeginImageContext(CGSizeMake(winSize.width * 5,winSize.height));
-    [image drawInRect:CGRectMake(0, 0, winSize.width * 5,winSize.height)];
+    if([GameManager getDevice]==2){//iPhone4
+        UIGraphicsBeginImageContext(CGSizeMake(winSize.width * 4,winSize.height));
+        [image drawInRect:CGRectMake(0, 0, winSize.width * 4,winSize.height)];
+    }else{
+        UIGraphicsBeginImageContext(CGSizeMake(winSize.width * 5,winSize.height));
+        [image drawInRect:CGRectMake(0, 0, winSize.width * 5,winSize.height)];
+    }
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -92,6 +98,7 @@ CCScrollView* scrollView;
 {
     CCButton* button=(CCButton*)sender;
     int stageNum=[[button name]intValue];
+    [GameManager setCurrentStage:stageNum];
     NSString* stageStr=[NSString stringWithFormat:@"StageScene_%02d",stageNum];
     
     [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:stageStr]

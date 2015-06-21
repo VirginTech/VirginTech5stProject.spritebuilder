@@ -10,6 +10,7 @@
 
 #import "TitleScene.h"
 #import "SelectScene.h"
+#import "GameManager.h"
 
 @implementation NaviLayer
 
@@ -49,6 +50,9 @@ CGSize winSize;
     CCButton* continueButton=[CCButton buttonWithTitle:@"[コンティニュー]" fontName:@"Verdana-Bold" fontSize:15];
     continueButton.position=ccp(winSize.width/2, winSize.height/2 -100);
     [continueButton setTarget:self selector:@selector(onContinueClick:)];
+    if([GameManager getClearPoint]<=0){
+        continueButton.enabled=false;
+    }
     [self addChild:continueButton];
 
     CCButton* replayButton=[CCButton buttonWithTitle:@"[リプレイ]" fontName:@"Verdana-Bold" fontSize:15];
@@ -61,7 +65,8 @@ CGSize winSize;
 
 -(void)onReplayClick:(id)sender
 {
-    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"StageScene_01"]
+    NSString* stageStr=[NSString stringWithFormat:@"StageScene_%02d",[GameManager getCurrentStage]];
+    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:stageStr]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 

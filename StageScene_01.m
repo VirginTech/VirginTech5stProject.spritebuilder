@@ -23,6 +23,9 @@ Player* player;
 NSTimeInterval touchTime;
 int touchCount;
 
+CCSprite* compass;
+CCSprite* naviArrow;
+
 CCSprite* backGround;
 CCSprite* bgCloud;
 
@@ -49,21 +52,19 @@ CCLabelTTF* tapStart;
     
     //初期化
     [GameManager setPause:false];
-    [GameManager setClearPoint:0];
-    maxCheckPoint=3;
+    [GameManager setClearPoint:0];//獲得チェックポイント
+    maxCheckPoint=3;//最大チェックポイント数
     
     //ポーズボタン
     pauseButton=[CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15];
-    pauseButton.position=ccp(winSize.width-pauseButton.contentSize.width/2,
-                             winSize.height-pauseButton.contentSize.height/2);
+    pauseButton.position=ccp(winSize.width-pauseButton.contentSize.width/2,pauseButton.contentSize.height/2);
     [pauseButton setTarget:self selector:@selector(onPauseClick:)];
     pauseButton.visible=true;
     [self addChild:pauseButton z:1];
     
     //レジュームボタン
     resumeButton=[CCButton buttonWithTitle:@"[レジューム]" fontName:@"Verdana-Bold" fontSize:15];
-    resumeButton.position=ccp(winSize.width-resumeButton.contentSize.width/2,
-                             winSize.height-resumeButton.contentSize.height/2);
+    resumeButton.position=ccp(winSize.width-resumeButton.contentSize.width/2,resumeButton.contentSize.height/2);
     [resumeButton setTarget:self selector:@selector(onResumeClick:)];
     resumeButton.visible=false;
     [self addChild:resumeButton z:1];
@@ -82,10 +83,20 @@ CCLabelTTF* tapStart;
     player=[Player createPlayer];
     [physicWorld addChild:player z:1];
     
+    //コンパス・ナビ矢印
+    compass=[CCSprite spriteWithImageNamed:@"compass.png"];
+    compass.scale=0.5;
+    compass.position=ccp(winSize.width/2,winSize.height-(compass.contentSize.height*compass.scale)/2);
+    [self addChild:compass];
+    
+    naviArrow=[CCSprite spriteWithImageNamed:@"naviarrow.png"];
+    naviArrow.position=ccp(compass.contentSize.width/2,compass.contentSize.height/2);
+    [compass addChild:naviArrow];
+    
     //タップスタートメッセージ
     tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
     tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
-    tapStart.visible=false;
+    //tapStart.visible=false;
     [self addChild:tapStart];
     
     //審判スケジュール開始
@@ -114,6 +125,28 @@ CCLabelTTF* tapStart;
         bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
     }
     
+    //ナビ矢印移動・回転
+    if([GameManager getClearPoint]==0){
+        naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_01.position];
+    }else if([GameManager getClearPoint]==1){
+        naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_02.position];
+    }else if([GameManager getClearPoint]==2){
+        naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_03.position];
+    }else if([GameManager getClearPoint]==3){
+        if([GameManager getClearPoint] < maxCheckPoint){
+            naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_04.position];
+        }else{
+            compass.visible=false;
+        }
+    }else if([GameManager getClearPoint]==4){
+        if([GameManager getClearPoint] < maxCheckPoint){
+            naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_05.position];
+        }else{
+            compass.visible=false;
+        }
+    }else{
+        compass.visible=false;
+    }
 }
 
 //================================
@@ -157,7 +190,11 @@ CCLabelTTF* tapStart;
     }
     //終了判定
     if([GameManager getClearPoint]==maxCheckPoint){
-        [player.physicsBody setCollisionType:@""];//当たり判定無効化
+        //ポーズ非表示
+        pauseButton.visible=false;
+        //当たり判定無効化
+        [player.physicsBody setCollisionType:@""];
+        //タイムウェイト
         [self schedule:@selector(result_Delay_Schedule:) interval:0.1f repeat:0 delay:0.5f];
     }
     
@@ -170,9 +207,6 @@ CCLabelTTF* tapStart;
     [GameManager setPause:true];
     [self unscheduleAllSelectors];
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
-
-    //ポーズ非表示
-    pauseButton.visible=false;
 
     //リザルトレイヤー
     ResultLayer* resultLayer=[[ResultLayer alloc]init];
@@ -276,11 +310,15 @@ CCLabelTTF* tapStart;
     movePos=player.position;
     
     if([GameManager getClearPoint]==0){
-        moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:ccp(airport.position.x-50,airport.position.y+50)];
+        //moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:ccp(airport.position.x-50,airport.position.y+50)];
     }else if([GameManager getClearPoint]==1){
         moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:checkPoint_01.position];
     }else if([GameManager getClearPoint]==2){
         moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:checkPoint_02.position];
+    }else if([GameManager getClearPoint]==3){
+        moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:checkPoint_03.position];
+    }else if([GameManager getClearPoint]==4){
+        moveAngle=[BasicMath getAngle_To_Radian:movePos ePos:checkPoint_04.position];
     }
     
     [self schedule:@selector(continue_Move_Schedule:) interval:0.01];
@@ -328,7 +366,7 @@ CCLabelTTF* tapStart;
 -(void)continue_Move_Schedule:(CCTime)dt
 {
     //次地点算出
-    float velocity=2.0;
+    float velocity=3.0;
     CGPoint nextPos=ccp(movePos.x+velocity*sinf(moveAngle),movePos.y+velocity*cosf(moveAngle));
     
     //背景移動
@@ -342,11 +380,15 @@ CCLabelTTF* tapStart;
     
     //距離算出
     if([GameManager getClearPoint]==0){
-        checkPointDistance=[BasicMath getPosDistance:movePos pos2:ccp(airport.position.x-50,airport.position.y+50)];
+        //checkPointDistance=[BasicMath getPosDistance:movePos pos2:ccp(airport.position.x-50,airport.position.y+50)];
     }else if([GameManager getClearPoint]==1){
         checkPointDistance=[BasicMath getPosDistance:movePos pos2:checkPoint_01.position];
     }else if([GameManager getClearPoint]==2){
         checkPointDistance=[BasicMath getPosDistance:movePos pos2:checkPoint_02.position];
+    }else if([GameManager getClearPoint]==3){
+        checkPointDistance=[BasicMath getPosDistance:movePos pos2:checkPoint_03.position];
+    }else if([GameManager getClearPoint]==4){
+        checkPointDistance=[BasicMath getPosDistance:movePos pos2:checkPoint_04.position];
     }
     
     //移動終了
@@ -375,12 +417,9 @@ CCLabelTTF* tapStart;
         //再開
         [GameManager setPause:false];
         [self schedule:@selector(judgement_Schedule:)interval:0.01];
-        
     }
-    
     //加算
     movePos=nextPos;
-    
 }
 
 -(void)onPauseClick:(id)sender

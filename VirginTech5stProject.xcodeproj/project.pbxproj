@@ -98,6 +98,8 @@
 		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
 		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
 		CFB25EDA1B32DB7D0023616E /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB25ED91B32DB7D0023616E /* GameManager.m */; };
+		CFD10EB61B36CC6A00B0FC8A /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD10EB41B36CC6A00B0FC8A /* compass.png */; };
+		CFD10EB71B36CC6A00B0FC8A /* naviarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */; };
 		CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */; };
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
 		CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B91B2932F400A8A9D8 /* Ground.m */; };
@@ -241,6 +243,8 @@
 		CF61237C1B269406008AED91 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
 		CFB25ED81B32DB7D0023616E /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		CFB25ED91B32DB7D0023616E /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		CFD10EB41B36CC6A00B0FC8A /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
+		CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naviarrow.png; sourceTree = "<group>"; };
 		CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene.h; sourceTree = "<group>"; };
 		CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene.m; sourceTree = "<group>"; };
 		CFDBE3B51B292CAE00A8A9D8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -669,6 +673,8 @@
 		CFF19E881B3121BE0021005A /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				CFD10EB41B36CC6A00B0FC8A /* compass.png */,
+				CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */,
 				CFF19E8B1B3122BC0021005A /* jet.png */,
 			);
 			name = Object;
@@ -887,6 +893,7 @@
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				CFF0A9E71B303CC4008241A8 /* bg.png in Resources */,
 				CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */,
+				CFD10EB61B36CC6A00B0FC8A /* compass.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -897,6 +904,7 @@
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
+				CFD10EB71B36CC6A00B0FC8A /* naviarrow.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				CFF4226A1B35190D004A5F6E /* bgLayer.png in Resources */,

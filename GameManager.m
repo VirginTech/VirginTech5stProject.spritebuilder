@@ -10,8 +10,19 @@
 
 @implementation GameManager
 
+int deviceType;// 1:iPad2 2:iPhone4 3:iPhone5 4:iPhone6
+
 bool pauseFlg;//ポーズ
 int clearPoint;//クリアチェックポイント
+int currentStage;//現在ステージNum
+
+//デバイス取得／登録
++(void)setDevice:(int)type{
+    deviceType=type;
+}
++(int)getDevice{
+    return deviceType;
+}
 
 //ポーズフラグ
 +(void)setPause:(bool)flg{
@@ -26,6 +37,13 @@ int clearPoint;//クリアチェックポイント
 }
 +(int)getClearPoint{
     return clearPoint;
+}
+//現在ステージNum
++(void)setCurrentStage:(int)num{
+    currentStage=num;
+}
++(int)getCurrentStage{
+    return currentStage;
 }
 
 @end
