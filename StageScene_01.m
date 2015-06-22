@@ -22,6 +22,9 @@ CGSize winSize;
 Player* player;
 NSTimeInterval touchTime;
 int touchCount;
+bool touchFlg;
+
+int gVibCnt;
 
 CCSprite* compass;
 CCSprite* naviArrow;
@@ -54,6 +57,7 @@ CCLabelTTF* tapStart;
     [GameManager setPause:false];
     [GameManager setClearPoint:0];//獲得チェックポイント
     maxCheckPoint=3;//最大チェックポイント数
+    touchFlg=false;
     
     //ポーズボタン
     pauseButton=[CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15];
@@ -96,6 +100,7 @@ CCLabelTTF* tapStart;
     //タップスタートメッセージ
     tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
     tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
+    tapStart.fontColor=[CCColor blueColor];
     //tapStart.visible=false;
     [self addChild:tapStart];
     
@@ -125,6 +130,18 @@ CCLabelTTF* tapStart;
         bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
     }
     
+    //角度を正規化
+    if(!player.physicsBody.sleeping){
+        player.rotation=[BasicMath getNormalize_Degree:player.rotation];
+    }
+    
+    //プレイヤー下限界
+    if(!touchFlg){
+        if(player.rotation>85 && player.rotation<95){
+            player.rotation=90;
+        }
+    }
+    
     //ナビ矢印移動・回転
     if([GameManager getClearPoint]==0){
         naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_01.position];
@@ -135,17 +152,11 @@ CCLabelTTF* tapStart;
     }else if([GameManager getClearPoint]==3){
         if([GameManager getClearPoint] < maxCheckPoint){
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_04.position];
-        }else{
-            compass.visible=false;
         }
     }else if([GameManager getClearPoint]==4){
         if([GameManager getClearPoint] < maxCheckPoint){
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_05.position];
-        }else{
-            compass.visible=false;
         }
-    }else{
-        compass.visible=false;
     }
 }
 
@@ -162,7 +173,7 @@ CCLabelTTF* tapStart;
         //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
         
         //地面振動スケジュール
-        touchCount=0;
+        gVibCnt=0;
         [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
         
         //ナビレイヤー
@@ -192,6 +203,8 @@ CCLabelTTF* tapStart;
     if([GameManager getClearPoint]==maxCheckPoint){
         //ポーズ非表示
         pauseButton.visible=false;
+        //ナビコンパス非表示
+        compass.visible=false;
         //当たり判定無効化
         [player.physicsBody setCollisionType:@""];
         //タイムウェイト
@@ -215,8 +228,8 @@ CCLabelTTF* tapStart;
 
 -(void)ground_Vibration_Schedule:(CCTime)dt
 {
-    touchCount++;
-    if(touchCount%2==0){
+    gVibCnt++;
+    if(gVibCnt%2==0){
         physicWorld.position=ccp(physicWorld.position.x+10,physicWorld.position.y+10);
     }else{
         physicWorld.position=ccp(physicWorld.position.x-10,physicWorld.position.y-10);
@@ -275,6 +288,7 @@ CCLabelTTF* tapStart;
         [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
         touchTime=0;
         touchCount=0;
+        touchFlg=true;
         
         //タップスタートメッセージ
         tapStart.visible=false;
@@ -286,14 +300,13 @@ CCLabelTTF* tapStart;
 {
     if(![GameManager getPause])
     {
-        //角度を正規化
-        player.rotation=[BasicMath getNormalize_Degree:player.rotation];
+        touchFlg=false;
         
         //機首を下げる
-        if(player.rotation > 90 && player.rotation < 270){
+        if(player.rotation > 90 && player.rotation < 270){//左旋回
             player.physicsBody.angularVelocity = 1;
             [player.physicsBody applyAngularImpulse:100.f];
-        }else{
+        }else{//右旋回
             player.physicsBody.angularVelocity = -1;
             [player.physicsBody applyAngularImpulse:-100.f];
         }
