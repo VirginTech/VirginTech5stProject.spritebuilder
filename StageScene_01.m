@@ -104,14 +104,55 @@ CCLabelTTF* tapStart;
     //tapStart.visible=false;
     [self addChild:tapStart];
     
-    //審判スケジュール開始
-    [self schedule:@selector(judgement_Schedule:)interval:0.01];
-    
 }
 
--(void)judgement_Schedule:(CCTime)dt
+//=============================
+// メイン スケジュール
+//=============================
+-(void)update:(CCTime)dt
 {
     if([GameManager getPause])return;//ポーズ脱出
+    
+    //=====================プレイヤーコントロール=======================/
+    if(touchFlg){
+        
+        float maxVelocity=120.f;//速度Max
+        
+        //タッチ経過時間
+        touchTime+=dt;
+        touchTime=clampf(touchTime, 0.f, 2.f);
+        touchCount++;
+        
+        float angularVelocity=touchTime*3.f;//角速度
+        float angularImpulse=touchTime*50.f;//角力積
+        float forceParam=touchTime*100.f;//Forceパラメーター
+        
+        //機首を上げる
+        player.physicsBody.angularVelocity = angularVelocity;
+        [player.physicsBody applyAngularImpulse:angularImpulse];
+        
+        //機首の方角へ進める
+        float rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +70);
+        CGPoint directionVector=ccp(sinf(rotationRadians),cosf(rotationRadians));
+        CGPoint force=ccpMult(directionVector,forceParam);
+        [player.physicsBody applyImpulse:force];
+        
+        // 速度をclamp。x,y軸の速度が100.fを超えた場合は100.fにする。
+        float xVelocity = clampf(player.physicsBody.velocity.x, -maxVelocity, maxVelocity);
+        float yVelocity = clampf(player.physicsBody.velocity.y, -maxVelocity, maxVelocity);
+        player.physicsBody.velocity = ccp(xVelocity, yVelocity);
+        
+        //ジェット噴射
+        if(touchCount%4==0){
+            rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +90);
+            CGPoint pos=ccp(player.position.x - ((player.contentSize.width*player.scale)/2) * sinf(rotationRadians),
+                            player.position.y - ((player.contentSize.width*player.scale)/2) * cosf(rotationRadians));
+            
+            Jet* jet=[Jet createJet:pos];
+            [physicWorld addChild:jet z:0];
+        }
+    }
+    //======================ここまで========================/
     
     //物理ワールド移動
     CGPoint offSet;
@@ -168,7 +209,7 @@ CCLabelTTF* tapStart;
     if(!naviLayer.isRunningInActiveScene){
         //全停止
         [GameManager setPause:true];
-        [self unscheduleAllSelectors];
+        touchFlg=false;
         [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
         //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
         
@@ -208,7 +249,7 @@ CCLabelTTF* tapStart;
         //当たり判定無効化
         [player.physicsBody setCollisionType:@""];
         //タイムウェイト
-        [self schedule:@selector(result_Delay_Schedule:) interval:0.1f repeat:0 delay:0.5f];
+        [self scheduleOnce:@selector(result_Delay_Schedule:) delay:0.5f];
     }
     
     return TRUE;
@@ -218,7 +259,6 @@ CCLabelTTF* tapStart;
 {
     //全停止
     [GameManager setPause:true];
-    [self unscheduleAllSelectors];
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
 
     //リザルトレイヤー
@@ -236,59 +276,14 @@ CCLabelTTF* tapStart;
     }
 }
 
--(void)rocket_Control_Schedule:(CCTime)dt
-{
-    float maxVelocity=120.f;//速度Max
-    
-    //タッチ経過時間
-    touchTime+=dt;
-    touchTime=clampf(touchTime, 0.f, 2.f);
-    touchCount++;
-    
-    float angularVelocity=touchTime*3.f;//角速度
-    float angularImpulse=touchTime*50.f;//角力積
-    float forceParam=touchTime*100.f;//Forceパラメーター
-    
-    //機首を上げる
-    player.physicsBody.angularVelocity = angularVelocity;
-    [player.physicsBody applyAngularImpulse:angularImpulse];
-    
-    //機首の方角へ進める
-    float rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +80);
-    CGPoint directionVector=ccp(sinf(rotationRadians),cosf(rotationRadians));
-    CGPoint force=ccpMult(directionVector,forceParam);
-    [player.physicsBody applyImpulse:force];
-    
-    // 速度をclamp。x,y軸の速度が100.fを超えた場合は100.fにする。
-    float xVelocity = clampf(player.physicsBody.velocity.x, -maxVelocity, maxVelocity);
-    float yVelocity = clampf(player.physicsBody.velocity.y, -maxVelocity, maxVelocity);
-    player.physicsBody.velocity = ccp(xVelocity, yVelocity);
-    
-    //ジェット噴射
-    if(touchCount%5==0){
-        rotationRadians=CC_DEGREES_TO_RADIANS(player.rotation +90);
-        CGPoint pos=ccp(player.position.x - ((player.contentSize.width*player.scale)/2) * sinf(rotationRadians),
-                        player.position.y - ((player.contentSize.width*player.scale)/2) * cosf(rotationRadians));
-        
-        /*/ワールド座標を取得
-        CGPoint worldPosition = [physicWorld convertToWorldSpace:pos];
-        //スクリーン座標を取得
-        CGPoint screenPosition = [self convertToNodeSpace:worldPosition];*/
-        
-        Jet* jet=[Jet createJet:pos];
-        [physicWorld addChild:jet z:0];
-    }
-}
-
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if(![GameManager getPause])
     {
-        //ロケット制御スケジュール開始
-        [self schedule:@selector(rocket_Control_Schedule:)interval:0.01];
+        touchFlg=true;
+
         touchTime=0;
         touchCount=0;
-        touchFlg=true;
         
         //タップスタートメッセージ
         tapStart.visible=false;
@@ -310,8 +305,6 @@ CCLabelTTF* tapStart;
             player.physicsBody.angularVelocity = -1;
             [player.physicsBody applyAngularImpulse:-100.f];
         }
-        //ロケット制御スケジュール停止
-        [self unschedule:@selector(rocket_Control_Schedule:)];
     }
 }
 
@@ -335,45 +328,6 @@ CCLabelTTF* tapStart;
     }
     
     [self schedule:@selector(continue_Move_Schedule:) interval:0.01];
-    
-    /*/オフセット量
-    CGPoint offSet;
-    if([GameManager getClearPoint]==0){
-        offSet=ccpSub(player.position, airport.position);
-        offSet=ccp(offSet.x+50,offSet.y-50);
-    }else if([GameManager getClearPoint]==1){
-        offSet=ccpSub(player.position, checkPoint_01.position);
-    }else if([GameManager getClearPoint]==2){
-        offSet=ccpSub(player.position, checkPoint_02.position);
-    }
-    
-    //プレイヤー移動
-    player.position=ccpSub(player.position,offSet);
-    player.rotation=0;
-    
-    //プレイヤーを動的にして停止
-    [player.physicsBody setType:CCPhysicsBodyTypeDynamic];
-    if([GameManager getClearPoint]!=0){
-        [player.physicsBody setSleeping:true];
-    }
-    
-    //背景移動
-    backGround.position=player.position;
-    bgCloud.position=player.position;
-
-    //物理ワールド移動
-    physicWorld.position=ccpAdd(physicWorld.position,offSet);
-    
-    //ボタン切り替え
-    pauseButton.visible=true;
-    resumeButton.visible=false;
-    
-    //タップスタートメッセージ
-    tapStart.visible=true;
-    
-    //再開
-    [GameManager setPause:false];
-    [self schedule:@selector(judgement_Schedule:)interval:0.01];*/
 }
 
 -(void)continue_Move_Schedule:(CCTime)dt
@@ -429,7 +383,6 @@ CCLabelTTF* tapStart;
         
         //再開
         [GameManager setPause:false];
-        [self schedule:@selector(judgement_Schedule:)interval:0.01];
     }
     //加算
     movePos=nextPos;
@@ -440,7 +393,7 @@ CCLabelTTF* tapStart;
     if(!naviLayer.isRunningInActiveScene){
         //全停止
         [GameManager setPause:true];
-        [self unscheduleAllSelectors];
+        touchFlg=false;
         if(!player.physicsBody.sleeping){
             [player.physicsBody setSleeping:true];
         }
@@ -463,7 +416,6 @@ CCLabelTTF* tapStart;
 {
     //再開
     [GameManager setPause:false];
-    [self schedule:@selector(judgement_Schedule:)interval:0.01];
     
     //ボタン切り替え
     pauseButton.visible=true;
