@@ -168,7 +168,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>Sprites/player.png</string>
+					<string>Sprites/Object/player.png</string>
 				</array>
 			</dict>
 			<dict>
