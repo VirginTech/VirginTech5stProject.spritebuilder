@@ -16,10 +16,22 @@
 +(void)setPause:(bool)flg;
 +(bool)getPause;
 
++(void)setMaxCheckPoint:(int)point;
++(int)getMaxCheckPoint;
 +(void)setClearPoint:(int)point;
 +(int)getClearPoint;
 
 +(void)setCurrentStage:(int)num;
 +(int)getCurrentStage;
+
+//=========ユーザーデフォルト============
+
++(void)initialize_UserDefaults;
+
++(int)load_Coin_Value;
++(void)save_Coin_Value:(int)value;
+
++(bool)load_Coin_State:(int)stage coinNum:(int)coinNum;
++(void)save_Coin_State:(int)stage coinNum:(int)coinNum flg:(bool)flg;
 
 @end

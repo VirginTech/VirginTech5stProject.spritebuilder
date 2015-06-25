@@ -9,6 +9,7 @@
 #import "TitleScene.h"
 
 #import "SelectScene.h"
+#import "GameManager.h"
 
 @implementation TitleScene
 
@@ -26,6 +27,9 @@ CGSize winSize;
     if (!self) return(nil);
     
     winSize=[[CCDirector sharedDirector]viewSize];
+    
+    //初回時データ初期化
+    [GameManager initialize_UserDefaults];
     
     //Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];

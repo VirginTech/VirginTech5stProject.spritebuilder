@@ -14,6 +14,8 @@
 #import "Jet.h"
 #import "CheckPoint.h"
 #import "ResultLayer.h"
+#import "InfoLayer.h"
+#import "Coin.h"
 
 @implementation StageScene_01
 
@@ -31,8 +33,6 @@ CCSprite* naviArrow;
 
 CCSprite* backGround;
 CCSprite* bgCloud;
-
-int maxCheckPoint;
 
 NaviLayer* naviLayer;
 CCButton* pauseButton;
@@ -56,8 +56,12 @@ CCLabelTTF* tapStart;
     //初期化
     [GameManager setPause:false];
     [GameManager setClearPoint:0];//獲得チェックポイント
-    maxCheckPoint=3;//最大チェックポイント数
+    [GameManager setMaxCheckPoint:3];//最大チェックポイント数
     touchFlg=false;
+    
+    //インフォレイヤー
+    InfoLayer* infoLayer=[[InfoLayer alloc]init];
+    [self addChild:infoLayer z:0];
     
     //ポーズボタン
     pauseButton=[CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15];
@@ -191,11 +195,11 @@ CCLabelTTF* tapStart;
     }else if([GameManager getClearPoint]==2){
         naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_03.position];
     }else if([GameManager getClearPoint]==3){
-        if([GameManager getClearPoint] < maxCheckPoint){
+        if([GameManager getClearPoint] < [GameManager getMaxCheckPoint]){
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_04.position];
         }
     }else if([GameManager getClearPoint]==4){
-        if([GameManager getClearPoint] < maxCheckPoint){
+        if([GameManager getClearPoint] < [GameManager getMaxCheckPoint]){
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_05.position];
         }
     }
@@ -239,9 +243,11 @@ CCLabelTTF* tapStart;
     {
         [GameManager setClearPoint:cPoint.pointNum];
         cPoint.opacity=0.1;
+        //infoアップデート
+        [InfoLayer update_CheckPoint];
     }
     //終了判定
-    if([GameManager getClearPoint]==maxCheckPoint){
+    if([GameManager getClearPoint]==[GameManager getMaxCheckPoint]){
         //ポーズ非表示
         pauseButton.visible=false;
         //ナビコンパス非表示
@@ -251,7 +257,21 @@ CCLabelTTF* tapStart;
         //タイムウェイト
         [self scheduleOnce:@selector(result_Delay_Schedule:) delay:0.5f];
     }
-    
+    return TRUE;
+}
+
+//================================
+//　コインゲット
+//================================
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cCoin:(Coin*)cCoin
+{
+    if([GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum])
+    {
+        cCoin.opacity=0.1;
+        [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
+        [GameManager save_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum flg:false];
+        [InfoLayer update_Coin_Value];
+    }
     return TRUE;
 }
 
