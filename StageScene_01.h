@@ -15,7 +15,7 @@
 {    
     CCPhysicsNode* physicWorld;//CCB定義
     
-    //CCSprite* airport;//CCB定義
+    CCSprite* airport;//CCB定義
     CCSprite* checkPoint_01;//CCB定義
     CCSprite* checkPoint_02;//CCB定義
     CCSprite* checkPoint_03;//CCB定義

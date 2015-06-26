@@ -13,6 +13,6 @@
     
 }
 
-+(id)createPlayer;
++(id)createPlayer:(CGPoint)pos;
 
 @end

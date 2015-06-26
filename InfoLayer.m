@@ -44,7 +44,7 @@ CCLabelTTF* coinLabel;
     CCSprite* checkPoint_a;
     CCSprite* checkPoint_b;
     checkPointArray=[[NSMutableArray alloc]init];
-    for(int i=0;i<3;i++){
+    for(int i=0;i<[GameManager getMaxCheckPoint];i++){
         //ブラック
         checkPoint_b=[CCSprite spriteWithSpriteFrame:
                     [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"checkPoint_b.png"]];
@@ -89,7 +89,7 @@ CCLabelTTF* coinLabel;
 
 +(void)update_CheckPoint
 {
-    for(int i=0;i<3;i++){
+    for(int i=0;i<[GameManager getMaxCheckPoint];i++){
         if(i < [GameManager getClearPoint]){
             CCSprite* sp=[checkPointArray objectAtIndex:i];
             sp.visible=true;

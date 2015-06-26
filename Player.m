@@ -12,23 +12,23 @@
 
 CGSize winSize;
 
--(id)initWithPlayer
+-(id)initWithPlayer:(CGPoint)pos
 {
     winSize=[[CCDirector sharedDirector]viewSize];
     
     if(self=[super init])
     {
         self=(id)[CCBReader load:@"Player"];
-        self.position=ccp(winSize.width/2,winSize.height/2);
+        self.position=pos;
         
         self.physicsBody.collisionType = @"cPlayer";
     }
     return self;
 }
         
-+(id)createPlayer
++(id)createPlayer:(CGPoint)pos
 {
-    return [[self alloc] initWithPlayer];
+    return [[self alloc] initWithPlayer:pos];
 }
 
 @end

@@ -77,19 +77,25 @@ CCLabelTTF* tapStart;
     resumeButton.visible=false;
     [self addChild:resumeButton z:1];
     
+    //プレイヤー生成
+    player=[Player createPlayer:ccp(airport.position.x,airport.position.y+airport.contentSize.height/2+20)];
+    [physicWorld addChild:player z:1];
+
+    //物理ワールド位置セット
+    CGPoint offSet;
+    offSet.x=player.position.x - winSize.width/2;
+    offSet.y=player.position.y - winSize.height/2;
+    physicWorld.position=ccp(-offSet.x,-offSet.y);
+    
     //バックグラウンド
     backGround=[CCSprite spriteWithImageNamed:@"bg.png"];
-    backGround.position=ccp(winSize.width/2,winSize.height/2);
+    backGround.position=player.position;
     [physicWorld addChild:backGround z:-2];
     
     //バックグラウンド(雲)
     bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud.png"];
-    bgCloud.position=ccp(winSize.width/2,winSize.height/2);
+    bgCloud.position=player.position;
     [physicWorld addChild:bgCloud z:-1];
-    
-    //プレイヤー生成
-    player=[Player createPlayer];
-    [physicWorld addChild:player z:1];
     
     //コンパス・ナビ矢印
     compass=[CCSprite spriteWithImageNamed:@"compass.png"];
@@ -361,8 +367,7 @@ CCLabelTTF* tapStart;
     bgCloud.position=nextPos;
     
     //物理ワールド移動
-    CGPoint offSet;
-    offSet=ccpSub(movePos, nextPos);
+    CGPoint offSet = ccpSub(movePos, nextPos);
     physicWorld.position=ccpAdd(physicWorld.position,offSet);
     
     //距離算出

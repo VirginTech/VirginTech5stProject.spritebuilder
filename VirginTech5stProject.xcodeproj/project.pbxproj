@@ -104,9 +104,7 @@
 		CFB25EDA1B32DB7D0023616E /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB25ED91B32DB7D0023616E /* GameManager.m */; };
 		CFD10EB61B36CC6A00B0FC8A /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD10EB41B36CC6A00B0FC8A /* compass.png */; };
 		CFD10EB71B36CC6A00B0FC8A /* naviarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */; };
-		CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */; };
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
-		CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B91B2932F400A8A9D8 /* Ground.m */; };
 		CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
 		CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
 		CFF0A9E71B303CC4008241A8 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E61B303CC4008241A8 /* bg.png */; };
@@ -255,12 +253,8 @@
 		CFB25ED91B32DB7D0023616E /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		CFD10EB41B36CC6A00B0FC8A /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naviarrow.png; sourceTree = "<group>"; };
-		CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene.h; sourceTree = "<group>"; };
-		CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene.m; sourceTree = "<group>"; };
 		CFDBE3B51B292CAE00A8A9D8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		CFDBE3B61B292CAE00A8A9D8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		CFDBE3B81B2932F400A8A9D8 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ground.h; sourceTree = "<group>"; };
-		CFDBE3B91B2932F400A8A9D8 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ground.m; sourceTree = "<group>"; };
 		CFE0815A1B2D2090008426B0 /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
 		CFE0815B1B2D2090008426B0 /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_01.h; sourceTree = "<group>"; };
@@ -515,8 +509,6 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				CF61237B1B269406008AED91 /* TitleScene.h */,
 				CF61237C1B269406008AED91 /* TitleScene.m */,
-				CFDBE3A31B291CEF00A8A9D8 /* StageScene.h */,
-				CFDBE3A41B291CEF00A8A9D8 /* StageScene.m */,
 				CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */,
 				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
 				CFF422601B351066004A5F6E /* SelectScene.h */,
@@ -639,8 +631,6 @@
 			children = (
 				CFDBE3B51B292CAE00A8A9D8 /* Player.h */,
 				CFDBE3B61B292CAE00A8A9D8 /* Player.m */,
-				CFDBE3B81B2932F400A8A9D8 /* Ground.h */,
-				CFDBE3B91B2932F400A8A9D8 /* Ground.m */,
 				CFF19E8D1B3122E10021005A /* Jet.h */,
 				CFF19E8E1B3122E10021005A /* Jet.m */,
 				CFAF46981B3BD6B400B6A1BD /* Coin.h */,
@@ -1022,8 +1012,6 @@
 				CFAF46871B3BA06300B6A1BD /* InfoLayer.m in Sources */,
 				CFAF469A1B3BD6B400B6A1BD /* Coin.m in Sources */,
 				CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */,
-				CFDBE3A51B291CEF00A8A9D8 /* StageScene.m in Sources */,
-				CFDBE3BA1B2932F400A8A9D8 /* Ground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
