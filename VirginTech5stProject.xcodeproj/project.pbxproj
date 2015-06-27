@@ -94,6 +94,9 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		CF1992B51B3E634900EAC681 /* bg_01.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1992B31B3E634900EAC681 /* bg_01.png */; };
+		CF1992B61B3E634900EAC681 /* bg_02.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1992B41B3E634900EAC681 /* bg_02.png */; };
+		CF1992BB1B3E640100EAC681 /* StageScene_02.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1992BA1B3E640100EAC681 /* StageScene_02.m */; };
 		CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF61236F1B269004008AED91 /* InfoPlist.strings */; };
 		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
 		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
@@ -107,7 +110,6 @@
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
 		CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
 		CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
-		CFF0A9E71B303CC4008241A8 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E61B303CC4008241A8 /* bg.png */; };
 		CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E81B30574C008241A8 /* bgCloud.png */; };
 		CFF19E8C1B3122BC0021005A /* jet.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF19E8B1B3122BC0021005A /* jet.png */; };
 		CFF19E8F1B3122E10021005A /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
@@ -237,6 +239,10 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		CF1992B31B3E634900EAC681 /* bg_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_01.png; sourceTree = "<group>"; };
+		CF1992B41B3E634900EAC681 /* bg_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_02.png; sourceTree = "<group>"; };
+		CF1992B91B3E640100EAC681 /* StageScene_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_02.h; sourceTree = "<group>"; };
+		CF1992BA1B3E640100EAC681 /* StageScene_02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene_02.m; sourceTree = "<group>"; };
 		CF6123711B269065008AED91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF6123751B2690C9008AED91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CF6123761B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -259,7 +265,6 @@
 		CFE0815B1B2D2090008426B0 /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_01.h; sourceTree = "<group>"; };
 		CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene_01.m; sourceTree = "<group>"; };
-		CFF0A9E61B303CC4008241A8 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		CFF0A9E81B30574C008241A8 /* bgCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgCloud.png; sourceTree = "<group>"; };
 		CFF19E8B1B3122BC0021005A /* jet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jet.png; sourceTree = "<group>"; };
 		CFF19E8D1B3122E10021005A /* Jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jet.h; sourceTree = "<group>"; };
@@ -509,10 +514,9 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				CF61237B1B269406008AED91 /* TitleScene.h */,
 				CF61237C1B269406008AED91 /* TitleScene.m */,
-				CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */,
-				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
 				CFF422601B351066004A5F6E /* SelectScene.h */,
 				CFF422611B351066004A5F6E /* SelectScene.m */,
+				CF1992BC1B3E64DD00EAC681 /* StageScene */,
 				CFB25ECF1B32DB250023616E /* Manager */,
 				CFE081571B2D204E008426B0 /* Lib */,
 				CFF515F51B33E11A00D0BB88 /* Layer */,
@@ -617,6 +621,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CF1992BC1B3E64DD00EAC681 /* StageScene */ = {
+			isa = PBXGroup;
+			children = (
+				CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */,
+				CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */,
+				CF1992B91B3E640100EAC681 /* StageScene_02.h */,
+				CF1992BA1B3E640100EAC681 /* StageScene_02.m */,
+			);
+			name = StageScene;
+			sourceTree = "<group>";
+		};
 		CFB25ECF1B32DB250023616E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,9 +680,10 @@
 		CFF0A9E51B303CB0008241A8 /* bg */ = {
 			isa = PBXGroup;
 			children = (
+				CF1992B31B3E634900EAC681 /* bg_01.png */,
+				CF1992B41B3E634900EAC681 /* bg_02.png */,
 				CFF422691B35190D004A5F6E /* bgLayer.png */,
 				CFF0A9E81B30574C008241A8 /* bgCloud.png */,
-				CFF0A9E61B303CC4008241A8 /* bg.png */,
 			);
 			name = bg;
 			sourceTree = "<group>";
@@ -897,9 +913,9 @@
 			files = (
 				CF6123721B2690C5008AED91 /* Localizable.strings in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
-				CFF0A9E71B303CC4008241A8 /* bg.png in Resources */,
 				CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */,
 				CFD10EB61B36CC6A00B0FC8A /* compass.png in Resources */,
+				CF1992B51B3E634900EAC681 /* bg_01.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -918,6 +934,7 @@
 				CFF4226A1B35190D004A5F6E /* bgLayer.png in Resources */,
 				CFF4226E1B35598E004A5F6E /* title_default.plist in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
+				CF1992B61B3E634900EAC681 /* bg_02.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 				CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */,
@@ -1007,6 +1024,7 @@
 				CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */,
 				CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				CF1992BB1B3E640100EAC681 /* StageScene_02.m in Sources */,
 				CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */,
 				CF61237D1B269406008AED91 /* TitleScene.m in Sources */,
 				CFAF46871B3BA06300B6A1BD /* InfoLayer.m in Sources */,

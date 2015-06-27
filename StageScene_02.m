@@ -1,12 +1,12 @@
 //
-//  StageScene_01.m
+//  StageScene_02.m
 //  VirginTech5stProject
 //
-//  Created by VirginTech LLC. on 2015/06/14.
+//  Created by VirginTech LLC. on 2015/06/27.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
 
-#import "StageScene_01.h"
+#import "StageScene_02.h"
 
 #import "GameManager.h"
 #import "BasicMath.h"
@@ -17,7 +17,7 @@
 #import "InfoLayer.h"
 #import "Coin.h"
 
-@implementation StageScene_01
+@implementation StageScene_02
 
 CGSize winSize;
 
@@ -32,6 +32,7 @@ CCSprite* compass;
 CCSprite* naviArrow;
 
 CCSprite* backGround;
+NSMutableArray* bgArray; //背景ループ処理用の配列
 CCSprite* bgCloud;
 
 NaviLayer* naviLayer;
@@ -57,6 +58,7 @@ CCLabelTTF* tapStart;
     [GameManager setPause:false];
     [GameManager setClearPoint:0];//獲得チェックポイント
     [GameManager setMaxCheckPoint:3];//最大チェックポイント数
+    bgArray=[[NSMutableArray alloc]init];
     touchFlg=false;
     
     //インフォレイヤー
@@ -80,22 +82,74 @@ CCLabelTTF* tapStart;
     //プレイヤー生成
     player=[Player createPlayer:ccp(airport.position.x,airport.position.y+airport.contentSize.height/2+20)];
     [physicWorld addChild:player z:1];
-
+    
     //物理ワールド位置セット
     CGPoint offSet;
     offSet.x=player.position.x - winSize.width/2;
     offSet.y=player.position.y - winSize.height/2;
     physicWorld.position=ccp(-offSet.x,-offSet.y);
     
-    //バックグラウンド
-    backGround=[CCSprite spriteWithImageNamed:@"bg_01.png"];
+    //バックグラウンド(センター)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
     backGround.position=player.position;
     [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
     
-    //バックグラウンド(雲)
-    bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud.png"];
-    bgCloud.position=player.position;
-    [physicWorld addChild:bgCloud z:-1];
+    //バックグラウンド(右)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x+backGround.contentSize.width,
+                            player.position.y);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+
+    //バックグラウンド(左)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x-backGround.contentSize.width,
+                            player.position.y);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+
+    //バックグラウンド(上)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x,
+                            player.position.y+backGround.contentSize.height);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+
+    //バックグラウンド(下)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x,
+                            player.position.y-backGround.contentSize.height);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+
+    //バックグラウンド(右上)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x+backGround.contentSize.width,
+                            player.position.y+backGround.contentSize.height);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+
+    //バックグラウンド(右下)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x+backGround.contentSize.width,
+                            player.position.y-backGround.contentSize.height);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+    
+    //バックグラウンド(左上)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x-backGround.contentSize.width,
+                            player.position.y+backGround.contentSize.height);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
+    
+    //バックグラウンド(左下)
+    backGround=[CCSprite spriteWithImageNamed:@"bg_02.png"];
+    backGround.position=ccp(player.position.x-backGround.contentSize.width,
+                            player.position.y-backGround.contentSize.height);
+    [physicWorld addChild:backGround z:-2];
+    [bgArray addObject:backGround];//背景を配列に追加
     
     //コンパス・ナビ矢印
     compass=[CCSprite spriteWithImageNamed:@"compass.png"];
@@ -170,17 +224,6 @@ CCLabelTTF* tapStart;
     offSet.y=player.position.y - winSize.height/2;
     physicWorld.position=ccp(-offSet.x,-offSet.y);
     
-    //背景移動
-    backGround.position=player.position;
-    
-    //雲移動
-    bgCloud.position=ccp(player.position.x,bgCloud.position.y);//X軸は通常
-    if(player.position.y > bgCloud.position.y + (bgCloud.contentSize.height/2 -50)){//上昇
-        bgCloud.position=ccp(player.position.x, player.position.y - (bgCloud.contentSize.height/2 -50));
-    }else if(player.position.y < bgCloud.position.y - (bgCloud.contentSize.height/2 -50)){//下降
-        bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
-    }
-    
     //角度を正規化
     if(!player.physicsBody.sleeping){
         player.rotation=[BasicMath getNormalize_Degree:player.rotation];
@@ -190,6 +233,28 @@ CCLabelTTF* tapStart;
     if(!touchFlg){
         if(player.rotation>85 && player.rotation<95){
             player.rotation=90;
+        }
+    }
+    
+    //背景をループさせる
+    for (CCNode *bg in bgArray) {
+        //背景のワールド座標を取得
+        CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:bg.position];
+        //背景のスクリーン城の位置を取得
+        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+        
+        //ひとつの背景が画面の左端から完全に外れたら、それを右に移動させる。（右移動）
+        if(groundScreenPosition.x <= -(bg.contentSize.width/2)) {
+            bg.position = ccp(bg.position.x + bg.contentSize.width*2, bg.position.y);
+        //ひとつの背景が画面の右端から完全に外れたら、それを左に移動させる。（左移動）
+        }else if(groundScreenPosition.x >= winSize.width+(bg.contentSize.width/2)){
+            bg.position = ccp(bg.position.x - bg.contentSize.width*2, bg.position.y);
+        //ひとつの背景が画面の下端から完全に外れたら、それを上に移動させる。（上昇）
+        }else if(groundScreenPosition.y <= -(bg.contentSize.height/2)){
+            bg.position = ccp(bg.position.x, bg.position.y + bg.contentSize.height*2);
+        //ひとつの背景が画面の上端から完全に外れたら、それを下に移動させる。（下降）
+        }else if(groundScreenPosition.y >= winSize.height+(bg.contentSize.height/2)){
+            bg.position = ccp(bg.position.x, bg.position.y - bg.contentSize.height*2);
         }
     }
     
@@ -286,7 +351,7 @@ CCLabelTTF* tapStart;
     //全停止
     [GameManager setPause:true];
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
-
+    
     //リザルトレイヤー
     ResultLayer* resultLayer=[[ResultLayer alloc]init];
     [self addChild:resultLayer];
@@ -307,13 +372,13 @@ CCLabelTTF* tapStart;
     if(![GameManager getPause])
     {
         touchFlg=true;
-
+        
         touchTime=0;
         touchCount=0;
         
         //タップスタートメッセージ
         tapStart.visible=false;
-
+        
     }
 }
 
@@ -388,7 +453,7 @@ CCLabelTTF* tapStart;
     {
         //スケジュル停止
         [self unschedule:@selector(continue_Move_Schedule:)];
-
+        
         //プレイヤー移動
         player.position=movePos;
         player.rotation=0;
@@ -448,7 +513,7 @@ CCLabelTTF* tapStart;
     
     //タップスタートメッセージ
     tapStart.visible=true;
-
+    
     //ナビレイヤー
     [self removeChild:naviLayer cleanup:YES];
 }
