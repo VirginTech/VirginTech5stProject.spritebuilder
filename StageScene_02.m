@@ -33,7 +33,7 @@ CCSprite* naviArrow;
 
 CCSprite* backGround;
 NSMutableArray* bgArray; //背景ループ処理用の配列
-CCSprite* bgCloud;
+//CCSprite* bgCloud;
 
 NaviLayer* naviLayer;
 CCButton* pauseButton;
@@ -237,26 +237,7 @@ CCLabelTTF* tapStart;
     }
     
     //背景をループさせる
-    for (CCNode *bg in bgArray) {
-        //背景のワールド座標を取得
-        CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:bg.position];
-        //背景のスクリーン城の位置を取得
-        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
-        
-        //ひとつの背景が画面の左端から完全に外れたら、それを右に移動させる。（右移動）
-        if(groundScreenPosition.x <= -(bg.contentSize.width/2)) {
-            bg.position = ccp(bg.position.x + bg.contentSize.width*2, bg.position.y);
-        //ひとつの背景が画面の右端から完全に外れたら、それを左に移動させる。（左移動）
-        }else if(groundScreenPosition.x >= winSize.width+(bg.contentSize.width/2)){
-            bg.position = ccp(bg.position.x - bg.contentSize.width*2, bg.position.y);
-        //ひとつの背景が画面の下端から完全に外れたら、それを上に移動させる。（上昇）
-        }else if(groundScreenPosition.y <= -(bg.contentSize.height/2)){
-            bg.position = ccp(bg.position.x, bg.position.y + bg.contentSize.height*2);
-        //ひとつの背景が画面の上端から完全に外れたら、それを下に移動させる。（下降）
-        }else if(groundScreenPosition.y >= winSize.height+(bg.contentSize.height/2)){
-            bg.position = ccp(bg.position.x, bg.position.y - bg.contentSize.height*2);
-        }
-    }
+    [self backGround_Rotation];
     
     //ナビ矢印移動・回転
     if([GameManager getClearPoint]==0){
@@ -272,6 +253,33 @@ CCLabelTTF* tapStart;
     }else if([GameManager getClearPoint]==4){
         if([GameManager getClearPoint] < [GameManager getMaxCheckPoint]){
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_05.position];
+        }
+    }
+}
+
+//================================
+//　背景ローテーション
+//================================
+-(void)backGround_Rotation
+{
+    for (CCNode *bg in bgArray) {
+        //背景のワールド座標を取得
+        CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:bg.position];
+        //背景のスクリーン城の位置を取得
+        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+        
+        //ひとつの背景が画面の左端から完全に外れたら、それを右に移動させる。（右移動）
+        if(groundScreenPosition.x <= -(bg.contentSize.width/2)) {
+            bg.position = ccp(bg.position.x + bg.contentSize.width*2, bg.position.y);
+            //ひとつの背景が画面の右端から完全に外れたら、それを左に移動させる。（左移動）
+        }else if(groundScreenPosition.x >= winSize.width+(bg.contentSize.width/2)){
+            bg.position = ccp(bg.position.x - bg.contentSize.width*2, bg.position.y);
+            //ひとつの背景が画面の下端から完全に外れたら、それを上に移動させる。（上昇）
+        }else if(groundScreenPosition.y <= -(bg.contentSize.height/2)){
+            bg.position = ccp(bg.position.x, bg.position.y + bg.contentSize.height*2);
+            //ひとつの背景が画面の上端から完全に外れたら、それを下に移動させる。（下降）
+        }else if(groundScreenPosition.y >= winSize.height+(bg.contentSize.height/2)){
+            bg.position = ccp(bg.position.x, bg.position.y - bg.contentSize.height*2);
         }
     }
 }
@@ -428,12 +436,15 @@ CCLabelTTF* tapStart;
     CGPoint nextPos=ccp(movePos.x+velocity*sinf(moveAngle),movePos.y+velocity*cosf(moveAngle));
     
     //背景移動
-    backGround.position=nextPos;
-    bgCloud.position=nextPos;
+    //backGround.position=nextPos;
+    //bgCloud.position=nextPos;
     
     //物理ワールド移動
     CGPoint offSet = ccpSub(movePos, nextPos);
     physicWorld.position=ccpAdd(physicWorld.position,offSet);
+    
+    //背景をループさせる
+    [self backGround_Rotation];
     
     //距離算出
     if([GameManager getClearPoint]==0){
