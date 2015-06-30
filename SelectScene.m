@@ -37,21 +37,16 @@ CCScrollView* scrollView;
     
     //画面サイズ設定
     UIImage *image = [UIImage imageNamed:@"bgLayer.png"];
-    if([GameManager getDevice]==2){//iPhone4
-        UIGraphicsBeginImageContext(CGSizeMake(winSize.width * 4,winSize.height));
-        [image drawInRect:CGRectMake(0, 0, winSize.width * 4,winSize.height)];
-    }else{
-        UIGraphicsBeginImageContext(CGSizeMake(winSize.width * 5,winSize.height));
-        [image drawInRect:CGRectMake(0, 0, winSize.width * 5,winSize.height)];
-    }
+    UIGraphicsBeginImageContext(CGSizeMake(winSize.width,winSize.height*5));
+    [image drawInRect:CGRectMake(0, 0, winSize.width,winSize.height*5)];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     //スクロールビュー配置 z:0
     bgSpLayer=[CCSprite spriteWithCGImage:image.CGImage key:nil];
     scrollView=[[CCScrollView alloc]initWithContentNode:bgSpLayer];
-    scrollView.verticalScrollEnabled=NO;
-    bgSpLayer.position=CGPointMake(0, 0);
+    scrollView.horizontalScrollEnabled=NO;
+    bgSpLayer.position=CGPointMake(0, -winSize.height*4);
     [self addChild:scrollView z:0];
     
     //セレクトレヴェルボタン
@@ -59,16 +54,16 @@ CCScrollView* scrollView;
     int btnCnt=0;
     CGPoint btnNormPos;
     CGPoint btnPos;
-    CGPoint offSet=ccp(70,100);
+    CGPoint offSet=ccp(80,120);
     
     for(int i=0;i<5;i++)
     {
-        btnNormPos=CGPointMake((i*(winSize.width)+winSize.width/2-(offSet.x*2)),
-                               winSize.height/2+(offSet.y/2));
+        btnNormPos=CGPointMake((winSize.width/2-(offSet.x*2)),
+                               i*(winSize.height)+winSize.height/2-(offSet.y/2));
         
         for(int j=0;j<2;j++)
         {
-            btnPos.y=btnNormPos.y-(j*offSet.y);
+            btnPos.y=btnNormPos.y+(j*offSet.y);
             
             for(int k=0;k<5;k++)
             {
