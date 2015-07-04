@@ -99,6 +99,36 @@
 		CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF61236F1B269004008AED91 /* InfoPlist.strings */; };
 		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
 		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
+		CF71DBC71B47FF0A00787182 /* StageScene_02.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1992BA1B3E640100EAC681 /* StageScene_02.m */; };
+		CF71DBC81B47FF0A00787182 /* StageScene_02.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1992BA1B3E640100EAC681 /* StageScene_02.m */; };
+		CF8CDC531B47CF9400865070 /* CollisionSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */; };
+		CF8CDC541B47CF9400865070 /* CollisionSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */; };
+		CF8CDC551B47CFA500865070 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
+		CF8CDC561B47CFA600865070 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
+		CF8CDC5D1B47DA6100865070 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB25ED91B32DB7D0023616E /* GameManager.m */; };
+		CF8CDC5E1B47DA6200865070 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB25ED91B32DB7D0023616E /* GameManager.m */; };
+		CF8CDC5F1B47DB4900865070 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
+		CF8CDC601B47DB4A00865070 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
+		CF8CDC651B47E0A800865070 /* SelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF422611B351066004A5F6E /* SelectScene.m */; };
+		CF8CDC661B47E0A900865070 /* SelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF422611B351066004A5F6E /* SelectScene.m */; };
+		CF8CDC671B47E0C700865070 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
+		CF8CDC681B47E0C700865070 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
+		CF8CDC691B47E15800865070 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
+		CF8CDC6A1B47E15900865070 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
+		CF8CDC6B1B47E15D00865070 /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF46861B3BA06300B6A1BD /* InfoLayer.m */; };
+		CF8CDC6C1B47E15E00865070 /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF46861B3BA06300B6A1BD /* InfoLayer.m */; };
+		CF8CDC6D1B47E16200865070 /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF4225C1B3502AF004A5F6E /* ResultLayer.m */; };
+		CF8CDC6E1B47E16300865070 /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF4225C1B3502AF004A5F6E /* ResultLayer.m */; };
+		CF8CDC6F1B47E16700865070 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F71B33E14600D0BB88 /* NaviLayer.m */; };
+		CF8CDC701B47E16800865070 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F71B33E14600D0BB88 /* NaviLayer.m */; };
+		CF8CDC711B47E2C300865070 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
+		CF8CDC721B47E2C300865070 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
+		CF8CDC731B47E2CC00865070 /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
+		CF8CDC741B47E2CC00865070 /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
+		CF8CDC751B47E42900865070 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF46991B3BD6B400B6A1BD /* Coin.m */; };
+		CF8CDC761B47E42900865070 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF46991B3BD6B400B6A1BD /* Coin.m */; };
+		CF8CDC771B47E43300865070 /* MoveBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB070641B4233BB00D4C414 /* MoveBlock.m */; };
+		CF8CDC781B47E43400865070 /* MoveBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB070641B4233BB00D4C414 /* MoveBlock.m */; };
 		CFAE457F1B40DBB900F19CC8 /* bg_02.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAE457E1B40DBB900F19CC8 /* bg_02.png */; };
 		CFAF46871B3BA06300B6A1BD /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF46861B3BA06300B6A1BD /* InfoLayer.m */; };
 		CFAF46901B3BB72400B6A1BD /* info_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFAF468E1B3BB72400B6A1BD /* info_default.plist */; };
@@ -999,9 +1029,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF8CDC6E1B47E16300865070 /* ResultLayer.m in Sources */,
+				CF8CDC781B47E43400865070 /* MoveBlock.m in Sources */,
+				CF8CDC6C1B47E15E00865070 /* InfoLayer.m in Sources */,
 				7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */,
+				CF8CDC561B47CFA600865070 /* CheckPoint.m in Sources */,
+				CF8CDC681B47E0C700865070 /* StageScene_01.m in Sources */,
 				7A40360419DDEE84007B6E8F /* main.m in Sources */,
+				CF8CDC741B47E2CC00865070 /* Jet.m in Sources */,
+				CF8CDC541B47CF9400865070 /* CollisionSurface.m in Sources */,
+				CF8CDC701B47E16800865070 /* NaviLayer.m in Sources */,
+				CF8CDC5E1B47DA6200865070 /* GameManager.m in Sources */,
+				CF71DBC71B47FF0A00787182 /* StageScene_02.m in Sources */,
+				CF8CDC761B47E42900865070 /* Coin.m in Sources */,
+				CF8CDC6A1B47E15900865070 /* BasicMath.m in Sources */,
 				7A59498E19E3941300F65F90 /* AppDelegate.m in Sources */,
+				CF8CDC661B47E0A900865070 /* SelectScene.m in Sources */,
+				CF8CDC721B47E2C300865070 /* Player.m in Sources */,
+				CF8CDC601B47DB4A00865070 /* TitleScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,8 +1054,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF8CDC651B47E0A800865070 /* SelectScene.m in Sources */,
+				CF8CDC6F1B47E16700865070 /* NaviLayer.m in Sources */,
 				927F619E196C771E000F43EF /* MainScene.m in Sources */,
+				CF8CDC731B47E2CC00865070 /* Jet.m in Sources */,
+				CF8CDC711B47E2C300865070 /* Player.m in Sources */,
+				CF8CDC751B47E42900865070 /* Coin.m in Sources */,
+				CF8CDC5D1B47DA6100865070 /* GameManager.m in Sources */,
+				CF8CDC6D1B47E16200865070 /* ResultLayer.m in Sources */,
+				CF8CDC771B47E43300865070 /* MoveBlock.m in Sources */,
+				CF8CDC6B1B47E15D00865070 /* InfoLayer.m in Sources */,
+				CF8CDC5F1B47DB4900865070 /* TitleScene.m in Sources */,
+				CF71DBC81B47FF0A00787182 /* StageScene_02.m in Sources */,
+				CF8CDC671B47E0C700865070 /* StageScene_01.m in Sources */,
 				5B121030197484FA004C1E1D /* VirginTech_stProjectActivity.m in Sources */,
+				CF8CDC551B47CFA500865070 /* CheckPoint.m in Sources */,
+				CF8CDC531B47CF9400865070 /* CollisionSurface.m in Sources */,
+				CF8CDC691B47E15800865070 /* BasicMath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,10 +18,15 @@
     self.physicsBody.collisionType = @"cCoin";
     self.physicsBody.sensor = TRUE;
 
+#ifdef ANDROID
+    
+#else
     if(![GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:coinNum]){
         self.physicsBody.collisionType = @"";
         self.opacity=0.1;
     }
+#endif
+    
 }
 
 @end

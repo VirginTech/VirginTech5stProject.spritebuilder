@@ -36,17 +36,28 @@ CCScrollView* scrollView;
     [self addChild:background];
     
     //画面サイズ設定
+#ifdef ANDROID
+    bgSpLayer=[CCSprite spriteWithImageNamed:@"bgLayer.png"];
+    bgSpLayer.scaleY=1.0;
+#else
     UIImage *image = [UIImage imageNamed:@"bgLayer.png"];
     UIGraphicsBeginImageContext(CGSizeMake(winSize.width,winSize.height*5));
     [image drawInRect:CGRectMake(0, 0, winSize.width,winSize.height*5)];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    bgSpLayer=[CCSprite spriteWithCGImage:image.CGImage key:nil];
+#endif
     
     //スクロールビュー配置 z:0
-    bgSpLayer=[CCSprite spriteWithCGImage:image.CGImage key:nil];
     scrollView=[[CCScrollView alloc]initWithContentNode:bgSpLayer];
     scrollView.horizontalScrollEnabled=NO;
+    
+#ifdef ANDROID
+    bgSpLayer.position=CGPointMake(0, 0);
+#else
     bgSpLayer.position=CGPointMake(0, -winSize.height*4);
+#endif
+    
     [self addChild:scrollView z:0];
     
     //セレクトレヴェルボタン

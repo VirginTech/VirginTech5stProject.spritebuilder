@@ -344,6 +344,10 @@ CCLabelTTF* tapStart;
 //================================
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cCoin:(Coin*)cCoin
 {
+    
+#ifdef ANDROID
+    
+#else
     if([GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum])
     {
         cCoin.opacity=0.1;
@@ -351,6 +355,8 @@ CCLabelTTF* tapStart;
         [GameManager save_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum flg:false];
         [InfoLayer update_Coin_Value];
     }
+#endif
+    
     return TRUE;
 }
 
@@ -375,7 +381,7 @@ CCLabelTTF* tapStart;
     }
 }
 
--(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     if(![GameManager getPause])
     {
@@ -390,7 +396,7 @@ CCLabelTTF* tapStart;
     }
 }
 
--(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+-(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     if(![GameManager getPause])
     {

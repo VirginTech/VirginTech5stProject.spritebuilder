@@ -27,11 +27,14 @@
 
 #import <AndroidKit/AndroidKeyEvent.h>
 
+#import "TitleScene.h"
+
 @implementation VirginTech_stProjectActivity
 
 - (CCScene *)startScene
 {
-    return [CCBReader loadAsScene:@"MainScene"];
+    //return [CCBReader loadAsScene:@"MainScene"];
+    return [TitleScene scene];
 }
 
 - (BOOL)onKeyUp:(int32_t)keyCode keyEvent:(AndroidKeyEvent *)event

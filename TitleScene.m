@@ -29,7 +29,11 @@ CGSize winSize;
     winSize=[[CCDirector sharedDirector]viewSize];
     
     //初回時データ初期化
+#ifdef ANDROID
+    
+#else
     [GameManager initialize_UserDefaults];
+#endif
     
     //Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];

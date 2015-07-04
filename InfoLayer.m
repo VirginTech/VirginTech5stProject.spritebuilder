@@ -71,20 +71,29 @@ CCLabelTTF* coinLabel;
     coin.position=ccp((coin.contentSize.width*coin.scale)/2 +5,
                       levelLabel.position.y-levelLabel.contentSize.height/2 -20);
     [self addChild:coin];
+    
     //枚数
+#ifdef ANDROID
+    
+#else
     coinLabel=[CCLabelTTF labelWithString:
                                 [NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]]
                                 fontName:@"Verdana-Bold" fontSize:20];
     coinLabel.position=ccp(coin.position.x+(coin.contentSize.width*coin.scale)/2+coinLabel.contentSize.width/2,
                            coin.position.y);
     [self addChild:coinLabel];
+#endif
     
     return self;
 }
 
 +(void)update_Coin_Value
 {
+#ifdef ANDROID
+    
+#else
     coinLabel.string=[NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]];
+#endif
 }
 
 +(void)update_CheckPoint

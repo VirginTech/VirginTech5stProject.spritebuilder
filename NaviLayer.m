@@ -93,8 +93,9 @@ CGSize winSize;
     [delegate onContinueButtonClicked];
 }
 
--(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{}
--(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event{}
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event{}
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event{}
+-(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event{}
+
 
 @end
