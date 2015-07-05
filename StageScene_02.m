@@ -344,18 +344,26 @@ CCLabelTTF* tapStart;
 //================================
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cCoin:(Coin*)cCoin
 {
-    
+    if(cCoin.state){
+        cCoin.opacity=0.1;
+        cCoin.state=false;
+        
 #ifdef ANDROID
-    
+        
 #else
-    if([GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum])
+        [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
+#endif
+
+        [InfoLayer update_Coin_Value];
+    }
+    
+    /*if([GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum])
     {
         cCoin.opacity=0.1;
         [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
         [GameManager save_Coin_State:[GameManager getCurrentStage] coinNum:cCoin.coinNum flg:false];
         [InfoLayer update_Coin_Value];
-    }
-#endif
+    }*/
     
     return TRUE;
 }

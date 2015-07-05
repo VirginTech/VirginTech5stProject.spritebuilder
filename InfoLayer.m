@@ -6,6 +6,19 @@
 //  Copyright 2015年 Apportable. All rights reserved.
 //
 
+#ifdef ANDROID
+// These three undefs are currently needed to avoid conflicts with Android's Java
+// implementation of EGL. Future versions of SBAndroid will not need these.
+#undef EGL_NO_CONTEXT
+#undef EGL_NO_DISPLAY
+#undef EGL_NO_SURFACE
+#import <AndroidKit/AndroidKit.h>
+#endif
+
+#ifdef ANDROID
+#import "Data_io.h"
+#endif
+
 #import "InfoLayer.h"
 #import "GameManager.h"
 
@@ -75,14 +88,21 @@ CCLabelTTF* coinLabel;
     //枚数
 #ifdef ANDROID
     
+    CCActivity* activity = [CCActivity currentActivity];
+    //Data_io *data_io = [[Data_io alloc] initWithActivity:activity];
+    [Data_io showMsg:@"Hello Java!"];
+    
+    coinLabel=[CCLabelTTF labelWithString:
+                                [NSString stringWithFormat:@" ×%04d",0]
+                                 fontName:@"Verdana-Bold" fontSize:20];
 #else
     coinLabel=[CCLabelTTF labelWithString:
                                 [NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]]
                                 fontName:@"Verdana-Bold" fontSize:20];
+#endif
     coinLabel.position=ccp(coin.position.x+(coin.contentSize.width*coin.scale)/2+coinLabel.contentSize.width/2,
                            coin.position.y);
     [self addChild:coinLabel];
-#endif
     
     return self;
 }
@@ -90,7 +110,7 @@ CCLabelTTF* coinLabel;
 +(void)update_Coin_Value
 {
 #ifdef ANDROID
-    
+    coinLabel.string=[NSString stringWithFormat:@" ×%04d",0];
 #else
     coinLabel.string=[NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]];
 #endif

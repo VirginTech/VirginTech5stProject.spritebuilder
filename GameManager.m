@@ -65,7 +65,7 @@ int currentStage;//現在ステージNum
     if([dict valueForKey:@"coin"]==nil){
         [self save_Coin_Value:0];
     }
-    if([dict valueForKey:@"coinState"]==nil){
+    /*if([dict valueForKey:@"coinState"]==nil){
         NSMutableArray* stageArray=[[NSMutableArray alloc]init];
         NSMutableArray* allArray=[[NSMutableArray alloc]init];
         for(int i=0;i<50;i++){
@@ -76,7 +76,7 @@ int currentStage;//現在ステージNum
             stageArray=[[NSMutableArray alloc]init];
         }
         [self save_Coin_State_All:allArray];
-    }
+    }*/
 }
 
 //===========================
@@ -98,7 +98,7 @@ int currentStage;//現在ステージNum
     [userDefault setObject:coin forKey:@"coin"];
 }
 
-//===========================
+/*/===========================
 //　コインステータス取得（全ステージ一括:ArrayWithArray）
 //===========================
 +(NSMutableArray*)load_Coin_State_All
@@ -162,6 +162,6 @@ int currentStage;//現在ステージNum
     }
     [stageArray replaceObjectAtIndex:coinNum-1 withObject:[NSNumber numberWithBool:flg]];
     [self save_Coin_State_Stage:stage array:stageArray];
-}
+}*/
 
 @end

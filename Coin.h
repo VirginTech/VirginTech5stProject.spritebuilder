@@ -12,8 +12,10 @@
 @interface Coin : CCSprite
 {
     int coinNum;//CCBカスタムプロパティ
+    bool state;
 }
 
 @property int coinNum;
+@property bool state;
 
 @end

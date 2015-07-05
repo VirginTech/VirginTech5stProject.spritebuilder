@@ -31,7 +31,7 @@
 +(int)load_Coin_Value;
 +(void)save_Coin_Value:(int)value;
 
-+(bool)load_Coin_State:(int)stage coinNum:(int)coinNum;
-+(void)save_Coin_State:(int)stage coinNum:(int)coinNum flg:(bool)flg;
+//+(bool)load_Coin_State:(int)stage coinNum:(int)coinNum;
+//+(void)save_Coin_State:(int)stage coinNum:(int)coinNum flg:(bool)flg;
 
 @end

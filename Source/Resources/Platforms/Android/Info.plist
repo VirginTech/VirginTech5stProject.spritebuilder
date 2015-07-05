@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>VirginTech5stProject</string>
+	<string>FlyingHigh</string>
 	<key>CFBundleExecutable</key>
-	<string>VirginTech_stProject</string>
+	<string>VirginTech5stProject</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocos2d.VirginTech_stProject</string>
+	<string>jp.co.virgintech.VirginTech5stProject</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>VirginTech_stProject</string>
+	<string>FlyingHigh</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>

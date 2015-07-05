@@ -38,7 +38,6 @@ CCScrollView* scrollView;
     //画面サイズ設定
 #ifdef ANDROID
     bgSpLayer=[CCSprite spriteWithImageNamed:@"bgLayer.png"];
-    bgSpLayer.scaleY=1.0;
 #else
     UIImage *image = [UIImage imageNamed:@"bgLayer.png"];
     UIGraphicsBeginImageContext(CGSizeMake(winSize.width,winSize.height*5));
@@ -51,11 +50,11 @@ CCScrollView* scrollView;
     //スクロールビュー配置 z:0
     scrollView=[[CCScrollView alloc]initWithContentNode:bgSpLayer];
     scrollView.horizontalScrollEnabled=NO;
-    
+
 #ifdef ANDROID
-    bgSpLayer.position=CGPointMake(0, 0);
+    scrollView.scrollPosition=ccp(0,bgSpLayer.contentSize.height-winSize.height);
 #else
-    bgSpLayer.position=CGPointMake(0, -winSize.height*4);
+    scrollView.scrollPosition=CGPointMake(0, winSize.height*4);
 #endif
     
     [self addChild:scrollView z:0];

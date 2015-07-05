@@ -12,20 +12,19 @@
 @implementation Coin
 
 @synthesize coinNum;
+@synthesize state;
 
 - (void)didLoadFromCCB
 {
     self.physicsBody.collisionType = @"cCoin";
     self.physicsBody.sensor = TRUE;
-
-#ifdef ANDROID
     
-#else
-    if(![GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:coinNum]){
+    state=true;
+    
+    /*if(![GameManager load_Coin_State:[GameManager getCurrentStage] coinNum:coinNum]){
         self.physicsBody.collisionType = @"";
         self.opacity=0.1;
-    }
-#endif
+    }*/
     
 }
 

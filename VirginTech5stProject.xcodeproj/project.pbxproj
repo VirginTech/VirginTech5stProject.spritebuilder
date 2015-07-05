@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B121030197484FA004C1E1D /* VirginTech_stProjectActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* VirginTech_stProjectActivity.m */; };
+		5B121030197484FA004C1E1D /* VirginTech5stProjectActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* VirginTech5stProjectActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -96,6 +96,8 @@
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		CF1992B51B3E634900EAC681 /* bg_01.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1992B31B3E634900EAC681 /* bg_01.png */; };
 		CF1992BB1B3E640100EAC681 /* StageScene_02.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1992BA1B3E640100EAC681 /* StageScene_02.m */; };
+		CF342F521B490F33000CD798 /* Data_io.m in Sources */ = {isa = PBXBuildFile; fileRef = CF342F511B490F33000CD798 /* Data_io.m */; };
+		CF342F681B492C71000CD798 /* Data_io.java in Sources */ = {isa = PBXBuildFile; fileRef = CF342F4E1B490DF3000CD798 /* Data_io.java */; };
 		CF61236D1B269004008AED91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF61236F1B269004008AED91 /* InfoPlist.strings */; };
 		CF6123721B2690C5008AED91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF6123741B2690C5008AED91 /* Localizable.strings */; };
 		CF61237D1B269406008AED91 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF61237C1B269406008AED91 /* TitleScene.m */; };
@@ -152,6 +154,8 @@
 		CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
 		CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */; };
 		CFF515F81B33E14600D0BB88 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F71B33E14600D0BB88 /* NaviLayer.m */; };
+		CFFFE9B71B48D5B500D0AE09 /* strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = CFFFE9B61B48D5B500D0AE09 /* strings.xml */; };
+		CFFFE9BD1B48DB6200D0AE09 /* strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = CFFFE9BC1B48DB6200D0AE09 /* strings.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +201,13 @@
 			remoteGlobalIDString = D2FEB60D194F6C9E00FC0574;
 			remoteInfo = cocos2dAndroid;
 		};
+		CF342F691B492C8A000CD798 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B77F1B2617B978D7009739AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF342F631B492C5E000CD798;
+			remoteInfo = VirginTech5stProjectJava;
+		};
 		CF6123591B268953008AED91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7378940180761A80076A88C /* cocos2d.xcodeproj */;
@@ -212,8 +223,8 @@
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121013197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121015197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
-		5B12102E197484FA004C1E1D /* VirginTech_stProjectActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VirginTech_stProjectActivity.h; path = Source/Platforms/Android/VirginTech_stProjectActivity.h; sourceTree = "<group>"; };
-		5B12102F197484FA004C1E1D /* VirginTech_stProjectActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VirginTech_stProjectActivity.m; path = Source/Platforms/Android/VirginTech_stProjectActivity.m; sourceTree = "<group>"; };
+		5B12102E197484FA004C1E1D /* VirginTech5stProjectActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VirginTech5stProjectActivity.h; path = Source/Platforms/Android/VirginTech5stProjectActivity.h; sourceTree = "<group>"; };
+		5B12102F197484FA004C1E1D /* VirginTech5stProjectActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VirginTech5stProjectActivity.m; path = Source/Platforms/Android/VirginTech5stProjectActivity.m; sourceTree = "<group>"; };
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
 		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
@@ -273,6 +284,10 @@
 		CF1992B31B3E634900EAC681 /* bg_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_01.png; sourceTree = "<group>"; };
 		CF1992B91B3E640100EAC681 /* StageScene_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_02.h; sourceTree = "<group>"; };
 		CF1992BA1B3E640100EAC681 /* StageScene_02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene_02.m; sourceTree = "<group>"; };
+		CF342F4E1B490DF3000CD798 /* Data_io.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Data_io.java; sourceTree = "<group>"; };
+		CF342F501B490F33000CD798 /* Data_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data_io.h; sourceTree = "<group>"; };
+		CF342F511B490F33000CD798 /* Data_io.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data_io.m; sourceTree = "<group>"; };
+		CF342F641B492C5E000CD798 /* VirginTech5stProjectJava.jar */ = {isa = PBXFileReference; explicitFileType = compiled.java.jar; includeInIndex = 0; path = VirginTech5stProjectJava.jar; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6123711B269065008AED91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF6123751B2690C9008AED91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CF6123761B269106008AED91 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -315,6 +330,8 @@
 		CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSurface.m; sourceTree = "<group>"; };
 		CFF515F61B33E14600D0BB88 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
 		CFF515F71B33E14600D0BB88 /* NaviLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviLayer.m; sourceTree = "<group>"; };
+		CFFFE9B61B48D5B500D0AE09 /* strings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = strings.xml; sourceTree = "<group>"; };
+		CFFFE9BC1B48DB6200D0AE09 /* strings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = strings.xml; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -379,6 +396,8 @@
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
+				CFFFE9BB1B48DB3E00D0AE09 /* values-ja */,
+				CFFFE9B51B48D59100D0AE09 /* values */,
 				5B12100E197483EE004C1E1D /* drawable-hdpi */,
 				5B121010197483EE004C1E1D /* drawable-mdpi */,
 				5B121012197483EE004C1E1D /* drawable-xhdpi */,
@@ -441,8 +460,11 @@
 		7A40362219DDF090007B6E8F /* Android */ = {
 			isa = PBXGroup;
 			children = (
-				5B12102E197484FA004C1E1D /* VirginTech_stProjectActivity.h */,
-				5B12102F197484FA004C1E1D /* VirginTech_stProjectActivity.m */,
+				CF342F481B490D64000CD798 /* java */,
+				5B12102E197484FA004C1E1D /* VirginTech5stProjectActivity.h */,
+				5B12102F197484FA004C1E1D /* VirginTech5stProjectActivity.m */,
+				CF342F501B490F33000CD798 /* Data_io.h */,
+				CF342F511B490F33000CD798 /* Data_io.m */,
 			);
 			name = Android;
 			sourceTree = "<group>";
@@ -597,6 +619,7 @@
 				B77F1B2E17B978D7009739AE /* VirginTech5stProject.app */,
 				927F61BF196C771E000F43EF /* VirginTech5stProject Android.app */,
 				7A4035FF19DDEE84007B6E8F /* VirginTech5stProject Mac.app */,
+				CF342F641B492C5E000CD798 /* VirginTech5stProjectJava.jar */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -663,6 +686,39 @@
 				CF1992BA1B3E640100EAC681 /* StageScene_02.m */,
 			);
 			name = StageScene;
+			sourceTree = "<group>";
+		};
+		CF342F481B490D64000CD798 /* java */ = {
+			isa = PBXGroup;
+			children = (
+				CF342F491B490D64000CD798 /* jp */,
+			);
+			name = java;
+			path = Source/Platforms/Android/java;
+			sourceTree = "<group>";
+		};
+		CF342F491B490D64000CD798 /* jp */ = {
+			isa = PBXGroup;
+			children = (
+				CF342F4A1B490D64000CD798 /* co */,
+			);
+			path = jp;
+			sourceTree = "<group>";
+		};
+		CF342F4A1B490D64000CD798 /* co */ = {
+			isa = PBXGroup;
+			children = (
+				CF342F4B1B490D64000CD798 /* virgintech */,
+			);
+			path = co;
+			sourceTree = "<group>";
+		};
+		CF342F4B1B490D64000CD798 /* virgintech */ = {
+			isa = PBXGroup;
+			children = (
+				CF342F4E1B490DF3000CD798 /* Data_io.java */,
+			);
+			path = virgintech;
 			sourceTree = "<group>";
 		};
 		CFB25ECF1B32DB250023616E /* Manager */ = {
@@ -757,6 +813,22 @@
 			name = Layer;
 			sourceTree = "<group>";
 		};
+		CFFFE9B51B48D59100D0AE09 /* values */ = {
+			isa = PBXGroup;
+			children = (
+				CFFFE9B61B48D5B500D0AE09 /* strings.xml */,
+			);
+			path = values;
+			sourceTree = "<group>";
+		};
+		CFFFE9BB1B48DB3E00D0AE09 /* values-ja */ = {
+			isa = PBXGroup;
+			children = (
+				CFFFE9BC1B48DB6200D0AE09 /* strings.xml */,
+			);
+			path = "values-ja";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -790,6 +862,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CF342F6A1B492C8A000CD798 /* PBXTargetDependency */,
 				7A97912219E6321C001FFC4D /* PBXTargetDependency */,
 			);
 			name = "VirginTech5stProject Android";
@@ -817,6 +890,21 @@
 			productReference = B77F1B2E17B978D7009739AE /* VirginTech5stProject.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CF342F631B492C5E000CD798 /* VirginTech5stProjectJava */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF342F651B492C5E000CD798 /* Build configuration list for PBXNativeTarget "VirginTech5stProjectJava" */;
+			buildPhases = (
+				CF342F621B492C5E000CD798 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VirginTech5stProjectJava;
+			productName = VirginTech5stProjectJava;
+			productReference = CF342F641B492C5E000CD798 /* VirginTech5stProjectJava.jar */;
+			productType = "com.apportable.java.product-type.library";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -835,6 +923,9 @@
 								enabled = 0;
 							};
 						};
+					};
+					CF342F631B492C5E000CD798 = {
+						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
@@ -861,6 +952,7 @@
 				B77F1B2D17B978D7009739AE /* VirginTech5stProject iOS */,
 				927F6198196C771E000F43EF /* VirginTech5stProject Android */,
 				7A4035FE19DDEE84007B6E8F /* VirginTech5stProject Mac */,
+				CF342F631B492C5E000CD798 /* VirginTech5stProjectJava */,
 			);
 		};
 /* End PBXProject section */
@@ -924,10 +1016,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFFFE9BD1B48DB6200D0AE09 /* strings.xml in Resources */,
 				927F61AD196C771E000F43EF /* Settings.png in Resources */,
 				927F61AE196C771E000F43EF /* Default@2x.png in Resources */,
 				927F61AF196C771E000F43EF /* iPad@2x.png in Resources */,
 				927F61B0196C771E000F43EF /* iPad.png in Resources */,
+				CFFFE9B71B48D5B500D0AE09 /* strings.xml in Resources */,
 				927F61B1196C771E000F43EF /* iPad-old@2x.png in Resources */,
 				927F61B2196C771E000F43EF /* iPhone-old@2x.png in Resources */,
 				927F61B4196C771E000F43EF /* Settings@2x.png in Resources */,
@@ -1067,7 +1161,8 @@
 				CF8CDC5F1B47DB4900865070 /* TitleScene.m in Sources */,
 				CF71DBC81B47FF0A00787182 /* StageScene_02.m in Sources */,
 				CF8CDC671B47E0C700865070 /* StageScene_01.m in Sources */,
-				5B121030197484FA004C1E1D /* VirginTech_stProjectActivity.m in Sources */,
+				5B121030197484FA004C1E1D /* VirginTech5stProjectActivity.m in Sources */,
+				CF342F521B490F33000CD798 /* Data_io.m in Sources */,
 				CF8CDC551B47CFA500865070 /* CheckPoint.m in Sources */,
 				CF8CDC531B47CF9400865070 /* CollisionSurface.m in Sources */,
 				CF8CDC691B47E15800865070 /* BasicMath.m in Sources */,
@@ -1099,6 +1194,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CF342F621B492C5E000CD798 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF342F681B492C71000CD798 /* Data_io.java in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1116,6 +1219,11 @@
 			isa = PBXTargetDependency;
 			name = cocos2dAndroid;
 			targetProxy = 7A97912119E6321C001FFC4D /* PBXContainerItemProxy */;
+		};
+		CF342F6A1B492C8A000CD798 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF342F631B492C5E000CD798 /* VirginTech5stProjectJava */;
+			targetProxy = CF342F691B492C8A000CD798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1461,6 +1569,54 @@
 			};
 			name = Release;
 		};
+		CF342F661B492C5E000CD798 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = apportablesdk;
+			};
+			name = Debug;
+		};
+		CF342F671B492C5E000CD798 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = "$(inherited)";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = apportablesdk;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1496,6 +1652,15 @@
 			buildConfigurations = (
 				B77F1CDF17B978D8009739AE /* Debug */,
 				B77F1CE017B978D8009739AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF342F651B492C5E000CD798 /* Build configuration list for PBXNativeTarget "VirginTech5stProjectJava" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF342F661B492C5E000CD798 /* Debug */,
+				CF342F671B492C5E000CD798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
