@@ -44,7 +44,7 @@ CGSize winSize;
     
     //初回時データ初期化
 #ifdef ANDROID
-    //[GameManager initialize_UserDefaults];
+    //デフォルト値を使う
 #else
     [GameManager initialize_UserDefaults];
 #endif

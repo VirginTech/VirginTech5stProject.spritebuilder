@@ -18,7 +18,7 @@ BRIDGE_CLASS("jp.co.virgintech.virgintech5stproject.Data_io")
 //+ (void)showMsg:(NSString *)msg;
 
 +(void)initialize_Preferences;
-+(void)save_Coin_Value:(int)value;
-+(int)load_Coin_Value;
++(void)save_Coin_Value:(AndroidContext*)context value:(int)value;
++(int)load_Coin_Value:(AndroidContext*)context;
 
 @end

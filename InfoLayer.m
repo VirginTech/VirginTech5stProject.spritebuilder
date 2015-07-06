@@ -87,9 +87,10 @@ CCLabelTTF* coinLabel;
     
     //枚数
 #ifdef ANDROID
+    AndroidContext* context=[CCActivity currentActivity].applicationContext;
     coinLabel=[CCLabelTTF labelWithString:
-                                [NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]]
-                                 fontName:@"Verdana-Bold" fontSize:20];
+                                [NSString stringWithFormat:@" ×%04d",[Data_io load_Coin_Value:context]]
+                                fontName:@"Verdana-Bold" fontSize:20];
 #else
     coinLabel=[CCLabelTTF labelWithString:
                                 [NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]]
@@ -105,7 +106,8 @@ CCLabelTTF* coinLabel;
 +(void)update_Coin_Value
 {
 #ifdef ANDROID
-    coinLabel.string=[NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]];
+    AndroidContext* context=[CCActivity currentActivity].applicationContext;
+    coinLabel.string=[NSString stringWithFormat:@" ×%04d",[Data_io load_Coin_Value:context]];
 #else
     coinLabel.string=[NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]];
 #endif

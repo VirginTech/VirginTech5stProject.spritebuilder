@@ -290,7 +290,8 @@ CCLabelTTF* tapStart;
         cCoin.state=false;
         
 #ifdef ANDROID
-        [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
+        AndroidContext* context=[CCActivity currentActivity].applicationContext;
+        [Data_io save_Coin_Value:context value:[Data_io load_Coin_Value:context]+1];
 #else
         [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
 #endif
