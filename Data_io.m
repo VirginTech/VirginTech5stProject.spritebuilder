@@ -10,7 +10,11 @@
 
 @implementation Data_io
 
-@bridge (constructor) initWithActivity:;
-@bridge (method, static) showMsg: = showMsg;
+//@bridge (constructor) initWithActivity:;
+//@bridge (method, static) showMsg: = showMsg;
+
+@bridge (method, static)initialize_Preferences=initialize_Preferences;
+@bridge (method, static)save_Coin_Value:=save_Coin_Value;
+@bridge (method, static)load_Coin_Value=load_Coin_Value;
 
 @end

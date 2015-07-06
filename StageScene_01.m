@@ -6,6 +6,20 @@
 //  Copyright 2015年 Apportable. All rights reserved.
 //
 
+#ifdef ANDROID
+// These three undefs are currently needed to avoid conflicts with Android's Java
+// implementation of EGL. Future versions of SBAndroid will not need these.
+#undef EGL_NO_CONTEXT
+#undef EGL_NO_DISPLAY
+#undef EGL_NO_SURFACE
+#import <AndroidKit/AndroidKit.h>
+#endif
+
+#ifdef ANDROID
+#import "Data_io.h"
+#endif
+
+
 #import "StageScene_01.h"
 
 #import "GameManager.h"
@@ -276,7 +290,7 @@ CCLabelTTF* tapStart;
         cCoin.state=false;
         
 #ifdef ANDROID
-        
+        [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
 #else
         [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
 #endif

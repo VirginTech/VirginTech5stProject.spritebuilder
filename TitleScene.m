@@ -6,6 +6,20 @@
 //  Copyright 2015年 Apportable. All rights reserved.
 //
 
+#ifdef ANDROID
+// These three undefs are currently needed to avoid conflicts with Android's Java
+// implementation of EGL. Future versions of SBAndroid will not need these.
+#undef EGL_NO_CONTEXT
+#undef EGL_NO_DISPLAY
+#undef EGL_NO_SURFACE
+#import <AndroidKit/AndroidKit.h>
+#endif
+
+#ifdef ANDROID
+#import "Data_io.h"
+#endif
+
+
 #import "TitleScene.h"
 
 #import "SelectScene.h"
@@ -30,7 +44,7 @@ CGSize winSize;
     
     //初回時データ初期化
 #ifdef ANDROID
-    
+    //[GameManager initialize_UserDefaults];
 #else
     [GameManager initialize_UserDefaults];
 #endif

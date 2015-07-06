@@ -14,7 +14,11 @@ BRIDGE_CLASS("jp.co.virgintech.virgintech5stproject.Data_io")
 
 @interface Data_io : JavaObject
 
-- (instancetype)initWithActivity:(AndroidActivity *)activity;
-+ (void)showMsg:(NSString *)msg;
+//- (instancetype)initWithActivity:(AndroidActivity *)activity;
+//+ (void)showMsg:(NSString *)msg;
+
++(void)initialize_Preferences;
++(void)save_Coin_Value:(int)value;
++(int)load_Coin_Value;
 
 @end
