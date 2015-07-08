@@ -5414,7 +5414,7 @@
 								<key>value</key>
 								<array>
 									<real>-106.60004425048828</real>
-									<real>1012</real>
+									<real>1046</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -5438,7 +5438,7 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>-0.89076477289199829</real>
+									<real>0.89099997282028198</real>
 									<real>1</real>
 									<false/>
 									<integer>0</integer>
@@ -5452,7 +5452,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/Grounds/01/airport.png</string>
+									<string>Sprites/Object/airport_r.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -7810,13 +7810,21 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-13.149684906005859</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/CheckPoint/checkPoint_03.png</string>
+									<string>Sprites/CheckPoint/CheckerFlag.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -7993,6 +8001,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-6.3440709114074707</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -8179,6 +8195,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-1.8860201835632324</real>
 							</dict>
 							<dict>
 								<key>name</key>

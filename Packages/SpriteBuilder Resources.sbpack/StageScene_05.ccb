@@ -1859,7 +1859,7 @@
 								<key>value</key>
 								<array>
 									<real>290</real>
-									<real>113</real>
+									<real>150</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1897,7 +1897,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/Grounds/01/airport.png</string>
+									<string>Sprites/Object/airport_l.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1933,8 +1933,6 @@
 								<array/>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -3697,13 +3695,21 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-10.690434455871582</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/CheckPoint/checkPoint_03.png</string>
+									<string>Sprites/CheckPoint/CheckerFlag.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3739,6 +3745,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -3880,6 +3888,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-4.3649144172668457</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4066,6 +4082,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-8.7971200942993164</real>
 							</dict>
 							<dict>
 								<key>name</key>

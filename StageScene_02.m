@@ -94,7 +94,7 @@ CCLabelTTF* tapStart;
     [self addChild:resumeButton z:1];
     
     //プレイヤー生成
-    player=[Player createPlayer:ccp(airport.position.x,airport.position.y+airport.contentSize.height/2+20)];
+    player=[Player createPlayer:ccp(airport.position.x,airport.position.y+25)];
     [physicWorld addChild:player z:1];
     
     //物理ワールド位置セット

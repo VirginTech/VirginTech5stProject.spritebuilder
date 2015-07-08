@@ -2291,7 +2291,7 @@
 								<key>value</key>
 								<array>
 									<real>261</real>
-									<real>115</real>
+									<real>150</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2329,7 +2329,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/Grounds/01/airport.png</string>
+									<string>Sprites/Object/airport_r.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2365,6 +2365,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -2625,6 +2627,14 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-6.9998784065246582</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
@@ -2808,6 +2818,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-5.2538909912109375</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2997,13 +3015,21 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-9.1295309066772461</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/CheckPoint/checkPoint_03.png</string>
+									<string>Sprites/CheckPoint/CheckerFlag.png</string>
 								</array>
 							</dict>
 							<dict>

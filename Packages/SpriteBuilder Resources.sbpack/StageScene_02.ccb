@@ -7011,7 +7011,7 @@
 								<key>value</key>
 								<array>
 									<real>248</real>
-									<real>121</real>
+									<real>157</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -7049,7 +7049,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/Grounds/01/airport.png</string>
+									<string>Sprites/Object/airport_r.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -7231,13 +7231,21 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-13.334468841552734</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/CheckPoint/checkPoint_03.png</string>
+									<string>Sprites/CheckPoint/CheckerFlag.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -7414,6 +7422,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-5.8451938629150391</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -7600,6 +7616,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-6.6267180442810059</real>
 							</dict>
 							<dict>
 								<key>name</key>

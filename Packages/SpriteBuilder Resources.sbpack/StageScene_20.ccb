@@ -1592,7 +1592,7 @@
 								<key>value</key>
 								<array>
 									<real>263</real>
-									<real>111</real>
+									<real>148</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1616,7 +1616,7 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>-0.92444801330566406</real>
+									<real>0.92400002479553223</real>
 									<real>1.1033542156219482</real>
 									<false/>
 									<integer>0</integer>
@@ -1630,7 +1630,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/Grounds/02/airport.png</string>
+									<string>Sprites/Object/airport_r.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1666,6 +1666,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -3592,7 +3594,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/CheckPoint/checkPoint_03.png</string>
+									<string>Sprites/CheckPoint/CheckerFlag.png</string>
 								</array>
 							</dict>
 							<dict>

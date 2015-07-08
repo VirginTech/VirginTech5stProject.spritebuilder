@@ -12370,7 +12370,7 @@
 								<key>value</key>
 								<array>
 									<real>-134.76414489746094</real>
-									<real>693.5</real>
+									<real>727.5</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -12394,7 +12394,7 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>-1.0240011215209961</real>
+									<real>1.0240000486373901</real>
 									<real>0.96379286050796509</real>
 									<false/>
 									<integer>0</integer>
@@ -12408,7 +12408,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/Grounds/01/airport.png</string>
+									<string>Sprites/Object/airport_r.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -14261,6 +14261,14 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-5.3896341323852539</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
@@ -14447,13 +14455,21 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-8.147404670715332</real>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>spriteFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Sprites/CheckPoint/checkPoint_03.png</string>
+									<string>Sprites/CheckPoint/CheckerFlag.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -14489,6 +14505,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -14630,6 +14648,14 @@
 									<false/>
 									<integer>0</integer>
 								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>rotation</string>
+								<key>type</key>
+								<string>Degrees</string>
+								<key>value</key>
+								<real>-7.6875143051147461</real>
 							</dict>
 							<dict>
 								<key>name</key>
