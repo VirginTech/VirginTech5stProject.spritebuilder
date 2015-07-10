@@ -21,11 +21,11 @@ int normZero;//0リセット
     
     moveCnt=0;
     
-    if([GameManager getCurrentStage]==12){
+    if([GameManager getCurrentStage]==14){
         amplitude=13;
         period=30*2;//周期30 → Cnt:188==0
         normZero=188*2;
-    }else if([GameManager getCurrentStage]==16){
+    }else if([GameManager getCurrentStage]==18){
         amplitude=5;
         period=30*2;//周期30 → Cnt:188==0
         normZero=188*2;
