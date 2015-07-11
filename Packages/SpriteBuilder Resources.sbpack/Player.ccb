@@ -74,40 +74,74 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>0.0</real>
-					<real>0.0</real>
+					<real>4.257112979888916</real>
+					<real>9.4827880859375</real>
 				</array>
 				<array>
-					<real>0.0</real>
-					<real>16</real>
+					<real>4.450202465057373</real>
+					<real>23.207841873168945</real>
 				</array>
 				<array>
-					<real>64</real>
-					<real>16</real>
+					<real>54.7822265625</real>
+					<real>23.104246139526367</real>
 				</array>
 				<array>
-					<real>64</real>
-					<real>0.0</real>
+					<real>62.375514984130859</real>
+					<real>15.661655426025391</real>
+				</array>
+				<array>
+					<real>55.794769287109375</real>
+					<real>9.6915760040283203</real>
+				</array>
+				<array>
+					<real>49.92987060546875</real>
+					<real>0.95387899875640869</real>
+				</array>
+				<array>
+					<real>42.306755065917969</real>
+					<real>9.4984865188598633</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>64</real>
-						<real>0.0</real>
+						<real>42.306755065917969</real>
+						<real>9.4984865188598633</real>
 					</array>
 					<array>
-						<real>64</real>
-						<real>16</real>
+						<real>49.92987060546875</real>
+						<real>0.95387899875640869</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>16</real>
+						<real>55.794769287109375</real>
+						<real>9.6915760040283203</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>55.794769287109375</real>
+						<real>9.6915760040283203</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>0.0</real>
+						<real>62.375514984130859</real>
+						<real>15.661655426025391</real>
+					</array>
+					<array>
+						<real>54.7822265625</real>
+						<real>23.104246139526367</real>
+					</array>
+					<array>
+						<real>4.450202465057373</real>
+						<real>23.207841873168945</real>
+					</array>
+					<array>
+						<real>4.257112979888916</real>
+						<real>9.4827880859375</real>
+					</array>
+					<array>
+						<real>42.306755065917969</real>
+						<real>9.4984865188598633</real>
 					</array>
 				</array>
 			</array>

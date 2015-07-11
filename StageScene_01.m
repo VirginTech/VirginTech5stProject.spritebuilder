@@ -147,9 +147,9 @@ CCLabelTTF* tapStart;
         touchTime=clampf(touchTime, 0.f, 2.f);
         touchCount++;
         
-        float angularVelocity=touchTime*3.f;//角速度
-        float angularImpulse=touchTime*50.f;//角力積
-        float forceParam=touchTime*100.f;//Forceパラメーター
+        float angularVelocity=touchTime*2.5f;//角速度
+        float angularImpulse=touchTime*25.f;//角力積
+        float forceParam=touchTime*50.f;//Forceパラメーター
         
         //機首を上げる
         player.physicsBody.angularVelocity = angularVelocity;
@@ -357,10 +357,10 @@ CCLabelTTF* tapStart;
         //機首を下げる
         if(player.rotation > 90 && player.rotation < 270){//左旋回
             player.physicsBody.angularVelocity = 1;
-            [player.physicsBody applyAngularImpulse:100.f];
+            [player.physicsBody applyAngularImpulse:25.f];
         }else{//右旋回
             player.physicsBody.angularVelocity = -1;
-            [player.physicsBody applyAngularImpulse:-100.f];
+            [player.physicsBody applyAngularImpulse:-25.f];
         }
     }
 }
