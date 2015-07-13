@@ -14,6 +14,8 @@
 
 @implementation ResultLayer
 
+@synthesize delegate;
+
 CGSize winSize;
 
 + (ResultLayer *)scene
@@ -21,7 +23,7 @@ CGSize winSize;
     return [[self alloc] init];
 }
 
-- (id)init
+- (id)init:(bool)judgFlg
 {
     // Apple recommend assigning self with supers return value
     self = [super init];
@@ -33,7 +35,13 @@ CGSize winSize;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f]];
     [self addChild:background];
     
-    CCLabelTTF* resultLabel=[CCLabelTTF labelWithString:@"おめでとう！" fontName:@"Verdana-Bold" fontSize:30];
+    NSString* msg;
+    if(judgFlg){
+        msg=@"You Completed!";
+    }else{
+        msg=@"You Failed...";
+    }
+    CCLabelTTF* resultLabel=[CCLabelTTF labelWithString:msg fontName:@"Verdana-Bold" fontSize:30];
     resultLabel.position=ccp(winSize.width/2,winSize.height/2+50);
     [self addChild:resultLabel];
     
@@ -49,12 +57,26 @@ CGSize winSize;
     [selectButton setTarget:self selector:@selector(onSelectClick:)];
     [self addChild:selectButton];
     
-    //次ステージへ
-    CCButton* nextButton=[CCButton buttonWithTitle:@"[次ステージへ]" fontName:@"Verdana-Bold" fontSize:15];
-    nextButton.position=ccp(winSize.width/2, winSize.height/2 -100);
-    [nextButton setTarget:self selector:@selector(onNextClick:)];
-    [self addChild:nextButton];
+    if(judgFlg)
+    {
+        //次ステージへ
+        CCButton* nextButton=[CCButton buttonWithTitle:@"[次ステージへ]" fontName:@"Verdana-Bold" fontSize:15];
+        nextButton.position=ccp(winSize.width/2, winSize.height/2 -100);
+        [nextButton setTarget:self selector:@selector(onNextClick:)];
+        [self addChild:nextButton];
+    }
+    else{
+        //コンティニュー
+        CCButton* continueButton=[CCButton buttonWithTitle:@"[コンティニュー]" fontName:@"Verdana-Bold" fontSize:15];
+        continueButton.position=ccp(winSize.width/2, winSize.height/2 -100);
+        [continueButton setTarget:self selector:@selector(onContinueClick:)];
+        [self addChild:continueButton];
+        if([GameManager getClearPoint]<=0){
+            continueButton.enabled=false;
+        }
+    }
     
+    //リプレイ
     CCButton* replayButton=[CCButton buttonWithTitle:@"[リプレイ]" fontName:@"Verdana-Bold" fontSize:15];
     replayButton.position=ccp(winSize.width/2, winSize.height/2 -125);
     [replayButton setTarget:self selector:@selector(onReplayClick:)];
@@ -80,6 +102,12 @@ CGSize winSize;
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
+-(void)onContinueClick:(id)sender
+{
+    [self sendDelegate];
+    [self removeFromParentAndCleanup:YES];
+}
+
 -(void)onSelectClick:(id)sender
 {
     [[CCDirector sharedDirector] replaceScene:[SelectScene scene]
@@ -90,6 +118,11 @@ CGSize winSize;
 {
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
+}
+
+-(void)sendDelegate
+{
+    [delegate onContinueButtonClicked];
 }
 
 @end

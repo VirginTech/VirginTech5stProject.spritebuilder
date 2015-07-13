@@ -27,7 +27,6 @@
 #import "Player.h"
 #import "Jet.h"
 #import "CheckPoint.h"
-#import "ResultLayer.h"
 #import "InfoLayer.h"
 #import "Coin.h"
 
@@ -48,6 +47,7 @@ CCSprite* naviArrow;
 CCSprite* backGround;
 CCSprite* bgCloud;
 
+ResultLayer* resultLayer;
 NaviLayer* naviLayer;
 CCButton* pauseButton;
 CCButton* resumeButton;
@@ -230,7 +230,7 @@ CCLabelTTF* tapStart;
 //================================
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cSurface:(CCSprite*)cSurface
 {
-    if(!naviLayer.isRunningInActiveScene){
+    if(!naviLayer.isRunningInActiveScene && !resultLayer.isRunningInActiveScene){
         //全停止
         [GameManager setPause:true];
         touchFlg=false;
@@ -241,10 +241,10 @@ CCLabelTTF* tapStart;
         gVibCnt=0;
         [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
         
-        //ナビレイヤー
-        naviLayer=[[NaviLayer alloc]init];
-        naviLayer.delegate=self;
-        [self addChild:naviLayer];
+        //リザルトレイヤー
+        resultLayer=[[ResultLayer alloc]init:false];
+        resultLayer.delegate=self;
+        [self addChild:resultLayer];
         
         //ポーズボタン非表示
         pauseButton.visible=false;
@@ -317,7 +317,7 @@ CCLabelTTF* tapStart;
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
 
     //リザルトレイヤー
-    ResultLayer* resultLayer=[[ResultLayer alloc]init];
+    resultLayer=[[ResultLayer alloc]init:true];
     [self addChild:resultLayer];
 }
 
@@ -446,7 +446,7 @@ CCLabelTTF* tapStart;
 
 -(void)onPauseClick:(id)sender
 {
-    if(!naviLayer.isRunningInActiveScene){
+    if(!resultLayer.isRunningInActiveScene && !naviLayer.isRunningInActiveScene){
         //全停止
         [GameManager setPause:true];
         touchFlg=false;

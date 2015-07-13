@@ -40,7 +40,7 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string></string>
+		<string>IcePillar</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -66,7 +66,7 @@
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
-			<true/>
+			<false/>
 			<key>elasticity</key>
 			<real>0.30000001192092896</real>
 			<key>friction</key>
@@ -74,84 +74,48 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>2.7296643257141113</real>
-					<real>9.2300605773925781</real>
+					<real>17.609375</real>
+					<real>228.98043823242188</real>
 				</array>
 				<array>
-					<real>2.3434851169586182</real>
-					<real>23.432344436645508</real>
+					<real>40.8359375</real>
+					<real>228.98043823242188</real>
 				</array>
 				<array>
-					<real>57.125988006591797</real>
-					<real>22.969244003295898</real>
+					<real>38.91015625</real>
+					<real>73.398422241210938</real>
 				</array>
 				<array>
-					<real>64.168266296386719</real>
-					<real>16.71660041809082</real>
+					<real>27.2421875</real>
+					<real>16.5390625</real>
 				</array>
 				<array>
-					<real>55.987857818603516</real>
-					<real>9.1421499252319336</real>
-				</array>
-				<array>
-					<real>51.119804382324219</real>
-					<real>0.4923633337020874</real>
-				</array>
-				<array>
-					<real>46.035110473632812</real>
-					<real>9.2300605773925781</real>
+					<real>18.83203125</real>
+					<real>73.621078491210938</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>57.125988006591797</real>
-						<real>22.969244003295898</real>
+						<real>18.83203125</real>
+						<real>73.621078491210938</real>
 					</array>
 					<array>
-						<real>2.3434851169586182</real>
-						<real>23.432344436645508</real>
+						<real>27.2421875</real>
+						<real>16.5390625</real>
 					</array>
 					<array>
-						<real>2.7296643257141113</real>
-						<real>9.2300605773925781</real>
+						<real>38.91015625</real>
+						<real>73.398422241210938</real>
 					</array>
 					<array>
-						<real>46.035110473632812</real>
-						<real>9.2300605773925781</real>
-					</array>
-				</array>
-				<array>
-					<array>
-						<real>46.035110473632812</real>
-						<real>9.2300605773925781</real>
+						<real>40.8359375</real>
+						<real>228.98043823242188</real>
 					</array>
 					<array>
-						<real>51.119804382324219</real>
-						<real>0.4923633337020874</real>
-					</array>
-					<array>
-						<real>55.987857818603516</real>
-						<real>9.1421499252319336</real>
-					</array>
-				</array>
-				<array>
-					<array>
-						<real>55.987857818603516</real>
-						<real>9.1421499252319336</real>
-					</array>
-					<array>
-						<real>64.168266296386719</real>
-						<real>16.71660041809082</real>
-					</array>
-					<array>
-						<real>57.125988006591797</real>
-						<real>22.969244003295898</real>
-					</array>
-					<array>
-						<real>46.035110473632812</real>
-						<real>9.2300605773925781</real>
+						<real>17.609375</real>
+						<real>228.98043823242188</real>
 					</array>
 				</array>
 			</array>
@@ -212,7 +176,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>Sprites/Object/player.png</string>
+					<string>Sprites/Grounds/03/pillar-03.png</string>
 				</array>
 			</dict>
 			<dict>

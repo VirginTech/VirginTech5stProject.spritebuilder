@@ -10,8 +10,9 @@
 #import "cocos2d.h"
 
 #import "NaviLayer.h"
+#import "ResultLayer.h"
 
-@interface StageScene_02 : CCScene <ContinueDelegate, CCPhysicsCollisionDelegate>
+@interface StageScene_02 : CCScene <ContinueDelegate1,ContinueDelegate2,CCPhysicsCollisionDelegate>
 {
     CCPhysicsNode* physicWorld;//CCB定義
     

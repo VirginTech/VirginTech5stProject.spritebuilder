@@ -10,12 +10,14 @@
 #import "cocos2d.h"
 
 #import "NaviLayer.h"
+#import "ResultLayer.h"
 
-@interface StageScene_03 : CCScene <ContinueDelegate, CCPhysicsCollisionDelegate>
+@interface StageScene_03 : CCScene <ContinueDelegate1,ContinueDelegate2,CCPhysicsCollisionDelegate>
 {
     CCPhysicsNode* physicWorld;//CCB定義
     
     CCSprite* airport;//CCB定義
+    
     CCSprite* checkPoint_01;//CCB定義
     CCSprite* checkPoint_02;//CCB定義
     CCSprite* checkPoint_03;//CCB定義

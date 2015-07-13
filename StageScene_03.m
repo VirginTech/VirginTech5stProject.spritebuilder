@@ -27,9 +27,9 @@
 #import "Player.h"
 #import "Jet.h"
 #import "CheckPoint.h"
-#import "ResultLayer.h"
 #import "InfoLayer.h"
 #import "Coin.h"
+#import "IcePillar.h"
 
 @implementation StageScene_03
 
@@ -48,6 +48,7 @@ CCSprite* naviArrow;
 CCSprite* backGround;
 CCSprite* bgCloud;
 
+ResultLayer* resultLayer;
 NaviLayer* naviLayer;
 CCButton* pauseButton;
 CCButton* resumeButton;
@@ -55,6 +56,12 @@ CCButton* resumeButton;
 CGPoint movePos;
 float moveAngle;
 float checkPointDistance;
+
+IcePillar* icePillar;
+NSMutableArray* icePillarArray;
+bool iceFallFlg;
+int icePillarCnt;
+int icePillarMax;//氷柱数
 
 CCLabelTTF* tapStart;
 
@@ -121,6 +128,13 @@ CCLabelTTF* tapStart;
     naviArrow.position=ccp(compass.contentSize.width/2,compass.contentSize.height/2);
     [compass addChild:naviArrow];
     
+    //氷柱生成
+    if([GameManager getCurrentStage]==22){
+        icePillarMax=10;
+        iceFallFlg=false;
+        [self creatIcePillar];
+    }
+    
     //タップスタートメッセージ
     tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
     tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
@@ -128,6 +142,33 @@ CCLabelTTF* tapStart;
     //tapStart.visible=false;
     [self addChild:tapStart];
     
+}
+
+//=================
+//　氷柱 生成
+//=================
+-(void)creatIcePillar
+{
+    icePillarArray=[[NSMutableArray alloc]init];
+    
+    float icePillarOffX=0.f;
+    for(int i=0;i<icePillarMax;i++){
+        icePillar=[IcePillar createIcePillar:ccp(1600 +icePillarOffX, 450)];
+        [physicWorld addChild:icePillar z:-1];
+        icePillarOffX=icePillarOffX+50;
+        //配列追加
+        [icePillarArray addObject:icePillar];
+    }
+}
+//=================
+//　氷柱 削除
+//=================
+-(void)deleteIcePillar
+{
+    for(IcePillar* _icePillar in icePillarArray){
+        [physicWorld removeChild:_icePillar cleanup:YES];
+    }
+    icePillarArray=[[NSMutableArray alloc]init];
 }
 
 //=============================
@@ -223,14 +264,55 @@ CCLabelTTF* tapStart;
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_05.position];
         }
     }
+    
+    //氷柱落下スケジュール始動
+    if([GameManager getCurrentStage]==22){
+        if([GameManager getClearPoint]==1){
+            if(!iceFallFlg){
+                if(player.position.x>1500){
+                    iceFallFlg=true;
+                    icePillarCnt=0;
+                    [self schedule:@selector(icePillar_Schedule:) interval:0.5 repeat:icePillarArray.count-1 delay:0.f];
+                }
+            }
+        }
+    }
+    
+}
+
+//==========================
+//　氷柱落下スケジュール
+//==========================
+-(void)icePillar_Schedule:(CCTime)dt
+{
+    //ポーズ脱出
+    if([GameManager getPause]){
+        [self unschedule:@selector(icePillar_Schedule:)];
+        iceFallFlg=false;
+        return;
+    }
+    
+    if(icePillarArray.count>icePillarCnt){
+        IcePillar* _icePillar=[icePillarArray objectAtIndex:icePillarCnt];
+        [_icePillar.physicsBody setType:CCPhysicsBodyTypeDynamic];
+        icePillarCnt++;
+    }
 }
 
 //================================
-//　プレイヤー墜落判定
+//　プレイヤー 対 氷柱
 //================================
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cSurface:(CCSprite*)cSurface
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cIcePillar:(IcePillar*)cIcePillar
 {
-    if(!naviLayer.isRunningInActiveScene){
+    if(!naviLayer.isRunningInActiveScene && !resultLayer.isRunningInActiveScene)
+    {
+        //氷柱も全停止
+        for(IcePillar* _icePillar in icePillarArray){
+            if(!_icePillar.physicsBody.sleeping){
+                [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+            }
+        }
+        
         //全停止
         [GameManager setPause:true];
         touchFlg=false;
@@ -241,10 +323,48 @@ CCLabelTTF* tapStart;
         gVibCnt=0;
         [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
         
-        //ナビレイヤー
-        naviLayer=[[NaviLayer alloc]init];
-        naviLayer.delegate=self;
-        [self addChild:naviLayer];
+        //リザルトレイヤー
+        resultLayer=[[ResultLayer alloc]init:false];
+        resultLayer.delegate=self;
+        [self addChild:resultLayer];
+        
+        //ポーズボタン非表示
+        pauseButton.visible=false;
+        resumeButton.visible=false;
+    }
+    return TRUE;
+}
+//================================
+//　氷柱 対 地面
+//================================
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair
+                                            cSurface:(CCSprite*)cSurface cIcePillar:(IcePillar*)cIcePillar
+{
+    [cIcePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+    
+    return TRUE;
+}
+
+//================================
+//　プレイヤー墜落判定
+//================================
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cSurface:(CCSprite*)cSurface
+{
+    if(!naviLayer.isRunningInActiveScene && !resultLayer.isRunningInActiveScene){
+        //全停止
+        [GameManager setPause:true];
+        touchFlg=false;
+        [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
+        //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
+        
+        //地面振動スケジュール
+        gVibCnt=0;
+        [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
+        
+        //リザルトレイヤー
+        resultLayer=[[ResultLayer alloc]init:false];
+        resultLayer.delegate=self;
+        [self addChild:resultLayer];
         
         //ポーズボタン非表示
         pauseButton.visible=false;
@@ -317,7 +437,7 @@ CCLabelTTF* tapStart;
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
     
     //リザルトレイヤー
-    ResultLayer* resultLayer=[[ResultLayer alloc]init];
+    resultLayer=[[ResultLayer alloc]init:true];
     [self addChild:resultLayer];
 }
 
@@ -430,6 +550,15 @@ CCLabelTTF* tapStart;
             [player.physicsBody setSleeping:true];
         }
         
+        //氷柱初期化
+        if([GameManager getCurrentStage]==22){
+            if([GameManager getClearPoint]==1){
+                [self deleteIcePillar];
+                [self creatIcePillar];
+                iceFallFlg=false;
+            }
+        }
+        
         //ボタン切り替え
         pauseButton.visible=true;
         resumeButton.visible=false;
@@ -446,7 +575,7 @@ CCLabelTTF* tapStart;
 
 -(void)onPauseClick:(id)sender
 {
-    if(!naviLayer.isRunningInActiveScene){
+    if(!resultLayer.isRunningInActiveScene && !naviLayer.isRunningInActiveScene){
         //全停止
         [GameManager setPause:true];
         touchFlg=false;

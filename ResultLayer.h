@@ -9,11 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+// デリゲートを定義
+@protocol ContinueDelegate2 <NSObject>
+-(void)onContinueButtonClicked;
+@end
+
 @interface ResultLayer : CCScene {
     
 }
 
+//デリゲート・プロパティ
+@property (nonatomic, assign) id <ContinueDelegate2> delegate;
+//デリゲート用メソッド
+-(void)sendDelegate;
+
 + (ResultLayer *)scene;
-- (id)init;
+- (id)init:(bool)judgFlg;
 
 @end

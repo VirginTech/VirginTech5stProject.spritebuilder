@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 // デリゲートを定義
-@protocol ContinueDelegate <NSObject>
+@protocol ContinueDelegate1 <NSObject>
 -(void)onContinueButtonClicked;
 @end
 
@@ -20,7 +20,7 @@
 }
 
 //デリゲート・プロパティ
-@property (nonatomic, assign) id <ContinueDelegate> delegate;
+@property (nonatomic, assign) id <ContinueDelegate1> delegate;
 //デリゲート用メソッド
 -(void)sendDelegate;
 

@@ -152,6 +152,9 @@
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
 		CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
 		CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
+		CFE45DB31B5293D900B772F0 /* IcePillar.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE45DB21B5293D900B772F0 /* IcePillar.m */; };
+		CFE45DB41B5293D900B772F0 /* IcePillar.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE45DB21B5293D900B772F0 /* IcePillar.m */; };
+		CFE45DB51B5293D900B772F0 /* IcePillar.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE45DB21B5293D900B772F0 /* IcePillar.m */; };
 		CFF0A9E91B30574C008241A8 /* bgCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF0A9E81B30574C008241A8 /* bgCloud.png */; };
 		CFF19E8C1B3122BC0021005A /* jet.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF19E8B1B3122BC0021005A /* jet.png */; };
 		CFF19E8F1B3122E10021005A /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
@@ -327,6 +330,8 @@
 		CFE0815B1B2D2090008426B0 /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_01.h; sourceTree = "<group>"; };
 		CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageScene_01.m; sourceTree = "<group>"; };
+		CFE45DB11B5293D900B772F0 /* IcePillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IcePillar.h; sourceTree = "<group>"; };
+		CFE45DB21B5293D900B772F0 /* IcePillar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IcePillar.m; sourceTree = "<group>"; };
 		CFF0A9E81B30574C008241A8 /* bgCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgCloud.png; sourceTree = "<group>"; };
 		CFF19E8B1B3122BC0021005A /* jet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jet.png; sourceTree = "<group>"; };
 		CFF19E8D1B3122E10021005A /* Jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jet.h; sourceTree = "<group>"; };
@@ -763,6 +768,8 @@
 				CFB070641B4233BB00D4C414 /* MoveBlock01.m */,
 				CFA9E0BE1B4BC7A500DDA0AB /* MoveBlock02.h */,
 				CFA9E0BF1B4BC7A500DDA0AB /* MoveBlock02.m */,
+				CFE45DB11B5293D900B772F0 /* IcePillar.h */,
+				CFE45DB21B5293D900B772F0 /* IcePillar.m */,
 			);
 			name = Object;
 			sourceTree = "<group>";
@@ -1164,6 +1171,7 @@
 				7A59498E19E3941300F65F90 /* AppDelegate.m in Sources */,
 				CF8CDC661B47E0A900865070 /* SelectScene.m in Sources */,
 				CF8CDC721B47E2C300865070 /* Player.m in Sources */,
+				CFE45DB51B5293D900B772F0 /* IcePillar.m in Sources */,
 				CF8CDC601B47DB4A00865070 /* TitleScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1191,6 +1199,7 @@
 				CF342F521B490F33000CD798 /* Data_io.m in Sources */,
 				CF8CDC551B47CFA500865070 /* CheckPoint.m in Sources */,
 				CF8CDC531B47CF9400865070 /* CollisionSurface.m in Sources */,
+				CFE45DB41B5293D900B772F0 /* IcePillar.m in Sources */,
 				CF8CDC691B47E15800865070 /* BasicMath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1218,6 +1227,7 @@
 				CFAF46871B3BA06300B6A1BD /* InfoLayer.m in Sources */,
 				CFAF469A1B3BD6B400B6A1BD /* Coin.m in Sources */,
 				CFB070651B4233BB00D4C414 /* MoveBlock01.m in Sources */,
+				CFE45DB31B5293D900B772F0 /* IcePillar.m in Sources */,
 				CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
