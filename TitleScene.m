@@ -58,7 +58,7 @@ CGSize winSize;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"title_default.plist"];
     
     //タイトルロゴ
-    CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:@"5st Project" fontName:@"Verdana-Bold" fontSize:30];
+    CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:30];
     titleLogo.position=ccp(winSize.width/2,winSize.height/2+50);
     [self addChild:titleLogo];
     

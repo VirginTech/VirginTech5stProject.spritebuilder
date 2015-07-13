@@ -184,15 +184,34 @@ CCLabelTTF* tapStart;
     offSet.y=player.position.y - winSize.height/2;
     physicWorld.position=ccp(-offSet.x,-offSet.y);
     
+    /*/物理ワールド移動（範囲内移動しないバージョン）
+    CGPoint offSet;
+    //プレイヤーのスクリーン城の位置を取得
+    CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:player.position];
+    CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+    
+    if(groundScreenPosition.x<winSize.width/3){
+        offSet.x=winSize.width/3 - player.position.x;
+        offSet.y=winSize.height/2 - player.position.y;
+    }else if(groundScreenPosition.x>winSize.width/2){
+        offSet.x=winSize.width/2- player.position.x;
+        offSet.y=winSize.height/2 - player.position.y;
+    }else{
+        offSet.x=physicWorld.position.x;
+        offSet.y=winSize.height/2 -player.position.y;
+    }
+    physicWorld.position=ccp(offSet.x,offSet.y);*/
+    
     //背景移動
     backGround.position=player.position;
     
     //雲移動
-    bgCloud.position=ccp(player.position.x,bgCloud.position.y);//X軸は通常
     if(player.position.y > bgCloud.position.y + (bgCloud.contentSize.height/2 -50)){//上昇
         bgCloud.position=ccp(player.position.x, player.position.y - (bgCloud.contentSize.height/2 -50));
     }else if(player.position.y < bgCloud.position.y - (bgCloud.contentSize.height/2 -50)){//下降
         bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
+    }else{
+        bgCloud.position=ccp(player.position.x,bgCloud.position.y);
     }
     
     //角度を正規化

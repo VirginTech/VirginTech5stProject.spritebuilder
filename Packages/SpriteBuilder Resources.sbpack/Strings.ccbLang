@@ -5,12 +5,25 @@
 	<key>activeLanguages</key>
 	<array>
 		<string>en</string>
+		<string>ja</string>
 	</array>
 	<key>fileType</key>
 	<string>SpriteBuilderTranslations</string>
 	<key>fileVersion</key>
 	<integer>1</integer>
 	<key>translations</key>
-	<array/>
+	<array>
+		<dict>
+			<key>key</key>
+			<string>Title</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Flying High !</string>
+				<key>ja</key>
+				<string>フライング ハイ！</string>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
