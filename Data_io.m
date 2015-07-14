@@ -20,4 +20,6 @@
 @bridge (method, static)save_Int_Value:file:key:value: =save_Int_Value;
 @bridge (method, static)load_Int_Value:file:key:       =load_Int_Value;
 
+@bridge (method, static)local_Str:keyId: =local_Str;
+
 @end

@@ -57,6 +57,9 @@ CGSize winSize;
     [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"title_default.plist"];
     
+    //strings.xmlローカライズ テスト
+    //NSLog(@"%@",[Data_io local_Str:[CCActivity currentActivity].applicationContext keyId:0x7f030000]);
+    
     //タイトルロゴ
     CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:30];
     titleLogo.position=ccp(winSize.width/2,winSize.height/2+50);

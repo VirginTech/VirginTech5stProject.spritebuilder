@@ -32,4 +32,7 @@ BRIDGE_CLASS("jp.co.virgintech.virgintech5stproject.Data_io")
                                 file:(NSString*)file
                                 key:(NSString*)key;
 
+//ローカライズ テキスト
++(NSString*)local_Str:(AndroidContext*)context keyId:(int)keyId;
+
 @end

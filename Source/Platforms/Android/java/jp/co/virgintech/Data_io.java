@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 public class Data_io
-{    
+{
     static public void initialize_Preferences()
     {
     }
@@ -39,6 +39,11 @@ public class Data_io
         SharedPreferences pref = context.getSharedPreferences(file, context.MODE_PRIVATE);
         value = pref.getInt(key, 0);
         return value;
+    }
+    static public String local_Str(Context context,int keyId)
+    {
+        String str = context.getString(keyId);
+        return str;
     }
 }
 
