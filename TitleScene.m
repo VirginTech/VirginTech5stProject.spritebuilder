@@ -52,13 +52,18 @@ CGSize winSize;
     //Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
     [self addChild:background];
-
+    
+    //strings.xmlリソース取得テストコード
+/*#ifdef ANDROID
+    AndroidContext* context=[CCActivity currentActivity].applicationContext;
+    [Data_io getResText:context type:@"string" key:@"app_name"];
+    NSString* str=[Data_io getCallBackStrings];
+    NSLog(@"===============%@===============",str);
+#endif*/
+    
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"title_default.plist"];
-    
-    //strings.xmlローカライズ テスト
-    //NSLog(@"%@",[Data_io local_Str:[CCActivity currentActivity].applicationContext keyId:0x7f030000]);
     
     //タイトルロゴ
     CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:30];

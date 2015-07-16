@@ -10,16 +10,32 @@
 
 @implementation Data_io
 
-//@bridge (constructor) initWithActivity:;
-//@bridge (method, static) showMsg: = showMsg;
+NSString* str;
 
-@bridge (method, static)initialize_Preferences  =initialize_Preferences;
+//======================
+// Objcからアクセス用
+//======================
++(NSString*)getCallBackStrings{
+    return str;
+}
+
+//======================
+// Javaブリッジング
+//======================
+
+//コインセーブ・ロード（デフォルトプリファレンス）
 @bridge (method, static)save_Coin_Value:value:  =save_Coin_Value;
 @bridge (method, static)load_Coin_Value:        =load_Coin_Value;
 
+//汎用タイプint型（プリファレンスファイル指定）
 @bridge (method, static)save_Int_Value:file:key:value: =save_Int_Value;
 @bridge (method, static)load_Int_Value:file:key:       =load_Int_Value;
 
-@bridge (method, static)local_Str:keyId: =local_Str;
+//リソーステキスト取得（＊コールバックで戻す）
+@bridge (method, static)getResText:type:key:      =getResText;
+@bridge (callback, static) callbackStrings: = callbackStrings;
++(void)callbackStrings:(NSString *)message{
+    str=message;
+}
 
 @end

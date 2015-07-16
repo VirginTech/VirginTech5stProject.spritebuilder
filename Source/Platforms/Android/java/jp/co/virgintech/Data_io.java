@@ -3,6 +3,7 @@ package jp.co.virgintech.virgintech5stproject;
 
 import android.app.Activity;
 import android.content.Context;
+//import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -40,10 +41,22 @@ public class Data_io
         value = pref.getInt(key, 0);
         return value;
     }
-    static public String local_Str(Context context,int keyId)
+    static public void getResText(Context context,String type,String key)
     {
-        String str = context.getString(keyId);
-        return str;
+        /* Use Resources-Class
+         Resources res = context.getResources();
+        int resId = res.getIdentifier(key, "string", context.getPackageName());
+        String str = res.getString(resId);
+         */
+        
+        //Use Context-Class
+        int resId = context.getResources().getIdentifier(key, type, context.getPackageName());
+        String str = context.getString(resId);
+        
+        //CallBack Return!
+        callbackStrings(str);
     }
+    
+    static private native void callbackStrings(String message);
 }
 
