@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>116</integer>
+	<integer>118</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -5903,24 +5903,24 @@
 									<real>53.015090942382812</real>
 								</array>
 								<array>
-									<real>3168.296875</real>
-									<real>49.339324951171875</real>
+									<real>3715.09765625</real>
+									<real>50.003372192382812</real>
 								</array>
 								<array>
-									<real>3165.59375</real>
-									<real>-10.668472290039062</real>
+									<real>3710.58984375</real>
+									<real>-39.230987548828125</real>
 								</array>
 							</array>
 							<key>polygons</key>
 							<array>
 								<array>
 									<array>
-										<real>3165.59375</real>
-										<real>-10.668472290039062</real>
+										<real>3710.58984375</real>
+										<real>-39.230987548828125</real>
 									</array>
 									<array>
-										<real>3168.296875</real>
-										<real>49.339324951171875</real>
+										<real>3715.09765625</real>
+										<real>50.003372192382812</real>
 									</array>
 									<array>
 										<real>-6.73828125</real>
