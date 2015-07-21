@@ -2292,24 +2292,24 @@
 									<real>514.0755615234375</real>
 								</array>
 								<array>
-									<real>1403.84814453125</real>
-									<real>513.5294189453125</real>
+									<real>4134.671875</real>
+									<real>510.14944458007812</real>
 								</array>
 								<array>
-									<real>1402.7938232421875</real>
-									<real>-13.85398006439209</real>
+									<real>4130.296875</real>
+									<real>5.1120028495788574</real>
 								</array>
 							</array>
 							<key>polygons</key>
 							<array>
 								<array>
 									<array>
-										<real>1402.7938232421875</real>
-										<real>-13.85398006439209</real>
+										<real>4130.296875</real>
+										<real>5.1120028495788574</real>
 									</array>
 									<array>
-										<real>1403.84814453125</real>
-										<real>513.5294189453125</real>
+										<real>4134.671875</real>
+										<real>510.14944458007812</real>
 									</array>
 									<array>
 										<real>2.6158287525177002</real>
@@ -2414,6 +2414,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
