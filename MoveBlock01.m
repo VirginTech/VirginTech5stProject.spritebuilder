@@ -42,6 +42,11 @@ float velocity;
         period=30*2;//周期30 → Cnt:188==0
         normZero=188*2;
         velocity=0.5;
+    }else if([GameManager getCurrentStage]==30){
+        amplitude=8;
+        period=30*2;//周期30 → Cnt:188==0
+        normZero=188*2;
+        velocity=0.2;
     }
     
     [self schedule:@selector(move_Schedule:) interval:0.016 repeat:CCTimerRepeatForever delay:delay];

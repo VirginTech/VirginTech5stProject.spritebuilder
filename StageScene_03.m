@@ -132,7 +132,11 @@ CCLabelTTF* tapStart;
     if([GameManager getCurrentStage]==22){
         icePillarMax=10;
         iceFallFlg=false;
-        [self creatIcePillar];
+        [self creatIcePillar:ccp(1600,450)];
+    }else if([GameManager getCurrentStage]==30){
+        icePillarMax=10;
+        iceFallFlg=false;
+        [self creatIcePillar:ccp(550,500)];
     }
     
     //タップスタートメッセージ
@@ -147,13 +151,13 @@ CCLabelTTF* tapStart;
 //=================
 //　氷柱 生成
 //=================
--(void)creatIcePillar
+-(void)creatIcePillar:(CGPoint)pos
 {
     icePillarArray=[[NSMutableArray alloc]init];
     
     float icePillarOffX=0.f;
     for(int i=0;i<icePillarMax;i++){
-        icePillar=[IcePillar createIcePillar:ccp(1600 +icePillarOffX, 450)];
+        icePillar=[IcePillar createIcePillar:ccp(pos.x +icePillarOffX, pos.y)];
         [physicWorld addChild:icePillar z:-1];
         icePillarOffX=icePillarOffX+50;
         //配列追加
@@ -304,6 +308,16 @@ CCLabelTTF* tapStart;
                 }
             }
         }
+    }else if([GameManager getCurrentStage]==30){
+        if([GameManager getClearPoint]==0){
+            if(!iceFallFlg){
+                if(player.position.x>500){
+                    iceFallFlg=true;
+                    icePillarCnt=0;
+                    [self schedule:@selector(icePillar_Schedule:) interval:0.4 repeat:icePillarArray.count-1 delay:0.f];
+                }
+            }
+        }
     }
     
 }
@@ -389,6 +403,12 @@ CCLabelTTF* tapStart;
         //＊注 落下開始後→ポーズ→レジューム→氷柱以外に衝突→エラーになる！）
         if([GameManager getCurrentStage]==22){
             if([GameManager getClearPoint]==1){
+                for(IcePillar* _icePillar in icePillarArray){
+                    _icePillar.physicsBody.collisionType=@"";
+                }
+            }
+        }else if([GameManager getCurrentStage]==30){
+            if([GameManager getClearPoint]==0){
                 for(IcePillar* _icePillar in icePillarArray){
                     _icePillar.physicsBody.collisionType=@"";
                 }
@@ -592,11 +612,16 @@ CCLabelTTF* tapStart;
         if([GameManager getCurrentStage]==22){
             if([GameManager getClearPoint]==1){
                 [self deleteIcePillar];
-                [self creatIcePillar];
+                [self creatIcePillar:ccp(1600,450)];
+                iceFallFlg=false;
+            }
+        }else if([GameManager getCurrentStage]==30){
+            if([GameManager getClearPoint]==0){
+                [self deleteIcePillar];
+                [self creatIcePillar:ccp(550,500)];
                 iceFallFlg=false;
             }
         }
-        
         //ボタン切り替え
         pauseButton.visible=true;
         resumeButton.visible=false;
@@ -627,8 +652,13 @@ CCLabelTTF* tapStart;
                     [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
                 }
             }
+        }else if([GameManager getCurrentStage]==30){
+            if([GameManager getClearPoint]==0){
+                for(IcePillar* _icePillar in icePillarArray){
+                    [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+                }
+            }
         }
-
         
         //ボタン切り替え
         pauseButton.visible=false;
