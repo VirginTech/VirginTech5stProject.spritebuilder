@@ -1,8 +1,8 @@
 //
-//  StageScene_03.m
+//  StageScene_04.m
 //  VirginTech5stProject
 //
-//  Created by VirginTech LLC. on 2015/07/10.
+//  Created by VirginTech LLC. on 2015/07/23.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 #endif
 
 
-#import "StageScene_03.h"
+#import "StageScene_04.h"
 
 #import "GameManager.h"
 #import "BasicMath.h"
@@ -29,9 +29,9 @@
 #import "CheckPoint.h"
 #import "InfoLayer.h"
 #import "Coin.h"
-#import "IcePillar.h"
 
-@implementation StageScene_03
+
+@implementation StageScene_04
 
 CGSize winSize;
 
@@ -56,12 +56,6 @@ CCButton* resumeButton;
 CGPoint movePos;
 float moveAngle;
 float checkPointDistance;
-
-IcePillar* icePillar;
-NSMutableArray* icePillarArray;
-bool iceFallFlg;
-int icePillarCnt;
-int icePillarMax;//氷柱数
 
 CCLabelTTF* tapStart;
 
@@ -104,17 +98,17 @@ CCLabelTTF* tapStart;
     
     //物理ワールド位置セット
     CGPoint offSet;
-    offSet.x=winSize.width/2 - player.position.x;
-    offSet.y=winSize.height/2 - player.position.y;
-    physicWorld.position=ccp(offSet.x,offSet.y);
+    offSet.x=player.position.x - winSize.width/2;
+    offSet.y=player.position.y - winSize.height/2;
+    physicWorld.position=ccp(-offSet.x,-offSet.y);
     
     //バックグラウンド
-    backGround=[CCSprite spriteWithImageNamed:@"bg_03.png"];
+    backGround=[CCSprite spriteWithImageNamed:@"bg_04.png"];
     backGround.position=player.position;
     [physicWorld addChild:backGround z:-2];
     
     //バックグラウンド(雲)
-    bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud_01.png"];
+    bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud_02.png"];
     bgCloud.position=player.position;
     [physicWorld addChild:bgCloud z:-1];
     
@@ -128,17 +122,6 @@ CCLabelTTF* tapStart;
     naviArrow.position=ccp(compass.contentSize.width/2,compass.contentSize.height/2);
     [compass addChild:naviArrow];
     
-    //氷柱生成
-    if([GameManager getCurrentStage]==22){
-        icePillarMax=10;
-        iceFallFlg=false;
-        [self creatIcePillar:ccp(1600,450)];
-    }else if([GameManager getCurrentStage]==30){
-        icePillarMax=10;
-        iceFallFlg=false;
-        [self creatIcePillar:ccp(550,500)];
-    }
-    
     //タップスタートメッセージ
     tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
     tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
@@ -146,33 +129,6 @@ CCLabelTTF* tapStart;
     //tapStart.visible=false;
     [self addChild:tapStart];
     
-}
-
-//=================
-//　氷柱 生成
-//=================
--(void)creatIcePillar:(CGPoint)pos
-{
-    icePillarArray=[[NSMutableArray alloc]init];
-    
-    float icePillarOffX=0.f;
-    for(int i=0;i<icePillarMax;i++){
-        icePillar=[IcePillar createIcePillar:ccp(pos.x +icePillarOffX, pos.y)];
-        [physicWorld addChild:icePillar z:-1];
-        icePillarOffX=icePillarOffX+50;
-        //配列追加
-        [icePillarArray addObject:icePillar];
-    }
-}
-//=================
-//　氷柱 削除
-//=================
--(void)deleteIcePillar
-{
-    for(IcePillar* _icePillar in icePillarArray){
-        [physicWorld removeChild:_icePillar cleanup:YES];
-    }
-    icePillarArray=[[NSMutableArray alloc]init];
 }
 
 //=============================
@@ -225,49 +181,40 @@ CCLabelTTF* tapStart;
     
     //物理ワールド移動
     CGPoint offSet;
-    offSet.x=winSize.width/2 - player.position.x;
-    offSet.y=winSize.height/2 - player.position.y;
-    physicWorld.position=ccp(offSet.x,offSet.y);
+    offSet.x=player.position.x - winSize.width/2;
+    offSet.y=player.position.y - winSize.height/2;
+    physicWorld.position=ccp(-offSet.x,-offSet.y);
     
     /*/物理ワールド移動（範囲内移動しないバージョン）
-    CGPoint offSet;
-    //プレイヤーのスクリーン城の位置を取得
-    CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:player.position];
-    CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
-    
-    if(groundScreenPosition.x<winSize.width/3){
-        offSet.x=winSize.width/3 - player.position.x;
-        offSet.y=winSize.height/2 - player.position.y;
-    }else if(groundScreenPosition.x>winSize.width/2){
-        offSet.x=winSize.width/2- player.position.x;
-        offSet.y=winSize.height/2 - player.position.y;
-    }else{
-        offSet.x=physicWorld.position.x;
-        offSet.y=winSize.height/2 -player.position.y;
-    }
-    physicWorld.position=ccp(offSet.x,offSet.y);*/
+     CGPoint offSet;
+     //プレイヤーのスクリーン城の位置を取得
+     CGPoint groundWorldPosition = [physicWorld convertToWorldSpace:player.position];
+     CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+     
+     if(groundScreenPosition.x<winSize.width/3){
+     offSet.x=winSize.width/3 - player.position.x;
+     offSet.y=winSize.height/2 - player.position.y;
+     }else if(groundScreenPosition.x>winSize.width/2){
+     offSet.x=winSize.width/2- player.position.x;
+     offSet.y=winSize.height/2 - player.position.y;
+     }else{
+     offSet.x=physicWorld.position.x;
+     offSet.y=winSize.height/2 -player.position.y;
+     }
+     physicWorld.position=ccp(offSet.x,offSet.y);*/
     
     //背景移動
     backGround.position=player.position;
     
     //雲移動
-    CGPoint movePos = bgCloud.position;
-
     if(player.position.y > bgCloud.position.y + (bgCloud.contentSize.height/2 -50)){//上昇
-        movePos.y=player.position.y - (bgCloud.contentSize.height/2 -50);
+        bgCloud.position=ccp(player.position.x, player.position.y - (bgCloud.contentSize.height/2 -50));
     }else if(player.position.y < bgCloud.position.y - (bgCloud.contentSize.height/2 -50)){//下降
-        movePos.y=player.position.y + (bgCloud.contentSize.height/2 -50);
+        bgCloud.position=ccp(player.position.x, player.position.y + (bgCloud.contentSize.height/2 -50));
+    }else{
+        bgCloud.position=ccp(player.position.x,bgCloud.position.y);
     }
     
-    //X軸は使わない
-    /*if(player.position.x > bgCloud.position.x + (bgCloud.contentSize.width/6)){//右移動
-        movePos.x=player.position.x - (bgCloud.contentSize.width/6);
-    }else if(player.position.x < bgCloud.position.x - (bgCloud.contentSize.width/6)){//左移動
-        movePos.x=player.position.x + (bgCloud.contentSize.width/6);
-    }*/
-    
-    bgCloud.position=ccp(player.position.x ,movePos.y);
-
     //角度を正規化
     if(!player.physicsBody.sleeping){
         player.rotation=[BasicMath getNormalize_Degree:player.rotation];
@@ -296,95 +243,6 @@ CCLabelTTF* tapStart;
             naviArrow.rotation=[BasicMath getAngle_To_Degree:player.position ePos:checkPoint_05.position];
         }
     }
-    
-    //氷柱落下スケジュール始動
-    if([GameManager getCurrentStage]==22){
-        if([GameManager getClearPoint]==1){
-            if(!iceFallFlg){
-                if(player.position.x>1500){
-                    iceFallFlg=true;
-                    icePillarCnt=0;
-                    [self schedule:@selector(icePillar_Schedule:) interval:0.5 repeat:icePillarArray.count-1 delay:0.f];
-                }
-            }
-        }
-    }else if([GameManager getCurrentStage]==30){
-        if([GameManager getClearPoint]==0){
-            if(!iceFallFlg){
-                if(player.position.x>500){
-                    iceFallFlg=true;
-                    icePillarCnt=0;
-                    [self schedule:@selector(icePillar_Schedule:) interval:0.4 repeat:icePillarArray.count-1 delay:0.f];
-                }
-            }
-        }
-    }
-    
-}
-
-//==========================
-//　氷柱落下スケジュール
-//==========================
--(void)icePillar_Schedule:(CCTime)dt
-{
-    //ポーズ脱出
-    if([GameManager getPause]){
-        [self unschedule:@selector(icePillar_Schedule:)];
-        iceFallFlg=false;
-        return;
-    }
-    
-    if(icePillarArray.count>icePillarCnt){
-        IcePillar* _icePillar=[icePillarArray objectAtIndex:icePillarCnt];
-        [_icePillar.physicsBody setType:CCPhysicsBodyTypeDynamic];
-        icePillarCnt++;
-    }
-}
-
-//================================
-//　プレイヤー 対 氷柱
-//================================
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cIcePillar:(IcePillar*)cIcePillar
-{
-    if(!naviLayer.isRunningInActiveScene && !resultLayer.isRunningInActiveScene)
-    {
-        //氷柱も全停止
-        for(IcePillar* _icePillar in icePillarArray){
-            if(!_icePillar.physicsBody.sleeping){
-                [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
-            }
-        }
-        
-        //全停止
-        [GameManager setPause:true];
-        touchFlg=false;
-        [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
-        //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
-        
-        //地面振動スケジュール
-        gVibCnt=0;
-        [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
-        
-        //リザルトレイヤー
-        resultLayer=[[ResultLayer alloc]init:false];
-        resultLayer.delegate=self;
-        [self addChild:resultLayer];
-        
-        //ポーズボタン非表示
-        pauseButton.visible=false;
-        resumeButton.visible=false;
-    }
-    return TRUE;
-}
-//================================
-//　氷柱 対 地面
-//================================
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair
-                                            cSurface:(CCSprite*)cSurface cIcePillar:(IcePillar*)cIcePillar
-{
-    [cIcePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
-    
-    return TRUE;
 }
 
 //================================
@@ -398,22 +256,6 @@ CCLabelTTF* tapStart;
         touchFlg=false;
         [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
         //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
-        
-        //氷柱コリジョン無効化（２重当たり判定防止に:レイヤーが２枚出てしまう）
-        //＊注 落下開始後→ポーズ→レジューム→氷柱以外に衝突→エラーになる！）
-        if([GameManager getCurrentStage]==22){
-            if([GameManager getClearPoint]==1){
-                for(IcePillar* _icePillar in icePillarArray){
-                    _icePillar.physicsBody.collisionType=@"";
-                }
-            }
-        }else if([GameManager getCurrentStage]==30){
-            if([GameManager getClearPoint]==0){
-                for(IcePillar* _icePillar in icePillarArray){
-                    _icePillar.physicsBody.collisionType=@"";
-                }
-            }
-        }
         
         //地面振動スケジュール
         gVibCnt=0;
@@ -608,20 +450,6 @@ CCLabelTTF* tapStart;
             [player.physicsBody setSleeping:true];
         }
         
-        //氷柱初期化
-        if([GameManager getCurrentStage]==22){
-            if([GameManager getClearPoint]==1){
-                [self deleteIcePillar];
-                [self creatIcePillar:ccp(1600,450)];
-                iceFallFlg=false;
-            }
-        }else if([GameManager getCurrentStage]==30){
-            if([GameManager getClearPoint]==0){
-                [self deleteIcePillar];
-                [self creatIcePillar:ccp(550,500)];
-                iceFallFlg=false;
-            }
-        }
         //ボタン切り替え
         pauseButton.visible=true;
         resumeButton.visible=false;
@@ -644,20 +472,6 @@ CCLabelTTF* tapStart;
         touchFlg=false;
         if(!player.physicsBody.sleeping){
             [player.physicsBody setSleeping:true];
-        }
-        //氷柱停止
-        if([GameManager getCurrentStage]==22){
-            if([GameManager getClearPoint]==1){
-                for(IcePillar* _icePillar in icePillarArray){
-                    [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
-                }
-            }
-        }else if([GameManager getCurrentStage]==30){
-            if([GameManager getClearPoint]==0){
-                for(IcePillar* _icePillar in icePillarArray){
-                    [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
-                }
-            }
         }
         
         //ボタン切り替え

@@ -107,7 +107,7 @@ CCLabelTTF* tapStart;
     [physicWorld addChild:backGround z:-2];
     
     //バックグラウンド(雲)
-    bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud.png"];
+    bgCloud=[CCSprite spriteWithImageNamed:@"bgCloud_01.png"];
     bgCloud.position=player.position;
     [physicWorld addChild:bgCloud z:-1];
     
