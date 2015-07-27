@@ -17,6 +17,10 @@
 
 #ifdef ANDROID
 #import "Data_io.h"
+#import "AdMobLayer_Android.h"
+#else
+#import "IMobileLayer.h"
+#import "AdMobLayer_iOS.h"
 #endif
 
 
@@ -42,11 +46,29 @@ CGSize winSize;
     
     winSize=[[CCDirector sharedDirector]viewSize];
     
-    //初回時データ初期化
+    //ロケール取得
+    if([CCBLocalize(@"Local") isEqualToString:@"日本"]){
+        [GameManager setLocal:0];
+    }else{
+        [GameManager setLocal:1];
+    }
+    
 #ifdef ANDROID
-    //デフォルト値を使う
+    //AdMob広告
+    AdMobLayer_Android* admob=[[AdMobLayer_Android alloc]init];
+    [self addChild:admob];
 #else
+    //初回時データ初期化
     [GameManager initialize_UserDefaults];
+    if([GameManager getLocal]==0){//日本語
+        //iMobile広告表示
+        IMobileLayer* imobile=[[IMobileLayer alloc]init];
+        [self addChild:imobile];
+    }else{//その他
+        //AdMob広告表示
+        AdMobLayer_iOS* admob=[[AdMobLayer_iOS alloc]init];
+        [self addChild:admob];
+    }
 #endif
     
     //Create a colored background (Dark Grey)

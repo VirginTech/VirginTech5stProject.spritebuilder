@@ -10,13 +10,21 @@
 
 @implementation GameManager
 
-int deviceType;// 1:iPad2 2:iPhone4 3:iPhone5 4:iPhone6
+int local;// 0:日本 1:その他
+int deviceType;// 1:iPad2 2:iPhone4 3:iPhone5 4:iPhone6   Android 1:大 0:小
 
 bool pauseFlg;//ポーズ
 int maxCheckPoint;//Maxチェックポイント
 int clearPoint;//クリアチェックポイント
 int currentStage;//現在ステージNum
 
+//ロケール取得／登録
++(void)setLocal:(int)type{
+    local=type;
+}
++(int)getLocal{
+    return local;
+}
 //デバイス取得／登録
 +(void)setDevice:(int)type{
     deviceType=type;

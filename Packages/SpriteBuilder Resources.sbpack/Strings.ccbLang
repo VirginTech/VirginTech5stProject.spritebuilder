@@ -24,6 +24,17 @@
 				<string>フライング ハイ！</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>key</key>
+			<string>Local</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Japan</string>
+				<key>ja</key>
+				<string>日本</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

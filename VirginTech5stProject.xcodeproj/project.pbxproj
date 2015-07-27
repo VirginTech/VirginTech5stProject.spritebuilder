@@ -162,6 +162,17 @@
 		CFD10EB61B36CC6A00B0FC8A /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD10EB41B36CC6A00B0FC8A /* compass.png */; };
 		CFD10EB71B36CC6A00B0FC8A /* naviarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */; };
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
+		CFDD1C341B65BC7D007D7B4E /* AdMobLayer_Android.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD1C321B65BA5B007D7B4E /* AdMobLayer_Android.m */; };
+		CFDD1C371B65BCB6007D7B4E /* AdBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD1C361B65BCB6007D7B4E /* AdBridge.m */; };
+		CFDD1C391B65BF23007D7B4E /* GooglePlayServices in Resources */ = {isa = PBXBuildFile; fileRef = CFDD1C381B65BF23007D7B4E /* GooglePlayServices */; };
+		CFDD1C3C1B65BFC8007D7B4E /* google-play-services.jar in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFDD1C3B1B65BFC8007D7B4E /* google-play-services.jar */; };
+		CFDD1C451B65E5B1007D7B4E /* IMobileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD1C441B65E5B1007D7B4E /* IMobileLayer.m */; };
+		CFDD1C471B65E9B0007D7B4E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDD1C461B65E9B0007D7B4E /* SystemConfiguration.framework */; };
+		CFDD1C491B65E9BD007D7B4E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDD1C481B65E9BD007D7B4E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CFDD1C4B1B65E9CB007D7B4E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDD1C4A1B65E9CB007D7B4E /* CoreLocation.framework */; };
+		CFDD1C4D1B65E9F2007D7B4E /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDD1C4C1B65E9F2007D7B4E /* ImobileSdkAds.framework */; };
+		CFDD1C501B65F481007D7B4E /* AdMobLayer_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD1C4F1B65F481007D7B4E /* AdMobLayer_iOS.m */; };
+		CFDD1C521B65F54C007D7B4E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDD1C511B65F54C007D7B4E /* GoogleMobileAds.framework */; };
 		CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815B1B2D2090008426B0 /* BasicMath.m */; };
 		CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE0815E1B2D7C6A008426B0 /* StageScene_01.m */; };
 		CFE45DB31B5293D900B772F0 /* IcePillar.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE45DB21B5293D900B772F0 /* IcePillar.m */; };
@@ -239,6 +250,19 @@
 			remoteInfo = cocos2dMacFramework;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CFDD1C3A1B65BF8E007D7B4E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				CFDD1C3C1B65BFC8007D7B4E /* google-play-services.jar in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
@@ -342,6 +366,21 @@
 		CFD10EB51B36CC6A00B0FC8A /* naviarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naviarrow.png; sourceTree = "<group>"; };
 		CFDBE3B51B292CAE00A8A9D8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		CFDBE3B61B292CAE00A8A9D8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		CFDD1C311B65BA5B007D7B4E /* AdMobLayer_Android.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobLayer_Android.h; sourceTree = "<group>"; };
+		CFDD1C321B65BA5B007D7B4E /* AdMobLayer_Android.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobLayer_Android.m; sourceTree = "<group>"; };
+		CFDD1C351B65BCB6007D7B4E /* AdBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdBridge.h; sourceTree = "<group>"; };
+		CFDD1C361B65BCB6007D7B4E /* AdBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdBridge.m; sourceTree = "<group>"; };
+		CFDD1C381B65BF23007D7B4E /* GooglePlayServices */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GooglePlayServices; sourceTree = "<group>"; };
+		CFDD1C3B1B65BFC8007D7B4E /* google-play-services.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "google-play-services.jar"; path = "Source/Resources/GooglePlayServices/google-play-services.jar"; sourceTree = "<group>"; };
+		CFDD1C431B65E5B1007D7B4E /* IMobileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMobileLayer.h; sourceTree = "<group>"; };
+		CFDD1C441B65E5B1007D7B4E /* IMobileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMobileLayer.m; sourceTree = "<group>"; };
+		CFDD1C461B65E9B0007D7B4E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CFDD1C481B65E9BD007D7B4E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CFDD1C4A1B65E9CB007D7B4E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CFDD1C4C1B65E9F2007D7B4E /* ImobileSdkAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImobileSdkAds.framework; path = ../../Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.10/lib/ImobileSdkAds.framework; sourceTree = "<group>"; };
+		CFDD1C4E1B65F481007D7B4E /* AdMobLayer_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobLayer_iOS.h; sourceTree = "<group>"; };
+		CFDD1C4F1B65F481007D7B4E /* AdMobLayer_iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobLayer_iOS.m; sourceTree = "<group>"; };
+		CFDD1C511B65F54C007D7B4E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Library/Ad/AdMob/GoogleMobileAdsSdkiOS-7.3.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		CFE0815A1B2D2090008426B0 /* BasicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMath.h; sourceTree = "<group>"; };
 		CFE0815B1B2D2090008426B0 /* BasicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMath.m; sourceTree = "<group>"; };
 		CFE0815D1B2D7C6A008426B0 /* StageScene_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene_01.h; sourceTree = "<group>"; };
@@ -410,6 +449,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDD1C521B65F54C007D7B4E /* GoogleMobileAds.framework in Frameworks */,
+				CFDD1C4D1B65E9F2007D7B4E /* ImobileSdkAds.framework in Frameworks */,
+				CFDD1C4B1B65E9CB007D7B4E /* CoreLocation.framework in Frameworks */,
+				CFDD1C491B65E9BD007D7B4E /* AdSupport.framework in Frameworks */,
+				CFDD1C471B65E9B0007D7B4E /* SystemConfiguration.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
@@ -499,6 +543,8 @@
 				5B12102F197484FA004C1E1D /* VirginTech5stProjectActivity.m */,
 				CF342F501B490F33000CD798 /* Data_io.h */,
 				CF342F511B490F33000CD798 /* Data_io.m */,
+				CFDD1C351B65BCB6007D7B4E /* AdBridge.h */,
+				CFDD1C361B65BCB6007D7B4E /* AdBridge.m */,
 			);
 			name = Android;
 			sourceTree = "<group>";
@@ -551,6 +597,7 @@
 		7A40366319DDF8D4007B6E8F /* Android */ = {
 			isa = PBXGroup;
 			children = (
+				CFDD1C381B65BF23007D7B4E /* GooglePlayServices */,
 				5BA4619E1974C88900785744 /* AndroidManifest.xml */,
 				5B121033197485FE004C1E1D /* Info.plist */,
 			);
@@ -606,6 +653,7 @@
 				CFF422601B351066004A5F6E /* SelectScene.h */,
 				CFF422611B351066004A5F6E /* SelectScene.m */,
 				CF1992BC1B3E64DD00EAC681 /* StageScene */,
+				CFDD1C2E1B65B994007D7B4E /* AdLayer */,
 				CFB25ECF1B32DB250023616E /* Manager */,
 				CFE081571B2D204E008426B0 /* Lib */,
 				CFF515F51B33E11A00D0BB88 /* Layer */,
@@ -639,6 +687,7 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				CFDD1C3B1B65BFC8007D7B4E /* google-play-services.jar */,
 				B737893C1807616C0076A88C /* Source */,
 				9222E2B918734FF800A246C7 /* libs */,
 				B77F1CCF17B978D8009739AE /* Supporting Files */,
@@ -661,6 +710,11 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFDD1C511B65F54C007D7B4E /* GoogleMobileAds.framework */,
+				CFDD1C4C1B65E9F2007D7B4E /* ImobileSdkAds.framework */,
+				CFDD1C4A1B65E9CB007D7B4E /* CoreLocation.framework */,
+				CFDD1C481B65E9BD007D7B4E /* AdSupport.framework */,
+				CFDD1C461B65E9B0007D7B4E /* SystemConfiguration.framework */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
 				BC5399D51A44DCC90063F482 /* GLActivityKit.framework */,
@@ -791,6 +845,19 @@
 			name = Object;
 			sourceTree = "<group>";
 		};
+		CFDD1C2E1B65B994007D7B4E /* AdLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CFDD1C431B65E5B1007D7B4E /* IMobileLayer.h */,
+				CFDD1C441B65E5B1007D7B4E /* IMobileLayer.m */,
+				CFDD1C311B65BA5B007D7B4E /* AdMobLayer_Android.h */,
+				CFDD1C321B65BA5B007D7B4E /* AdMobLayer_Android.m */,
+				CFDD1C4E1B65F481007D7B4E /* AdMobLayer_iOS.h */,
+				CFDD1C4F1B65F481007D7B4E /* AdMobLayer_iOS.m */,
+			);
+			name = AdLayer;
+			sourceTree = "<group>";
+		};
 		CFE081571B2D204E008426B0 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,6 +970,7 @@
 				927F619C196C771E000F43EF /* Sources */,
 				927F61A0196C771E000F43EF /* Frameworks */,
 				927F61AC196C771E000F43EF /* Resources */,
+				CFDD1C3A1B65BF8E007D7B4E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1078,6 +1146,7 @@
 				927F61B4196C771E000F43EF /* Settings@2x.png in Resources */,
 				CFAAF4E51B4F71870064595B /* bg_03.png in Resources */,
 				927F61B5196C771E000F43EF /* Default-Landscape~ipad.png in Resources */,
+				CFDD1C391B65BF23007D7B4E /* GooglePlayServices in Resources */,
 				CFC631681B60987B00F4F0F8 /* bg_04.png in Resources */,
 				B78A0B10198AF87200C63841 /* Published-Android in Resources */,
 				927F61B6196C771E000F43EF /* iPhone-old.png in Resources */,
@@ -1215,6 +1284,7 @@
 				CF8CDC731B47E2CC00865070 /* Jet.m in Sources */,
 				CF8CDC711B47E2C300865070 /* Player.m in Sources */,
 				CF8CDC751B47E42900865070 /* Coin.m in Sources */,
+				CFDD1C341B65BC7D007D7B4E /* AdMobLayer_Android.m in Sources */,
 				CF8CDC5D1B47DA6100865070 /* GameManager.m in Sources */,
 				CF8CDC6D1B47E16200865070 /* ResultLayer.m in Sources */,
 				CFA9E0C11B4BC7A500DDA0AB /* MoveBlock02.m in Sources */,
@@ -1230,6 +1300,7 @@
 				CF8CDC531B47CF9400865070 /* CollisionSurface.m in Sources */,
 				CFE45DB41B5293D900B772F0 /* IcePillar.m in Sources */,
 				CF8CDC691B47E15800865070 /* BasicMath.m in Sources */,
+				CFDD1C371B65BCB6007D7B4E /* AdBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1242,6 +1313,7 @@
 				CFAAF4DE1B4F6CE60064595B /* StageScene_03.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CFF19E8F1B3122E10021005A /* Jet.m in Sources */,
+				CFDD1C501B65F481007D7B4E /* AdMobLayer_iOS.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */,
 				CFF422621B351066004A5F6E /* SelectScene.m in Sources */,
@@ -1257,6 +1329,7 @@
 				CFAF46871B3BA06300B6A1BD /* InfoLayer.m in Sources */,
 				CFAF469A1B3BD6B400B6A1BD /* Coin.m in Sources */,
 				CFB070651B4233BB00D4C414 /* MoveBlock01.m in Sources */,
+				CFDD1C451B65E5B1007D7B4E /* IMobileLayer.m in Sources */,
 				CFE45DB31B5293D900B772F0 /* IcePillar.m in Sources */,
 				CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */,
 			);
@@ -1412,7 +1485,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ANDROID_MANIFEST = "$(SRCROOT)/Source/Resources/Platforms/Android/AndroidManifest.xml";
-				ANDROID_RES_DIRS = "$(SRCROOT)/Source/Resources/res";
+				ANDROID_RES_DIRS = "$(SRCROOT)/Source/Resources/res $(SRCROOT)/Source/Resources/GooglePlayServices";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1447,6 +1520,7 @@
 					"-lEGL",
 					"-lgles_apportable",
 					"-landroid",
+					"-lcxx",
 				);
 				PRODUCT_MODULE_NAME = VirginTech5stProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1462,7 +1536,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ANDROID_MANIFEST = "$(SRCROOT)/Source/Resources/Platforms/Android/AndroidManifest.xml";
-				ANDROID_RES_DIRS = "$(SRCROOT)/Source/Resources/res";
+				ANDROID_RES_DIRS = "$(SRCROOT)/Source/Resources/res $(SRCROOT)/Source/Resources/GooglePlayServices";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1495,6 +1569,7 @@
 					"-lEGL",
 					"-lgles_apportable",
 					"-landroid",
+					"-lcxx",
 				);
 				PRODUCT_MODULE_NAME = VirginTech5stProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1578,6 +1653,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/virgintech/Documents/Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.10/lib,
+					"/Users/virgintech/Documents/Library/Ad/AdMob/GoogleMobileAdsSdkiOS-7.3.1",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -1613,6 +1693,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/virgintech/Documents/Library/Ad/iMobile/imobile_for_SP_app_iOS_SDK_2.0.10/lib,
+					"/Users/virgintech/Documents/Library/Ad/AdMob/GoogleMobileAdsSdkiOS-7.3.1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (

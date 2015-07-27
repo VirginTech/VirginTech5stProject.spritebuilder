@@ -71,7 +71,7 @@ CCLabelTTF* tapStart;
     //初期化
     [GameManager setPause:false];
     [GameManager setClearPoint:0];//獲得チェックポイント
-    [GameManager setMaxCheckPoint:3];//最大チェックポイント数
+    [GameManager setMaxCheckPoint:4];//最大チェックポイント数
     touchFlg=false;
     
     //インフォレイヤー

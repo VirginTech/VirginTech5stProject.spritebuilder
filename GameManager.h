@@ -10,6 +10,9 @@
 
 @interface GameManager : NSObject
 
++(void)setLocal:(int)type;// 0:日本 1:その他
++(int)getLocal;
+    
 +(int)getDevice;
 +(void)setDevice:(int)type;// 1:iPad2 2:iPhone4 3:iPhone5 4:iPhone6
 

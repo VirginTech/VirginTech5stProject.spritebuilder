@@ -22,10 +22,17 @@
  * THE SOFTWARE.
  */
 
+#ifdef ANDROID
+#import "AdBridge.h"
+#endif
 
 #import "CCActivity.h"
 
 BRIDGE_CLASS("com.apportable.GLActivity")
 @interface VirginTech5stProjectActivity : CCActivity
+
+#ifdef ANDROID
+@property (nonatomic, strong) GMSAdView *adView;
+#endif
 
 @end

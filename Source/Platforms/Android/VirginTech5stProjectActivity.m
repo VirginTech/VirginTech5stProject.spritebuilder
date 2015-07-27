@@ -28,11 +28,23 @@
 #import <AndroidKit/AndroidKeyEvent.h>
 
 #import "TitleScene.h"
+#import "GameManager.h"
 
 @implementation VirginTech5stProjectActivity
 
+CGSize winSize;
+
 - (CCScene *)startScene
 {
+    winSize=[[CCDirector sharedDirector]viewSizeInPixels];
+    //NSLog(@"==========W=%f H=%f===========",winSize.width,winSize.height);
+    
+    //デバイス情報
+    if(winSize.width>1200){
+        [GameManager setDevice:1];//大
+    }else{
+        [GameManager setDevice:0];//小
+    }
     //return [CCBReader loadAsScene:@"MainScene"];
     return [TitleScene scene];
 }
@@ -44,6 +56,16 @@
         [self finish];
     }
     return NO;
+}
+
+- (void) onPause {
+    [super onPause];
+    [self.adView pause];
+}
+
+- (void)onResume {
+    [super onResume];
+    [self.adView resume];
 }
 
 @end
