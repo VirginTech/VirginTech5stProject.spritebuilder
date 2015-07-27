@@ -17,7 +17,7 @@
 
 #ifdef ANDROID
 #import "Data_io.h"
-#import "AdMobLayer_Android.h"
+//#import "AdMobLayer_Android.h"
 #else
 #import "IMobileLayer.h"
 #import "AdMobLayer_iOS.h"
@@ -46,20 +46,13 @@ CGSize winSize;
     
     winSize=[[CCDirector sharedDirector]viewSize];
     
-    //ロケール取得
-    if([CCBLocalize(@"Local") isEqualToString:@"日本"]){
-        [GameManager setLocal:0];
-    }else{
-        [GameManager setLocal:1];
-    }
-    
 #ifdef ANDROID
-    //AdMob広告
-    AdMobLayer_Android* admob=[[AdMobLayer_Android alloc]init];
-    [self addChild:admob];
+    
 #else
     //初回時データ初期化
     [GameManager initialize_UserDefaults];
+    
+    //Ad広告表示
     if([GameManager getLocal]==0){//日本語
         //iMobile広告表示
         IMobileLayer* imobile=[[IMobileLayer alloc]init];

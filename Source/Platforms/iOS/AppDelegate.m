@@ -89,7 +89,13 @@
         [GameManager setDevice:0];//判別不能
     }
 
-    
+    //ロケール取得
+    if([CCBLocalize(@"Local") isEqualToString:@"日本"]){
+        [GameManager setLocal:0];
+    }else{
+        [GameManager setLocal:1];
+    }
+
     //return [CCBReader loadAsScene:@"MainScene"];
     return [TitleScene scene];
 }

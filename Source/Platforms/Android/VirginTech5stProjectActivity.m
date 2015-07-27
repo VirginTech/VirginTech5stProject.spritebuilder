@@ -45,8 +45,16 @@ CGSize winSize;
     }else{
         [GameManager setDevice:0];//小
     }
-    //return [CCBReader loadAsScene:@"MainScene"];
-    return [TitleScene scene];
+    
+    //ロケール取得
+    if([CCBLocalize(@"Local") isEqualToString:@"日本"]){
+        [GameManager setLocal:0];
+    }else{
+        [GameManager setLocal:1];
+    }
+
+    return [CCBReader loadAsScene:@"MainScene"];
+    //return [TitleScene scene];
 }
 
 - (BOOL)onKeyUp:(int32_t)keyCode keyEvent:(AndroidKeyEvent *)event

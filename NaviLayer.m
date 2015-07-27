@@ -38,17 +38,17 @@ CGSize winSize;
     [self addChild:background];
     
     CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
-    titleButton.position=ccp(winSize.width/2, winSize.height/2 -50);
+    titleButton.position=ccp(winSize.width/2, winSize.height/2 -25);
     [titleButton setTarget:self selector:@selector(onTitleClick:)];
     [self addChild:titleButton];
 
     CCButton* selectButton=[CCButton buttonWithTitle:@"[セレクトレヴェル]" fontName:@"Verdana-Bold" fontSize:15];
-    selectButton.position=ccp(winSize.width/2, winSize.height/2 -75);
+    selectButton.position=ccp(winSize.width/2, winSize.height/2 -50);
     [selectButton setTarget:self selector:@selector(onSelectClick:)];
     [self addChild:selectButton];
     
     CCButton* continueButton=[CCButton buttonWithTitle:@"[コンティニュー]" fontName:@"Verdana-Bold" fontSize:15];
-    continueButton.position=ccp(winSize.width/2, winSize.height/2 -100);
+    continueButton.position=ccp(winSize.width/2, winSize.height/2 -75);
     [continueButton setTarget:self selector:@selector(onContinueClick:)];
     if([GameManager getClearPoint]<=0){
         continueButton.enabled=false;
@@ -56,7 +56,7 @@ CGSize winSize;
     [self addChild:continueButton];
 
     CCButton* replayButton=[CCButton buttonWithTitle:@"[リプレイ]" fontName:@"Verdana-Bold" fontSize:15];
-    replayButton.position=ccp(winSize.width/2, winSize.height/2 -125);
+    replayButton.position=ccp(winSize.width/2, winSize.height/2 -100);
     [replayButton setTarget:self selector:@selector(onReplayClick:)];
     [self addChild:replayButton];
 
