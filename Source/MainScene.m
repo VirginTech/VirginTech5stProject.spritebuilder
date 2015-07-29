@@ -39,7 +39,8 @@ CGSize winSize;
     [self addChild:admob];
 #endif
     
-    [self schedule:@selector(main_Schedule:) interval:1.0 repeat:1 delay:3.0];
+    //[self schedule:@selector(main_Schedule:) interval:1.0 repeat:1 delay:3.0];
+    [self scheduleOnce:@selector(main_Schedule:) delay:3.0];
 }
 
 -(void)main_Schedule:(CCTime)dt

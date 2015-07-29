@@ -88,6 +88,25 @@ int currentStage;//現在ステージNum
 }
 
 //===========================
+//　クリアレベルの取得
+//===========================
++(int)load_Clear_Level
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    int level=[[userDefault objectForKey:@"clear_level"]intValue];
+    return level;
+}
+//===========================
+//　クリアレベルの保存
+//===========================
++(void)save_Clear_Level:(int)level
+{
+    NSUserDefaults  *userDefault=[NSUserDefaults standardUserDefaults];
+    NSNumber* newLevel=[NSNumber numberWithInt:level];
+    [userDefault setObject:newLevel forKey:@"clear_level"];
+}
+
+//===========================
 //　コインの取得
 //===========================
 +(int)load_Coin_Value

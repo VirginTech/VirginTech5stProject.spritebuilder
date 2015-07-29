@@ -5,7 +5,7 @@
 //  Created by VirginTech LLC. on 2015/06/25.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
-
+/*
 #ifdef ANDROID
 // These three undefs are currently needed to avoid conflicts with Android's Java
 // implementation of EGL. Future versions of SBAndroid will not need these.
@@ -18,7 +18,7 @@
 #ifdef ANDROID
 #import "Data_io.h"
 #endif
-
+*/
 #import "InfoLayer.h"
 #import "GameManager.h"
 
@@ -27,7 +27,7 @@
 CGSize winSize;
 
 NSMutableArray* checkPointArray;
-CCLabelTTF* coinLabel;
+CCLabelBMFont* coinLabel;
 
 + (InfoLayer *)scene
 {
@@ -47,10 +47,11 @@ CCLabelTTF* coinLabel;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"info_default.plist"];
     
     //レヴェル表示
-    CCLabelTTF* levelLabel=[CCLabelTTF labelWithString:
-                            [NSString stringWithFormat:@"Lv.%2d",[GameManager getCurrentStage]]
-                            fontName:@"Verdana-Bold" fontSize:20];
+    CCLabelBMFont* levelLabel=[CCLabelBMFont labelWithString:
+                                        [NSString stringWithFormat:@"Lv.%2d",[GameManager getCurrentStage]]
+                                        fntFile:@"score.fnt"];
     levelLabel.position=ccp(levelLabel.contentSize.width/2,winSize.height-levelLabel.contentSize.height/2);
+    levelLabel.scale=0.7;
     [self addChild:levelLabel];
     
     //チェックポイント表示
@@ -63,8 +64,8 @@ CCLabelTTF* coinLabel;
                     [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"checkPoint_b.png"]];
         checkPoint_b.scale=0.2;
         checkPoint_b.position=ccp(
-                                levelLabel.position.x+levelLabel.contentSize.width/2+30 + (i*20),
-                                levelLabel.position.y -3);
+                                levelLabel.position.x+(levelLabel.contentSize.width*levelLabel.scale)/2+30 + (i*20),
+                                levelLabel.position.y);
         checkPoint_b.opacity=0.5;
         [self addChild:checkPoint_b z:0];
         //クリア
@@ -81,22 +82,22 @@ CCLabelTTF* coinLabel;
     CCSprite* coin=[CCSprite spriteWithSpriteFrame:
                     [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"coin.png"]];
     coin.scale=0.3;
-    coin.position=ccp((coin.contentSize.width*coin.scale)/2 +5,
-                      levelLabel.position.y-levelLabel.contentSize.height/2 -20);
+    coin.position=ccp((coin.contentSize.width*coin.scale)/2 +10,
+                      levelLabel.position.y-(levelLabel.contentSize.height*levelLabel.scale)/2 -15);
     [self addChild:coin];
     
     //枚数
-#ifdef ANDROID
-    AndroidContext* context=[CCActivity currentActivity].applicationContext;
-    coinLabel=[CCLabelTTF labelWithString:
-                                [NSString stringWithFormat:@" ×%04d",[Data_io load_Coin_Value:context]]
-                                fontName:@"Verdana-Bold" fontSize:20];
-#else
-    coinLabel=[CCLabelTTF labelWithString:
-                                [NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]]
-                                fontName:@"Verdana-Bold" fontSize:20];
-#endif
-    coinLabel.position=ccp(coin.position.x+(coin.contentSize.width*coin.scale)/2+coinLabel.contentSize.width/2,
+//#ifdef ANDROID
+//    AndroidContext* context=[CCActivity currentActivity].applicationContext;
+//    coinLabel=[CCLabelTTF labelWithString:
+//                                [NSString stringWithFormat:@" ×%04d",[Data_io load_Coin_Value:context]]
+//                                fontName:@"Verdana-Bold" fontSize:20];
+//#else
+    coinLabel=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"×%04d",
+                                              [GameManager load_Coin_Value]]fntFile:@"score.fnt"];
+//#endif
+    coinLabel.scale=0.7;
+    coinLabel.position=ccp(coin.position.x+(coin.contentSize.width*coin.scale)/2+(coinLabel.contentSize.width*coinLabel.scale)/2,
                            coin.position.y);
     [self addChild:coinLabel];
     
@@ -105,12 +106,12 @@ CCLabelTTF* coinLabel;
 
 +(void)update_Coin_Value
 {
-#ifdef ANDROID
-    AndroidContext* context=[CCActivity currentActivity].applicationContext;
-    coinLabel.string=[NSString stringWithFormat:@" ×%04d",[Data_io load_Coin_Value:context]];
-#else
-    coinLabel.string=[NSString stringWithFormat:@" ×%04d",[GameManager load_Coin_Value]];
-#endif
+//#ifdef ANDROID
+//    AndroidContext* context=[CCActivity currentActivity].applicationContext;
+//    coinLabel.string=[NSString stringWithFormat:@" ×%04d",[Data_io load_Coin_Value:context]];
+//#else
+    coinLabel.string=[NSString stringWithFormat:@"×%04d",[GameManager load_Coin_Value]];
+//#endif
 }
 
 +(void)update_CheckPoint

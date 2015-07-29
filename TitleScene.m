@@ -5,7 +5,7 @@
 //  Created by VirginTech LLC. on 2015/06/09.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
-
+/*
 #ifdef ANDROID
 // These three undefs are currently needed to avoid conflicts with Android's Java
 // implementation of EGL. Future versions of SBAndroid will not need these.
@@ -14,9 +14,9 @@
 #undef EGL_NO_SURFACE
 #import <AndroidKit/AndroidKit.h>
 #endif
-
+*/
 #ifdef ANDROID
-#import "Data_io.h"
+//#import "Data_io.h"
 //#import "AdMobLayer_Android.h"
 #else
 #import "IMobileLayer.h"
@@ -50,7 +50,7 @@ CGSize winSize;
     
 #else
     //初回時データ初期化
-    [GameManager initialize_UserDefaults];
+    //[GameManager initialize_UserDefaults];
     
     //Ad広告表示
     if([GameManager getLocal]==0){//日本語

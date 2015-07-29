@@ -31,6 +31,9 @@
 
 +(void)initialize_UserDefaults;
 
++(int)load_Clear_Level;
++(void)save_Clear_Level:(int)level;
+
 +(int)load_Coin_Value;
 +(void)save_Coin_Value:(int)value;
 

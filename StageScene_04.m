@@ -5,7 +5,7 @@
 //  Created by VirginTech LLC. on 2015/07/23.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
-
+/*
 #ifdef ANDROID
 // These three undefs are currently needed to avoid conflicts with Android's Java
 // implementation of EGL. Future versions of SBAndroid will not need these.
@@ -18,7 +18,7 @@
 #ifdef ANDROID
 #import "Data_io.h"
 #endif
-
+*/
 
 #import "StageScene_04.h"
 
@@ -78,15 +78,21 @@ CCLabelTTF* tapStart;
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
     [self addChild:infoLayer z:0];
     
+    //画像読み込み
+    [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"navi_default.plist"];
+    
     //ポーズボタン
-    pauseButton=[CCButton buttonWithTitle:@"[ポーズ]" fontName:@"Verdana-Bold" fontSize:15];
+    pauseButton=[CCButton buttonWithTitle:@"" spriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"pause.png"]];
+    pauseButton.scale=0.5;
     pauseButton.position=ccp(winSize.width-pauseButton.contentSize.width/2,pauseButton.contentSize.height/2);
     [pauseButton setTarget:self selector:@selector(onPauseClick:)];
     pauseButton.visible=true;
     [self addChild:pauseButton z:1];
     
     //レジュームボタン
-    resumeButton=[CCButton buttonWithTitle:@"[レジューム]" fontName:@"Verdana-Bold" fontSize:15];
+    resumeButton=[CCButton buttonWithTitle:@"" spriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"resume.png"]];
+    resumeButton.scale=0.5;
     resumeButton.position=ccp(winSize.width-resumeButton.contentSize.width/2,resumeButton.contentSize.height/2);
     [resumeButton setTarget:self selector:@selector(onResumeClick:)];
     resumeButton.visible=false;
@@ -309,12 +315,12 @@ CCLabelTTF* tapStart;
         cCoin.opacity=0.1;
         cCoin.state=false;
         
-#ifdef ANDROID
-        AndroidContext* context=[CCActivity currentActivity].applicationContext;
-        [Data_io save_Coin_Value:context value:[Data_io load_Coin_Value:context]+1];
-#else
+//#ifdef ANDROID
+//        AndroidContext* context=[CCActivity currentActivity].applicationContext;
+//        [Data_io save_Coin_Value:context value:[Data_io load_Coin_Value:context]+1];
+//#else
         [GameManager save_Coin_Value:[GameManager load_Coin_Value]+1];
-#endif
+//#endif
         
         [InfoLayer update_Coin_Value];
     }
@@ -335,6 +341,9 @@ CCLabelTTF* tapStart;
     //全停止
     [GameManager setPause:true];
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
+    
+    //クリアレベル保存
+    [GameManager save_Clear_Level:[GameManager getCurrentStage]];
     
     //リザルトレイヤー
     resultLayer=[[ResultLayer alloc]init:true];
