@@ -31,6 +31,12 @@
 
 +(void)initialize_UserDefaults;
 
++(NSDate*)load_Login_Date;
++(void)save_login_Date:(NSDate*)date;
+
++(bool)load_First_Login;
++(void)save_First_Login:(bool)flg;
+
 +(int)load_Clear_Level;
 +(void)save_Clear_Level:(int)level;
 

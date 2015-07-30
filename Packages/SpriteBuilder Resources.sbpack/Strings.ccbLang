@@ -35,6 +35,155 @@
 				<string>日本</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>key</key>
+			<string>Welcome</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Welcome !</string>
+				<key>ja</key>
+				<string>ようこそ！</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>FirstBonus</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Free 50 Coins are yours now!</string>
+				<key>ja</key>
+				<string>初回起動ありがとうございます。
+初回ボーナス 50コイン プレゼント！</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>BonusGet</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Got a bonus!</string>
+				<key>ja</key>
+				<string>デイリーボーナス</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>DailyBonus</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Free daily 10 Coins !</string>
+				<key>ja</key>
+				<string>１日１回 コイン10枚プレゼント！</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>LocalNotification</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Captain! It is from the best flight day!</string>
+				<key>ja</key>
+				<string>機長！最高のフライト日よりですぜ！</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Rate</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Rate</string>
+				<key>ja</key>
+				<string>評価して下さい</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Rate_Message</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Thank you for playing the game.
+Would you mind taking a moment 
+to rate it?</string>
+				<key>ja</key>
+				<string>ゲームを遊んで頂きありがとうございます。
+宜しければレビューをお願いします。</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Yes</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>YES</string>
+				<key>ja</key>
+				<string>はい</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>No</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>NO</string>
+				<key>ja</key>
+				<string>いいえ</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Ok</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>OK</string>
+				<key>ja</key>
+				<string>OK</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>EndingMsg</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Thank you for me to play.
+Please wait for a while concerning more.</string>
+				<key>ja</key>
+				<string>最後までプレイして頂き誠にありがとうございます。
+続きにつきましてはもうしばらくお待ち下さい。</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>NotCoin</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>You need more 'Coins'</string>
+				<key>ja</key>
+				<string>コインが足りません</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>NotCoinMsg</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Come take a coin in the stage!</string>
+				<key>ja</key>
+				<string>ステージにあるコインを取って来てね！</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

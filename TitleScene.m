@@ -33,6 +33,9 @@
 
 CGSize winSize;
 
+MsgBoxLayer* msgBox;
+CCLabelBMFont* coinLabel;
+
 + (TitleScene *)scene
 {
     return [[self alloc] init];
@@ -68,6 +71,27 @@ CGSize winSize;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
     [self addChild:background];
     
+    //初回ログインボーナス
+    if(![GameManager load_First_Login])
+    {
+        NSDate* currentDate=[NSDate date];//GMTで貫く
+        [GameManager save_login_Date:currentDate];
+
+        msgBox=[[MsgBoxLayer alloc]initWithTitle:CCBLocalize(@"Welcome")
+                                                msg:CCBLocalize(@"FirstBonus")
+                                                pos:ccp(winSize.width/2,winSize.height/2)
+                                                size:CGSizeMake(200, 100)
+                                                modal:true
+                                                rotation:false
+                                                type:0
+                                                procNum:1];
+        msgBox.delegate=self;//デリゲートセット
+        [self addChild:msgBox z:1];
+    }
+    
+    //日付変更監視スケジュール(デイリーボーナス)
+    [self schedule:@selector(status_Schedule:) interval:1.0];
+    
     //strings.xmlリソース取得テストコード
 /*#ifdef ANDROID
     AndroidContext* context=[CCActivity currentActivity].applicationContext;
@@ -75,6 +99,26 @@ CGSize winSize;
     NSString* str=[Data_io getCallBackStrings];
     NSLog(@"===============%@===============",str);
 #endif*/
+    
+    //画像読み込み
+    [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"info_default.plist"];
+    
+    //コイン表示
+    CCSprite* coin=[CCSprite spriteWithSpriteFrame:
+                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"coin.png"]];
+    coin.scale=0.3;
+    coin.position=ccp((coin.contentSize.width*coin.scale)/2 +10,
+                      winSize.height-(coin.contentSize.height*coin.scale)/2-10);
+    [self addChild:coin];
+    
+    coinLabel=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"×%04d",
+                                              [GameManager load_Coin_Value]]fntFile:@"score.fnt"];
+    //#endif
+    coinLabel.scale=0.7;
+    coinLabel.position=ccp(coin.position.x+(coin.contentSize.width*coin.scale)/2+(coinLabel.contentSize.width*coinLabel.scale)/2,
+                           coin.position.y);
+    [self addChild:coinLabel];
     
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
@@ -146,6 +190,63 @@ CGSize winSize;
     [self addChild:creditButton];
     
     return self;
+}
+
+-(void)update_Coin_Value
+{
+    coinLabel.string=[NSString stringWithFormat:@"×%04d",[GameManager load_Coin_Value]];
+}
+
+//=====================
+// デリゲートメソッド
+//=====================
+-(void)onMessageLayerBtnClicked:(int)btnNum procNum:(int)procNum
+{
+    if(procNum==0){
+        //何もしない
+    }else if(procNum==1){
+        [GameManager save_First_Login:true];
+        [GameManager save_Coin_Value:[GameManager load_Coin_Value]+50];
+        [self update_Coin_Value];
+        msgBox.delegate=nil;
+    }else if(procNum==2){
+        [GameManager save_Coin_Value:[GameManager load_Coin_Value]+10];
+        [self update_Coin_Value];
+        msgBox.delegate=nil;
+    }
+
+}
+
+//===================
+// 状態監視スケジュール
+//===================
+-(void)status_Schedule:(CCTime)dt
+{
+    //デイリー・ボーナス
+    NSDate* recentDate=[GameManager load_Login_Date];
+    NSDate* currentDate=[NSDate date];//GMTで貫く
+    //日付のみに変換
+    NSCalendar *calen = [NSCalendar currentCalendar];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents *comps = [calen components:unitFlags fromDate:currentDate];
+    //[comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];//GMTで貫く
+    currentDate = [calen dateFromComponents:comps];
+
+    if([currentDate compare:recentDate]==NSOrderedDescending){//日付が変わってるなら「1」
+        [GameManager save_login_Date:currentDate];
+        
+        //カスタムアラートメッセージ
+        msgBox=[[MsgBoxLayer alloc]initWithTitle:CCBLocalize(@"BonusGet")
+                                                msg:CCBLocalize(@"DailyBonus")
+                                                pos:ccp(winSize.width/2,winSize.height/2)
+                                                size:CGSizeMake(200, 100)
+                                                modal:true
+                                                rotation:false
+                                                type:0
+                                                procNum:2];//デイリーボーナス付与
+        msgBox.delegate=self;//デリゲートセット
+        [self addChild:msgBox z:1];
+    }
 }
 
 -(void)onPlayClick:(id)sender

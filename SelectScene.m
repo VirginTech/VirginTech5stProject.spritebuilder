@@ -17,6 +17,7 @@
 
 #import "TitleScene.h"
 #import "GameManager.h"
+#import "EndingLayer.h"
 
 @implementation SelectScene
 
@@ -199,8 +200,8 @@ CCScrollView* scrollView;
                                 withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
     }else{
         //現在制作中のメッセージ
-        
-        
+        [[CCDirector sharedDirector] replaceScene:[EndingLayer scene]
+                                       withTransition:[CCTransition transitionCrossFadeWithDuration:3.0]];
     }
 }
 

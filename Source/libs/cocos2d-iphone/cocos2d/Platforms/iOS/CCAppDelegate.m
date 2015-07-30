@@ -40,6 +40,8 @@
 #import "CCMetalView.h"
 #endif
 
+#import "CCBuilderReader.h"
+
 // Fixed size. As wide as iPhone 5 at 2x and as high as the iPad at 2x.
 const CGSize FIXED_SIZE = {568, 384};
 
@@ -324,6 +326,23 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 		[[CCDirector sharedDirector] stopAnimation];
 	}
 	[[CCPackageManager sharedManager] savePackages];
+    
+    //========================
+    //　ローカル通知設定
+    //========================
+    // インスタンス生成
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    // 12時間後に通知をする（設定は秒単位）
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:((60*60)*8)];//8時間後
+    // タイムゾーンの設定
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    // 通知時に表示させるメッセージ内容
+    notification.alertBody = CCBLocalize(@"LocalNotification");
+    // 通知に鳴る音の設定
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    // 通知の登録
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application

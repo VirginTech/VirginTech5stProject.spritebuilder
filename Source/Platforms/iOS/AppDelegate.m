@@ -58,6 +58,13 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
+    
+    //ローカル通知の認証
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+
+    
     return YES;
 }
 

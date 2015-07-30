@@ -11,8 +11,9 @@
 
 #import "NaviLayer.h"
 #import "ResultLayer.h"
+#import "MsgBoxLayer.h"
 
-@interface StageScene_04 : CCScene <ContinueDelegate1,ContinueDelegate2,CCPhysicsCollisionDelegate>
+@interface StageScene_04 : CCScene <ContinueDelegate1,ContinueDelegate2,CCPhysicsCollisionDelegate,MsgLayerDelegate>
 {
     CCPhysicsNode* physicWorld;//CCB定義
     

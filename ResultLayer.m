@@ -11,6 +11,7 @@
 #import "TitleScene.h"
 #import "SelectScene.h"
 #import "GameManager.h"
+#import "EndingLayer.h"
 
 @implementation ResultLayer
 
@@ -81,6 +82,14 @@ CGSize winSize;
     replayButton.position=ccp(winSize.width/2, winSize.height/2 -100);
     [replayButton setTarget:self selector:@selector(onReplayClick:)];
     [self addChild:replayButton];
+    
+    //エンディング
+    if(judgFlg){
+        if([GameManager getCurrentStage]==31){
+            [[CCDirector sharedDirector] replaceScene:[EndingLayer scene]
+                                   withTransition:[CCTransition transitionCrossFadeWithDuration:3.0]];
+        }
+    }
     
     return self;
 }

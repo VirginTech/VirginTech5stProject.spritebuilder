@@ -506,6 +506,45 @@ CCLabelTTF* tapStart;
     //リザルトレイヤー
     resultLayer=[[ResultLayer alloc]init:true];
     [self addChild:resultLayer];
+    
+    //レイティング
+#ifdef ANDROID
+#else
+    if([GameManager getCurrentStage]%10==0){
+        //カスタムアラートメッセージ
+        MsgBoxLayer* msgBox=[[MsgBoxLayer alloc]initWithTitle:CCBLocalize(@"Rate")
+                                                          msg:CCBLocalize(@"Rate_Message")
+                                                          pos:ccp(winSize.width/2,winSize.height/2)
+                                                         size:CGSizeMake(230, 100)
+                                                        modal:true
+                                                     rotation:false
+                                                         type:1
+                                                      procNum:1];
+        msgBox.delegate=self;//デリゲートセット
+        [self addChild:msgBox z:1];
+    }
+#endif
+}
+
+//=====================
+// デリゲートメソッド
+//=====================
+-(void)onMessageLayerBtnClicked:(int)btnNum procNum:(int)procNum
+{
+    if(procNum==0){
+        //ナビレイヤー
+        naviLayer=[[NaviLayer alloc]init];
+        naviLayer.delegate=self;
+        [self addChild:naviLayer z:0];
+    }else if(procNum==1){
+        if(btnNum==2){//YES
+#ifdef ANDROID
+#else
+            NSURL* url = [NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1003580285&mt=8&type=Purple+Software"];
+            [[UIApplication sharedApplication]openURL:url];
+#endif
+        }
+    }
 }
 
 -(void)ground_Vibration_Schedule:(CCTime)dt
@@ -557,6 +596,25 @@ CCLabelTTF* tapStart;
 //=====================
 -(void)onContinueButtonClicked
 {
+    if([GameManager load_Coin_Value] > 0){
+        [GameManager save_Coin_Value:[GameManager load_Coin_Value]-1];
+        [InfoLayer update_Coin_Value];
+    }else{
+        MsgBoxLayer* msgBox=[[MsgBoxLayer alloc]initWithTitle:CCBLocalize(@"NotCoin")
+                                                          msg:CCBLocalize(@"NotCoinMsg")
+                                                          pos:ccp(winSize.width/2,winSize.height/2)
+                                                         size:CGSizeMake(230, 100)
+                                                        modal:true
+                                                     rotation:false
+                                                         type:0
+                                                      procNum:0];
+        msgBox.delegate=self;
+        [self addChild:msgBox z:1];
+        
+        return;
+    }
+
+    
     movePos=player.position;
     
     if([GameManager getClearPoint]==0){
