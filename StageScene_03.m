@@ -63,7 +63,7 @@ bool iceFallFlg;
 int icePillarCnt;
 int icePillarMax;//氷柱数
 
-CCLabelTTF* tapStart;
+CCLabelBMFont* tapStart;
 
 - (void)didLoadFromCCB
 {
@@ -146,10 +146,9 @@ CCLabelTTF* tapStart;
     }
     
     //タップスタートメッセージ
-    tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
+    tapStart=[CCLabelBMFont labelWithString:CCBLocalize(@"TapStart") fntFile:@"tapstart.fnt"];
     tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
-    tapStart.fontColor=[CCColor blueColor];
-    //tapStart.visible=false;
+    tapStart.scale=0.7;
     [self addChild:tapStart];
     
 }

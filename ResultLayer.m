@@ -36,15 +36,28 @@ CGSize winSize;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f]];
     [self addChild:background];
     
-    NSString* msg;
+    //画像読み込み
+    [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"navi_default.plist"];
+    
+    //リザルトメッセージ
+    CCSpriteFrame* resultFrame;
     if(judgFlg){
-        msg=@"You Completed!";
+        if([GameManager getLocal]==0){
+            resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"complete_jp.png"];
+        }else{
+            resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"complete_en.png"];
+        }
     }else{
-        msg=@"You Failed...";
+        if([GameManager getLocal]==0){
+            resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"failed_jp.png"];
+        }else{
+            resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"failed_en.png"];
+        }
     }
-    CCLabelTTF* resultLabel=[CCLabelTTF labelWithString:msg fontName:@"Verdana-Bold" fontSize:30];
-    resultLabel.position=ccp(winSize.width/2,winSize.height/2+50);
-    [self addChild:resultLabel];
+    CCSprite* result=[CCSprite spriteWithSpriteFrame:resultFrame];
+    result.position=ccp(winSize.width/2,winSize.height/2 +50);
+    [self addChild:result];
     
     //タイトルへ
     CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];

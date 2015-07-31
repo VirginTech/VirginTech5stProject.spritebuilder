@@ -5,13 +5,13 @@
 //  Created by VirginTech LLC. on 2015/06/20.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
-
+/*
 #ifdef ANDROID
 #else
 #import "IMobileLayer.h"
 #import "AdMobLayer_iOS.h"
 #endif
-
+*/
 
 #import "SelectScene.h"
 
@@ -43,6 +43,7 @@ CCScrollView* scrollView;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
     [self addChild:background];
     
+    /*
 #ifdef ANDROID
     
 #else
@@ -57,7 +58,8 @@ CCScrollView* scrollView;
         [self addChild:admob];
     }
 #endif
-
+     */
+    
     //画面サイズ設定
     int hParam;
 #ifdef ANDROID
@@ -111,7 +113,7 @@ CCScrollView* scrollView;
     //CGPoint btnNormPos;
     //CGPoint offSet=ccp(80,120);
 
-    for(int i=0;i<50;i++)
+    for(int i=0;i<40;i++)
     {
         btnCnt++;
         btnPos=ccp(btnPos.x+(70*param),btnPos.y+40);
@@ -128,25 +130,50 @@ CCScrollView* scrollView;
         [selectBtn setTarget:self selector:@selector(onStageLevel:)];
         [bgSpLayer addChild:selectBtn];
         
+        if(btnCnt<=[GameManager load_Clear_Level]){
+            CCSprite* star=[CCSprite spriteWithSpriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"star_G.png"]];
+            star.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2+20);
+            star.scale=0.2;
+            [selectBtn addChild:star];
+        }
+        
         CCLabelBMFont* numLabel=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%02d",btnCnt]
                                                        fntFile:@"score.fnt"];
         numLabel.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
         numLabel.scale=0.7;
         [selectBtn addChild:numLabel];
-#if DEBUG
-#else
+//#if DEBUG
+//#else
         //ボタン無効化処理
         if(btnCnt > [GameManager load_Clear_Level]+1){
             selectBtn.enabled=false;
             numLabel.visible=false;
-            //ロック表示
-            CCSprite* lock=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]
-                                         spriteFrameByName:@"lock.png"]];
-            lock.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
-            lock.scale=0.5;
-            [selectBtn addChild:lock];
+            
+            if(btnCnt>=32){
+                //Coming soon表示
+                CCLabelBMFont* msg=[CCLabelBMFont labelWithString:CCBLocalize(@"ComingSoon") fntFile:@"comingsoon.fnt"];
+                msg.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
+                msg.scale=0.5;
+                [selectBtn addChild:msg];
+            }else{
+                //ロック表示
+                CCSprite* lock=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]
+                                                                            spriteFrameByName:@"lock.png"]];
+                lock.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
+                lock.scale=0.5;
+                [selectBtn addChild:lock];
+            }
+        }else if(btnCnt==32){
+            selectBtn.enabled=false;
+            numLabel.visible=false;
+            //Coming soon表示
+            CCLabelBMFont* msg=[CCLabelBMFont labelWithString:CCBLocalize(@"ComingSoon") fntFile:@"message.fnt"];
+            msg.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
+            msg.scale=0.5;
+            [selectBtn addChild:msg];
         }
-#endif
+//#endif
         //反転
         if(btnCnt%5==0){
             param*=-1;

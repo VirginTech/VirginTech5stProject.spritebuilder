@@ -350,6 +350,9 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 	if([CCDirector sharedDirector].animating == NO) {
 		[[CCDirector sharedDirector] startAnimation];
 	}
+    
+    // アプリに登録されている全ての通知を削除
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 // application will be killed

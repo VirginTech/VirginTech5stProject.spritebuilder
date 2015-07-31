@@ -184,6 +184,28 @@ Please wait for a while concerning more.</string>
 				<string>ステージにあるコインを取って来てね！</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>key</key>
+			<string>ComingSoon</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Coming soon</string>
+				<key>ja</key>
+				<string>準備中</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>TapStart</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Tap Start !</string>
+				<key>ja</key>
+				<string>タップスタート！</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

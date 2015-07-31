@@ -57,7 +57,7 @@ CGPoint movePos;
 float moveAngle;
 float checkPointDistance;
 
-CCLabelTTF* tapStart;
+CCLabelBMFont* tapStart;
 
 - (void)didLoadFromCCB
 {
@@ -182,10 +182,9 @@ CCLabelTTF* tapStart;
     [compass addChild:naviArrow];
     
     //タップスタートメッセージ
-    tapStart=[CCLabelTTF labelWithString:@"タップスタート" fontName:@"Verdana-Bold" fontSize:30];
+    tapStart=[CCLabelBMFont labelWithString:CCBLocalize(@"TapStart") fntFile:@"tapstart.fnt"];
     tapStart.position=ccp(winSize.width/2,winSize.height/2 +50);
-    tapStart.fontColor=[CCColor blueColor];
-    //tapStart.visible=false;
+    tapStart.scale=0.7;
     [self addChild:tapStart];
     
 }
