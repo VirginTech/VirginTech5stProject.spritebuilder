@@ -206,6 +206,61 @@ Please wait for a while concerning more.</string>
 				<string>タップスタート！</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>key</key>
+			<string>Home</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Home</string>
+				<key>ja</key>
+				<string>ホームへ</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Select</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Select Level</string>
+				<key>ja</key>
+				<string>ステージ選択</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Continue</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Continue</string>
+				<key>ja</key>
+				<string>続きから</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Replay</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Replay</string>
+				<key>ja</key>
+				<string>リプレイ</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Next</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Next Level</string>
+				<key>ja</key>
+				<string>次ステージへ</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

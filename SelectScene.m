@@ -118,13 +118,17 @@ CCScrollView* scrollView;
         btnCnt++;
         btnPos=ccp(btnPos.x+(70*param),btnPos.y+40);
         
-        NSString* cloudName=[NSString stringWithFormat:@"Cloud-%d.png",btnCnt%8];
+        NSString* cloudName_a=[NSString stringWithFormat:@"Cloud-%d_a.png",btnCnt%8];
+        NSString* cloudName_b=[NSString stringWithFormat:@"Cloud-%d_b.png",btnCnt%8];
         if(btnCnt%8==0){
-            cloudName=@"Cloud-8.png";
+            cloudName_a=@"Cloud-8_a.png";
+            cloudName_b=@"Cloud-8_b.png";
         }
         
         CCButton* selectBtn = [CCButton buttonWithTitle:@""
-                    spriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:cloudName]];
+                spriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:cloudName_a]
+                highlightedSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:cloudName_b]
+                disabledSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:cloudName_a]];
         selectBtn.position=btnPos;
         selectBtn.name=[NSString stringWithFormat:@"%d",btnCnt];
         [selectBtn setTarget:self selector:@selector(onStageLevel:)];

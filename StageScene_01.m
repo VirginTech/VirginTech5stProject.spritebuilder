@@ -343,7 +343,9 @@ CCLabelBMFont* tapStart;
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
 
     //クリアレベル保存
-    [GameManager save_Clear_Level:[GameManager getCurrentStage]];
+    if([GameManager getCurrentStage]>[GameManager load_Clear_Level]){
+        [GameManager save_Clear_Level:[GameManager getCurrentStage]];
+    }
     
     //リザルトレイヤー
     resultLayer=[[ResultLayer alloc]init:true];
