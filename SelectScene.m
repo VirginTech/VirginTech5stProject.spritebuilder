@@ -5,13 +5,13 @@
 //  Created by VirginTech LLC. on 2015/06/20.
 //  Copyright 2015年 Apportable. All rights reserved.
 //
-/*
+
 #ifdef ANDROID
 #else
 #import "IMobileLayer.h"
 #import "AdMobLayer_iOS.h"
 #endif
-*/
+
 
 #import "SelectScene.h"
 
@@ -43,7 +43,7 @@ CCScrollView* scrollView;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
     [self addChild:background];
     
-    /*
+    
 #ifdef ANDROID
     
 #else
@@ -58,7 +58,7 @@ CCScrollView* scrollView;
         [self addChild:admob];
     }
 #endif
-     */
+     
     
     //画面サイズ設定
     int hParam;

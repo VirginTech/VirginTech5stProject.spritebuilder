@@ -100,6 +100,11 @@ CCLabelBMFont* coinLabel;
     NSLog(@"===============%@===============",str);
 #endif*/
     
+    //タイトル画面
+    CCSprite* backGround=[CCSprite spriteWithImageNamed:@"bg_01.png"];
+    backGround.position=ccp(winSize.width/2,winSize.height/2);
+    [self addChild:backGround];
+    
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"info_default.plist"];
@@ -130,8 +135,19 @@ CCLabelBMFont* coinLabel;
     [self addChild:titleLogo];
     
     //プレイボタン
-    CCButton* playButton=[CCButton buttonWithTitle:@"[ プレイ ]" fontName:@"Verdana-Bold" fontSize:20];
-    playButton.position=ccp(winSize.width/2,winSize.height/2-20);
+    CCSpriteFrame* spFrm_a;
+    CCSpriteFrame* spFrm_b;
+    if([GameManager getLocal]==0){
+        spFrm_a=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"playBtn_a_jp.png"];
+        spFrm_b=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"playBtn_b_jp.png"];
+    }else{
+        spFrm_a=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"playBtn_a_en.png"];
+        spFrm_b=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"playBtn_b_en.png"];
+    }
+    CCButton* playButton=[CCButton buttonWithTitle:@""
+                            spriteFrame:spFrm_a highlightedSpriteFrame:spFrm_b disabledSpriteFrame:spFrm_a];
+    playButton.position=ccp(winSize.width/2,winSize.height/2-80);
+    playButton.scale=0.5;
     [playButton setTarget:self selector:@selector(onPlayClick:)];
     [self addChild:playButton];
     

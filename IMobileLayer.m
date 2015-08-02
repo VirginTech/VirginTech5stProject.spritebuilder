@@ -68,7 +68,7 @@ CGSize winSize;
 
 - (void) dealloc
 {
-    /*
+    
     if([GameManager getDevice]==1){//iPad
         [ImobileSdkAds setSpotDelegate:@"534301" delegate:nil];
     }else{
@@ -76,7 +76,7 @@ CGSize winSize;
     }
     [adView removeFromSuperview];
     adView=nil;
-    */
+    
 }
 
 -(void)removeLayer

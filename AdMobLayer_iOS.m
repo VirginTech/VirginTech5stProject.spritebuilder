@@ -59,10 +59,10 @@ CGSize winSize;
 
 - (void)dealloc
 {
-    /*
+    
     [adBannerView removeFromSuperview];
     adBannerView.delegate = nil;
-    */
+    
 }
 
 -(void)removeLayer

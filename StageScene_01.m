@@ -14,11 +14,13 @@
 #undef EGL_NO_SURFACE
 #import <AndroidKit/AndroidKit.h>
 #endif
-
-#ifdef ANDROID
-#import "Data_io.h"
-#endif
 */
+#ifdef ANDROID
+//#import "Data_io.h"
+#else
+#import "IMobileLayer.h"
+#import "AdMobLayer_iOS.h"
+#endif
 
 #import "StageScene_01.h"
 
@@ -63,6 +65,21 @@ CCLabelBMFont* tapStart;
     self.userInteractionEnabled = TRUE;
     
     winSize=[[CCDirector sharedDirector]viewSize];
+
+#ifdef ANDROID
+    
+#else
+    //Ad広告表示
+    if([GameManager getLocal]==0){//日本語
+        //iMobile広告表示
+        IMobileLayer* imobile=[[IMobileLayer alloc]init];
+        [self addChild:imobile];
+    }else{//その他
+        //AdMob広告表示
+        AdMobLayer_iOS* admob=[[AdMobLayer_iOS alloc]init];
+        [self addChild:admob];
+    }
+#endif
     
     //衝突判定デリゲート設定
     physicWorld.collisionDelegate = self;

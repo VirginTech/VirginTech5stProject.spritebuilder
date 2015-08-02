@@ -78,15 +78,7 @@ CCLabelBMFont* coinLabel;
         [checkPointArray addObject:checkPoint_a];
     }
     
-    //コイン表示
-    CCSprite* coin=[CCSprite spriteWithSpriteFrame:
-                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"coin.png"]];
-    coin.scale=0.3;
-    coin.position=ccp((coin.contentSize.width*coin.scale)/2 +10,
-                      levelLabel.position.y-(levelLabel.contentSize.height*levelLabel.scale)/2 -15);
-    [self addChild:coin];
-    
-    //枚数
+    //コイン枚数
 //#ifdef ANDROID
 //    AndroidContext* context=[CCActivity currentActivity].applicationContext;
 //    coinLabel=[CCLabelTTF labelWithString:
@@ -97,9 +89,15 @@ CCLabelBMFont* coinLabel;
                                               [GameManager load_Coin_Value]]fntFile:@"score.fnt"];
 //#endif
     coinLabel.scale=0.7;
-    coinLabel.position=ccp(coin.position.x+(coin.contentSize.width*coin.scale)/2+(coinLabel.contentSize.width*coinLabel.scale)/2,
-                           coin.position.y);
+    coinLabel.position=ccp(winSize.width-(coinLabel.contentSize.width*coinLabel.scale)/2,levelLabel.position.y);
     [self addChild:coinLabel];
+
+    //コイン表示
+    CCSprite* coin=[CCSprite spriteWithSpriteFrame:
+                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"coin.png"]];
+    coin.scale=0.3;
+    coin.position=ccp(coinLabel.position.x-(coinLabel.contentSize.width*coinLabel.scale)/2-(coin.contentSize.width*coin.scale)/2,coinLabel.position.y);
+    [self addChild:coin];
     
     return self;
 }
