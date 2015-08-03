@@ -261,6 +261,28 @@ Please wait for a while concerning more.</string>
 				<string>次ステージへ</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>key</key>
+			<string>Bgm</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>BGM:</string>
+				<key>ja</key>
+				<string>BGM:</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>Effect</string>
+			<key>translations</key>
+			<dict>
+				<key>en</key>
+				<string>Effect:</string>
+				<key>ja</key>
+				<string>ｴﾌｪｸﾄ:</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -12,7 +12,6 @@
 #import "AdMobLayer_iOS.h"
 #endif
 
-
 #import "SelectScene.h"
 
 #import "TitleScene.h"
@@ -40,7 +39,7 @@ CCScrollView* scrollView;
     winSize=[[CCDirector sharedDirector]viewSize];
     
     //Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
+    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]];
     [self addChild:background];
     
     
@@ -58,37 +57,12 @@ CCScrollView* scrollView;
         [self addChild:admob];
     }
 #endif
-     
-    
-    //画面サイズ設定
-    int hParam;
-#ifdef ANDROID
-    hParam=6;
-    bgSpLayer=[CCSprite spriteWithImageNamed:@"bgLayer_a.png"];
-#else
-    if([GameManager getDevice]==3 || [GameManager getDevice]==4){//iPhone5,6
-        hParam=7;
-    }else{
-        hParam=6;
-    }
-    UIImage *image = [UIImage imageNamed:@"bgLayer_o.png"];
-    UIGraphicsBeginImageContext(CGSizeMake(winSize.width,winSize.height*hParam));
-    [image drawInRect:CGRectMake(0, 0, winSize.width,winSize.height*hParam)];
-    image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    bgSpLayer=[CCSprite spriteWithCGImage:image.CGImage key:nil];
-#endif
     
     //スクロールビュー配置 z:0
+    bgSpLayer=[CCSprite spriteWithImageNamed:@"bgLayer_2000.png"];
     scrollView=[[CCScrollView alloc]initWithContentNode:bgSpLayer];
     scrollView.horizontalScrollEnabled=NO;
-
-#ifdef ANDROID
-    scrollView.scrollPosition=ccp(0,bgSpLayer.contentSize.height-winSize.height);
-#else
-    scrollView.scrollPosition=CGPointMake(0, winSize.height*hParam-1);
-#endif
-    
+    scrollView.scrollPosition=ccp(0,bgSpLayer.contentSize.height-winSize.height);//最下部へ
     [self addChild:scrollView z:0];
     
     //画像読み込み
@@ -96,7 +70,7 @@ CCScrollView* scrollView;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"cloud_default.plist"];
     
     //背景
-    for(int i=0;i<hParam-1;i++)
+    for(int i=0;i<5;i++)
     {
         CCSprite* bg=[CCSprite spriteWithImageNamed:@"bg_01.png"];
         bg.position=ccp(winSize.width/2,(bg.contentSize.height/2)+(i*bg.contentSize.height));
@@ -210,9 +184,17 @@ CCScrollView* scrollView;
     }*/
     
     //タイトルへ
-    CCButton* titleButton=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
-    titleButton.position=ccp(winSize.width-titleButton.contentSize.width/2,
-                             winSize.height-titleButton.contentSize.height/2);
+    CCButton* titleButton;//=[CCButton buttonWithTitle:@"[タイトル]" fontName:@"Verdana-Bold" fontSize:15];
+    if([GameManager getLocal]==0){
+        titleButton=[CCButton buttonWithTitle:@"" spriteFrame:
+                     [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"titleBtn.png"]];
+    }else{
+        titleButton=[CCButton buttonWithTitle:@"" spriteFrame:
+                     [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"titleBtn_en.png"]];
+    }
+    titleButton.scale=0.5;
+    titleButton.position=ccp(winSize.width-(titleButton.contentSize.width*titleButton.scale)/2,
+                             winSize.height-(titleButton.contentSize.height*titleButton.scale)/2);
     [titleButton setTarget:self selector:@selector(onTitleClick:)];
     [self addChild:titleButton];
     

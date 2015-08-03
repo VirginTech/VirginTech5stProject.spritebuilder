@@ -28,6 +28,9 @@
 
 #import "SelectScene.h"
 #import "GameManager.h"
+#import "CreditScene.h"
+#import "ManualScene.h"
+#import "PreferencesScene.h"
 
 @implementation TitleScene
 
@@ -151,11 +154,13 @@ CCLabelBMFont* coinLabel;
     [playButton setTarget:self selector:@selector(onPlayClick:)];
     [self addChild:playButton];
     
+#ifdef ANDROID
+#else
     //GameCenterボタン
     CCButton *gameCenterButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                   [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"gamecenter.png"]];
     gameCenterButton.positionType = CCPositionTypeNormalized;
-    gameCenterButton.position = ccp(0.97f, 0.10f);
+    gameCenterButton.position = ccp(0.95f, 0.10f);
     gameCenterButton.scale=0.5;
     [gameCenterButton setTarget:self selector:@selector(onGameCenterClicked:)];
     [self addChild:gameCenterButton];
@@ -164,7 +169,7 @@ CCLabelBMFont* coinLabel;
     CCButton *twitterButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"twitter.png"]];
     twitterButton.positionType = CCPositionTypeNormalized;
-    twitterButton.position = ccp(0.97f, 0.20f);
+    twitterButton.position = ccp(0.95f, 0.23f);
     twitterButton.scale=0.5;
     [twitterButton setTarget:self selector:@selector(onTwitterClicked:)];
     [self addChild:twitterButton];
@@ -173,34 +178,45 @@ CCLabelBMFont* coinLabel;
     CCButton *facebookButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                 [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"facebook.png"]];
     facebookButton.positionType = CCPositionTypeNormalized;
-    facebookButton.position = ccp(0.97f, 0.30f);
+    facebookButton.position = ccp(0.95f, 0.36f);
     facebookButton.scale=0.5;
     [facebookButton setTarget:self selector:@selector(onFacebookClicked:)];
     [self addChild:facebookButton];
     
-    //In-AppPurchaseボタン
+#endif
+    
+    /*/In-AppPurchaseボタン
     CCButton *inAppButton = [CCButton buttonWithTitle:@"" spriteFrame:
                              [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"shopBtn.png"]];
     inAppButton.positionType = CCPositionTypeNormalized;
     inAppButton.position = ccp(0.03f, 0.10f);
     inAppButton.scale=0.5;
     [inAppButton setTarget:self selector:@selector(onInAppPurchaseClicked:)];
-    [self addChild:inAppButton];
+    [self addChild:inAppButton];*/
     
     //環境設定
     CCButton *preferencesButton = [CCButton buttonWithTitle:@"" spriteFrame:
                                    [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"configBtn.png"]];
     preferencesButton.positionType = CCPositionTypeNormalized;
-    preferencesButton.position = ccp(0.03f, 0.20f);
+    preferencesButton.position = ccp(0.05f, 0.10f);
     preferencesButton.scale=0.5;
     [preferencesButton setTarget:self selector:@selector(onPreferencesButtonClicked:)];
     [self addChild:preferencesButton];
+    
+    //マニュアル
+    CCButton *helpButton = [CCButton buttonWithTitle:@"" spriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"helpBtn.png"]];
+    helpButton.positionType = CCPositionTypeNormalized;
+    helpButton.position = ccp(0.05f, 0.23f);
+    helpButton.scale=0.5;
+    [helpButton setTarget:self selector:@selector(onHelpButtonClicked:)];
+    [self addChild:helpButton];
     
     //クレジット
     CCButton *creditButton = [CCButton buttonWithTitle:@"" spriteFrame:
                               [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"creditBtn.png"]];
     creditButton.positionType = CCPositionTypeNormalized;
-    creditButton.position = ccp(0.03f, 0.30f);
+    creditButton.position = ccp(0.05f, 0.36f);
     creditButton.scale=0.5;
     [creditButton setTarget:self selector:@selector(onCreditButtonClicked:)];
     [self addChild:creditButton];
@@ -281,27 +297,38 @@ CCLabelBMFont* coinLabel;
 
 -(void)onTwitterClicked:(id)sender
 {
-
+#ifdef ANDROID
+#else
+    NSURL* url = [NSURL URLWithString:@"https://twitter.com/VirginTechLLC"];
+    [[UIApplication sharedApplication]openURL:url];
+#endif
 }
 
 -(void)onFacebookClicked:(id)sender
 {
-    
+#ifdef ANDROID
+#else
+    NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/pages/VirginTech-LLC/516907375075432"];
+    [[UIApplication sharedApplication]openURL:url];
+#endif
 }
 
--(void)onInAppPurchaseClicked:(id)sender
+-(void)onHelpButtonClicked:(id)sender
 {
-    
+    [[CCDirector sharedDirector] replaceScene:[ManualScene scene]
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 -(void)onPreferencesButtonClicked:(id)sender
 {
-    
+    PreferencesScene* prefScene=[[PreferencesScene alloc]init];
+    [self addChild:prefScene z:3];
 }
 
 -(void)onCreditButtonClicked:(id)sender
 {
-    
+    [[CCDirector sharedDirector] replaceScene:[CreditScene scene]
+                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 @end

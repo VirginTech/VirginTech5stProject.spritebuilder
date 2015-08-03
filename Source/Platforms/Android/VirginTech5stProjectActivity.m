@@ -29,6 +29,7 @@
 
 #import "TitleScene.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @implementation VirginTech5stProjectActivity
 
@@ -52,6 +53,9 @@ CGSize winSize;
     }else{
         [GameManager setLocal:1];
     }
+    
+    //サウンドプリロード
+    [SoundManager initSoundPreload];
 
     return [CCBReader loadAsScene:@"MainScene"];
     //return [TitleScene scene];

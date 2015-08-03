@@ -31,6 +31,7 @@
 #import <sys/utsname.h>
 #import "TitleScene.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @implementation AppController
 
@@ -103,6 +104,9 @@
         [GameManager setLocal:1];
     }
 
+    //サウンドプリロード
+    [SoundManager initSoundPreload];
+    
     //return [CCBReader loadAsScene:@"MainScene"];
     return [TitleScene scene];
 }
