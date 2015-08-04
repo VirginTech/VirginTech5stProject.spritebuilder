@@ -21,6 +21,7 @@
 #else
 #import "IMobileLayer.h"
 #import "AdMobLayer_iOS.h"
+#import "GameCenterLayer.h"
 #endif
 
 
@@ -38,6 +39,11 @@ CGSize winSize;
 
 MsgBoxLayer* msgBox;
 CCLabelBMFont* coinLabel;
+
+#ifdef ANDROID
+#else
+GameCenterLayer* gkLayer;
+#endif
 
 + (TitleScene *)scene
 {
@@ -57,6 +63,10 @@ CCLabelBMFont* coinLabel;
 #else
     //初回時データ初期化
     //[GameManager initialize_UserDefaults];
+    
+    //GameCenterレイヤー
+    gkLayer=[[GameCenterLayer alloc]init];
+    [self addChild:gkLayer];
     
     //Ad広告表示
     if([GameManager getLocal]==0){//日本語
@@ -292,7 +302,10 @@ CCLabelBMFont* coinLabel;
 
 -(void)onGameCenterClicked:(id)sender
 {
-    
+#ifdef ANDROID
+#else
+    [gkLayer showLeaderboard];
+#endif
 }
 
 -(void)onTwitterClicked:(id)sender

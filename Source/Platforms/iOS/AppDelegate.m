@@ -32,6 +32,7 @@
 #import "TitleScene.h"
 #import "GameManager.h"
 #import "SoundManager.h"
+#import <GameKit/GameKit.h>
 
 @implementation AppController
 
@@ -59,7 +60,30 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
+    //OSバージョン登録
+    [GameManager setOsVersion:[[[UIDevice currentDevice]systemVersion]floatValue]];
     
+    //GameCenterへ認証
+    GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
+    if ([GameManager getOsVersion]>=6.0f)
+    {
+        UIViewController *uiView = (UIViewController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        localPlayer.authenticateHandler = ^(UIViewController* viewController, NSError* error)
+        {
+            if(viewController!=nil){
+                [uiView presentViewController:viewController animated:YES completion:nil];
+            }
+            if(error==nil) {
+                // ゲーム招待を処理するためのハンドラを設定する
+                //[gkc initMatchInviteHandler];
+            }
+        };
+    }else
+    {
+        localPlayer.authenticateHandler = ^(UIViewController* viewController, NSError* error){};
+    }
+
     //ローカル通知の認証
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];

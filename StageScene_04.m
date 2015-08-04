@@ -361,6 +361,8 @@ CCLabelBMFont* tapStart;
     //クリアレベル保存
     if([GameManager getCurrentStage]>[GameManager load_Clear_Level]){
         [GameManager save_Clear_Level:[GameManager getCurrentStage]];
+        //GameCenter送信
+        [GameManager submit_Score_GameCenter:[GameManager getCurrentStage]];
     }
     
     //リザルトレイヤー

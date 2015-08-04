@@ -253,6 +253,8 @@
 		CFD4325A1B6B6EE90049F883 /* info_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD432561B6B6EE90049F883 /* info_default.png */; };
 		CFD4325B1B6B6EE90049F883 /* info_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD432561B6B6EE90049F883 /* info_default.png */; };
 		CFD4325C1B6B6EE90049F883 /* info_default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD432561B6B6EE90049F883 /* info_default.png */; };
+		CFD91E8D1B70475900C681B3 /* GameCenterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD91E8C1B70475900C681B3 /* GameCenterLayer.m */; };
+		CFD91E911B7047E700C681B3 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD91E901B7047E700C681B3 /* GameKit.framework */; };
 		CFDBE3B71B292CAE00A8A9D8 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBE3B61B292CAE00A8A9D8 /* Player.m */; };
 		CFDD1C341B65BC7D007D7B4E /* AdMobLayer_Android.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD1C321B65BA5B007D7B4E /* AdMobLayer_Android.m */; };
 		CFDD1C371B65BCB6007D7B4E /* AdBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDD1C361B65BCB6007D7B4E /* AdBridge.m */; };
@@ -495,6 +497,9 @@
 		CFD4324E1B6B67A20049F883 /* comingsoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comingsoon.png; sourceTree = "<group>"; };
 		CFD432551B6B6EE90049F883 /* info_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info_default.plist; sourceTree = "<group>"; };
 		CFD432561B6B6EE90049F883 /* info_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_default.png; sourceTree = "<group>"; };
+		CFD91E8B1B70475900C681B3 /* GameCenterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterLayer.h; sourceTree = "<group>"; };
+		CFD91E8C1B70475900C681B3 /* GameCenterLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterLayer.m; sourceTree = "<group>"; };
+		CFD91E901B7047E700C681B3 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		CFDBE3B51B292CAE00A8A9D8 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		CFDBE3B61B292CAE00A8A9D8 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		CFDD1C311B65BA5B007D7B4E /* AdMobLayer_Android.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobLayer_Android.h; sourceTree = "<group>"; };
@@ -583,6 +588,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD91E911B7047E700C681B3 /* GameKit.framework in Frameworks */,
 				CFDD1C521B65F54C007D7B4E /* GoogleMobileAds.framework in Frameworks */,
 				CFDD1C4D1B65E9F2007D7B4E /* ImobileSdkAds.framework in Frameworks */,
 				CFDD1C4B1B65E9CB007D7B4E /* CoreLocation.framework in Frameworks */,
@@ -848,6 +854,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFD91E901B7047E700C681B3 /* GameKit.framework */,
 				CFDD1C511B65F54C007D7B4E /* GoogleMobileAds.framework */,
 				CFDD1C4C1B65E9F2007D7B4E /* ImobileSdkAds.framework */,
 				CFDD1C4A1B65E9CB007D7B4E /* CoreLocation.framework */,
@@ -978,6 +985,8 @@
 		CFC8BAFB1B6F2FD600760303 /* OptionScene */ = {
 			isa = PBXGroup;
 			children = (
+				CFD91E8B1B70475900C681B3 /* GameCenterLayer.h */,
+				CFD91E8C1B70475900C681B3 /* GameCenterLayer.m */,
 				CFC8BB2C1B6F531F00760303 /* PreferencesScene.h */,
 				CFC8BB2D1B6F531F00760303 /* PreferencesScene.m */,
 				CFC8BAFC1B6F300000760303 /* CreditScene.h */,
@@ -1604,6 +1613,7 @@
 				CFE0815F1B2D7C6A008426B0 /* StageScene_01.m in Sources */,
 				CFC6315D1B6076D600F4F0F8 /* StageScene_04.m in Sources */,
 				CFE0815C1B2D2090008426B0 /* BasicMath.m in Sources */,
+				CFD91E8D1B70475900C681B3 /* GameCenterLayer.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				CFE2D9DC1B69B17C00F4A420 /* MsgBoxLayer.m in Sources */,
 				CF1992BB1B3E640100EAC681 /* StageScene_02.m in Sources */,

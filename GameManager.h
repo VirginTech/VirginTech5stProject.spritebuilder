@@ -10,6 +10,9 @@
 
 @interface GameManager : NSObject
 
++(float)getOsVersion;
++(void)setOsVersion:(float)version;
+
 +(void)setLocal:(int)type;// 0:日本 1:その他
 +(int)getLocal;
     
@@ -45,5 +48,7 @@
 
 //+(bool)load_Coin_State:(int)stage coinNum:(int)coinNum;
 //+(void)save_Coin_State:(int)stage coinNum:(int)coinNum flg:(bool)flg;
+
++(void)submit_Score_GameCenter:(NSInteger)score;
 
 @end

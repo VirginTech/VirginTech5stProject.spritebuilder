@@ -6,10 +6,16 @@
 //  Copyright (c) 2015年 Apportable. All rights reserved.
 //
 
+#ifdef ANDROID
+#else
+#import <GameKit/GameKit.h>
+#endif
+
 #import "GameManager.h"
 
 @implementation GameManager
 
+float osVersion;//OSバージョン
 int local;// 0:日本 1:その他
 int deviceType;// 1:iPad2 2:iPhone4 3:iPhone5 4:iPhone6   Android 1:大 0:小
 
@@ -18,6 +24,13 @@ int maxCheckPoint;//Maxチェックポイント
 int clearPoint;//クリアチェックポイント
 int currentStage;//現在ステージNum
 
+//OSバージョン
++(void)setOsVersion:(float)version{
+    osVersion=version;
+}
++(float)getOsVersion{
+    return osVersion;
+}
 //ロケール取得／登録
 +(void)setLocal:(int)type{
     local=type;
@@ -235,5 +248,22 @@ int currentStage;//現在ステージNum
     [stageArray replaceObjectAtIndex:coinNum-1 withObject:[NSNumber numberWithBool:flg]];
     [self save_Coin_State_Stage:stage array:stageArray];
 }*/
+
+//=========================================
+//GameCenterへスコアを送信
+//=========================================
++(void)submit_Score_GameCenter:(NSInteger)score
+{
+#ifdef ANDROID
+#else
+    GKScore *scoreReporter = [[GKScore alloc] initWithCategory:@"VirginTech5stProject_Leaderboard_01"];
+    scoreReporter.value = score;
+    [scoreReporter reportScoreWithCompletionHandler:^(NSError *error) {
+        if (error != nil){
+            NSLog(@"Error in reporting score %@",error);
+        }
+    }];
+#endif
+}
 
 @end
