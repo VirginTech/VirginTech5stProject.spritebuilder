@@ -17,6 +17,7 @@
 #import "TitleScene.h"
 #import "GameManager.h"
 #import "EndingLayer.h"
+#import "SoundManager.h"
 
 @implementation SelectScene
 
@@ -42,6 +43,8 @@ CCScrollView* scrollView;
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]];
     [self addChild:background];
     
+    //BGM
+    [SoundManager playBGM:@"bgm.mp3"];
     
 #ifdef ANDROID
     
@@ -203,6 +206,8 @@ CCScrollView* scrollView;
 
 - (void)onStageLevel:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     CCButton* button=(CCButton*)sender;
     int stageNum=[[button name]intValue];
     [GameManager setCurrentStage:stageNum];
@@ -220,6 +225,8 @@ CCScrollView* scrollView;
 
 -(void)onTitleClick:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }

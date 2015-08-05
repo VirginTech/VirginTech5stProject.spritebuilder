@@ -11,6 +11,7 @@
 #import "TitleScene.h"
 #import "SelectScene.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @implementation NaviLayer
 
@@ -114,6 +115,9 @@ CGSize winSize;
 
 -(void)onReplayClick:(id)sender
 {
+    [SoundManager stopAllEffects];
+    [SoundManager btnClick_Effect];
+    
     NSString* stageStr=[NSString stringWithFormat:@"StageScene_%02d",[GameManager getCurrentStage]];
     [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:stageStr]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
@@ -121,18 +125,27 @@ CGSize winSize;
 
 -(void)onContinueClick:(id)sender
 {
+    [SoundManager stopAllEffects];
+    [SoundManager btnClick_Effect];
+    
     [self sendDelegate];
     [self removeFromParentAndCleanup:YES];
 }
 
 -(void)onSelectClick:(id)sender
 {
+    [SoundManager stopAllEffects];
+    [SoundManager btnClick_Effect];
+    
     [[CCDirector sharedDirector] replaceScene:[SelectScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 -(void)onTitleClick:(id)sender
 {
+    [SoundManager stopAllEffects];
+    [SoundManager btnClick_Effect];
+
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }

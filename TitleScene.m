@@ -32,6 +32,7 @@
 #import "CreditScene.h"
 #import "ManualScene.h"
 #import "PreferencesScene.h"
+#import "SoundManager.h"
 
 @implementation TitleScene
 
@@ -57,6 +58,9 @@ GameCenterLayer* gkLayer;
     if (!self) return(nil);
     
     winSize=[[CCDirector sharedDirector]viewSize];
+    
+    //BGM
+    [SoundManager playBGM:@"bgm.mp3"];
     
 #ifdef ANDROID
     
@@ -293,8 +297,7 @@ GameCenterLayer* gkLayer;
 
 -(void)onPlayClick:(id)sender
 {
-    //[[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"StageScene_01"]
-    //                           withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
+    [SoundManager btnClick_Effect];
     
     [[CCDirector sharedDirector] replaceScene:[SelectScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
@@ -302,6 +305,8 @@ GameCenterLayer* gkLayer;
 
 -(void)onGameCenterClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
 #ifdef ANDROID
 #else
     [gkLayer showLeaderboard];
@@ -310,6 +315,8 @@ GameCenterLayer* gkLayer;
 
 -(void)onTwitterClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
 #ifdef ANDROID
 #else
     NSURL* url = [NSURL URLWithString:@"https://twitter.com/VirginTechLLC"];
@@ -319,6 +326,8 @@ GameCenterLayer* gkLayer;
 
 -(void)onFacebookClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
 #ifdef ANDROID
 #else
     NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/pages/VirginTech-LLC/516907375075432"];
@@ -328,18 +337,24 @@ GameCenterLayer* gkLayer;
 
 -(void)onHelpButtonClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     [[CCDirector sharedDirector] replaceScene:[ManualScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 -(void)onPreferencesButtonClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     PreferencesScene* prefScene=[[PreferencesScene alloc]init];
     [self addChild:prefScene z:3];
 }
 
 -(void)onCreditButtonClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     [[CCDirector sharedDirector] replaceScene:[CreditScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }

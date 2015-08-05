@@ -22,13 +22,20 @@ float effectValue;
 +(void)initSoundPreload
 {
     //BGM
-    //[[OALSimpleAudio sharedInstance]preloadBg:@"bgm.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadBg:@"bgm.mp3"];
     
     //エフェクト
-    //[[OALSimpleAudio sharedInstance]preloadEffect:@"pin_ball_11.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"engine.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"engineStart.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"idling.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"coin.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"checkPoint.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"crash.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"gameOver.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"gameComplete.mp3"];
     
     //UI
-    //[[OALSimpleAudio sharedInstance]preloadEffect:@"mode_btn_click.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadEffect:@"btnClick.mp3"];
     
     //スイッチ
     bgmSwitch=true;
@@ -116,141 +123,83 @@ float effectValue;
 //===================
 // エフェクト
 //===================
-/*+(void)pin_Ball_11_Effect
++(void)engineAccele_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_11.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"engine.mp3"];
     }
 }
-+(void)pin_Ball_12_Effect
++(void)engineStart_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_11.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"engineStart.mp3"];
     }
 }
-+(void)pin_Ball_13_Effect
++(void)idling_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_11.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"idling.mp3" loop:YES];
     }
 }
-+(void)pin_Ball_14_Effect
++(void)coin_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_11.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"coin.mp3"];
     }
 }
-+(void)pin_Ball_15_Effect
++(void)checkPoint_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_11.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"checkPoint.mp3"];
     }
 }
-+(void)pin_Ball_21_Effect
++(void)crash_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_21.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"crash.mp3"];
     }
 }
-+(void)pin_Ball_31_Effect
++(void)gameOver_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"pin_ball_31.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"gameOver.mp3"];
     }
 }
-+(void)catch_Ball_Effect
++(void)gameComplete_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"catch_ball.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"gameComplete.mp3"];
     }
 }
-+(void)catch_Pin_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"catch_pin.mp3"];
-    }
-}
-+(void)ground_Ball_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"ground_ball.mp3"];
-    }
-}
-+(void)ball_Launch_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"ball_launch.mp3"];
-    }
-}
-+(void)high_Score1_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"highscore1.mp3"];
-    }
-}
-+(void)high_Score2_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"highscore2.mp3"];
-    }
-}
-+(void)game_Finish_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"game_finish.mp3"];
-    }
-}
-+(void)game_Over_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"game_over.mp3"];
-    }
-}*/
+
 //===================
 // UI
 //===================
-/*+(void)mode_Btn_Click_Effect
++(void)btnClick_Effect
 {
     if(effectSwitch){
         [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"mode_btn_click.mp3"];
+        [[OALSimpleAudio sharedInstance]playEffect:@"btnClick.mp3"];
     }
 }
-+(void)btn_Click_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"btn_click.mp3"];
-    }
-}
-+(void)game_Start_Effect
-{
-    if(effectSwitch){
-        [[OALSimpleAudio sharedInstance]setEffectsVolume:effectValue];
-        [[OALSimpleAudio sharedInstance]playEffect:@"game_start.mp3"];
-    }
-}*/
+
 //===================
 // オールストップ
 //===================
-+(void)all_Stop
++(void)stopAll
 {
     [[OALSimpleAudio sharedInstance]stopEverything];
 }
-
++(void)stopAllEffects
+{
+    [[OALSimpleAudio sharedInstance]stopAllEffects];
+}
 @end

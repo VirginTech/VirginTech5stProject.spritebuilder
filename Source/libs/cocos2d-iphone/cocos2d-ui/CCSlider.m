@@ -92,7 +92,7 @@
     
     //エフェクト音
     if([self.name isEqualToString:@"Effect-Volume"]){
-        //[SoundManager mode_Btn_Click_Effect];
+        [SoundManager checkPoint_Effect];
     }
 }
 
@@ -102,7 +102,7 @@
     
     //エフェクト音
     if([self.name isEqualToString:@"Effect-Volume"]){
-        //[SoundManager mode_Btn_Click_Effect];
+        [SoundManager checkPoint_Effect];
     }
 }
 

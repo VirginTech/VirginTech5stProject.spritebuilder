@@ -164,12 +164,12 @@ CCButton* offEffectSwitch;
         onBgmSwitch.visible=true;
         offBgmSwitch.visible=false;
         [SoundManager setBgmSwitch:true];
-        //[SoundManager playBGM:@"bgm.mp3"];
+        [SoundManager playBGM:@"bgm.mp3"];
     }else{
         onBgmSwitch.visible=false;
         offBgmSwitch.visible=true;
         [SoundManager setBgmSwitch:false];
-        //[SoundManager stopBGM];
+        [SoundManager stopBGM];
     }
 }
 
@@ -189,8 +189,9 @@ CCButton* offEffectSwitch;
 
 - (void)onCloseClicked:(id)sender
 {
-    [self removeFromParentAndCleanup:YES];
+    [SoundManager btnClick_Effect];
     
+    [self removeFromParentAndCleanup:YES];
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event

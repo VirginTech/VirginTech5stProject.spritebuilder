@@ -9,6 +9,7 @@
 #import "CreditScene.h"
 #import "TitleScene.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @implementation CreditScene
 
@@ -148,6 +149,8 @@ CCScrollView* scrollView;
 
 - (void)onTitleClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }

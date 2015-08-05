@@ -9,6 +9,7 @@
 #import "ManualScene.h"
 #import "GameManager.h"
 #import "TitleScene.h"
+#import "SoundManager.h"
 
 @implementation ManualScene
 
@@ -55,6 +56,8 @@ CGSize winSize;
 
 - (void)onTitleClicked:(id)sender
 {
+    [SoundManager btnClick_Effect];
+    
     [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
                                withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }

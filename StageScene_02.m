@@ -31,6 +31,7 @@
 #import "CheckPoint.h"
 #import "InfoLayer.h"
 #import "Coin.h"
+#import "SoundManager.h"
 
 @implementation StageScene_02
 
@@ -66,6 +67,9 @@ CCLabelBMFont* tapStart;
     self.userInteractionEnabled = TRUE;
     
     winSize=[[CCDirector sharedDirector]viewSize];
+    
+    //BGM
+    [SoundManager playBGM:@"bgm.mp3"];
     
 #ifdef ANDROID
     
@@ -204,6 +208,9 @@ CCLabelBMFont* tapStart;
     tapStart.scale=0.7;
     [self addChild:tapStart];
     
+    //エンジンスタート
+    [SoundManager engineStart_Effect];
+    [SoundManager idling_Effect];
 }
 
 //=============================
@@ -226,6 +233,10 @@ CCLabelBMFont* tapStart;
         float angularVelocity=touchTime*2.5f;//角速度
         float angularImpulse=touchTime*25.f;//角力積
         float forceParam=touchTime*50.f;//Forceパラメーター
+        
+        if(touchCount%10==0){
+            [SoundManager engineAccele_Effect];
+        }
         
         //機首を上げる
         player.physicsBody.angularVelocity = angularVelocity;
@@ -327,6 +338,12 @@ CCLabelBMFont* tapStart;
 {
     if(!naviLayer.isRunningInActiveScene && !resultLayer.isRunningInActiveScene){
         //全停止
+        [SoundManager pauseBGM];
+        [SoundManager stopAllEffects];
+        
+        [SoundManager crash_Effect];
+        [SoundManager gameOver_Effect];
+        
         [GameManager setPause:true];
         touchFlg=false;
         [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
@@ -356,6 +373,8 @@ CCLabelBMFont* tapStart;
 {
     if([GameManager getClearPoint]+1 == cPoint.pointNum)
     {
+        [SoundManager checkPoint_Effect];
+        
         [GameManager setClearPoint:cPoint.pointNum];
         cPoint.opacity=0.1;
         //infoアップデート
@@ -381,6 +400,9 @@ CCLabelBMFont* tapStart;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cPlayer:(Player*)cPlayer cCoin:(Coin*)cCoin
 {
     if(cCoin.state){
+        
+        [SoundManager coin_Effect];
+        
         cCoin.opacity=0.1;
         cCoin.state=false;
         
@@ -408,6 +430,9 @@ CCLabelBMFont* tapStart;
 -(void)result_Delay_Schedule:(CCTime)dt
 {
     //全停止
+    [SoundManager stopAll];
+    [SoundManager gameComplete_Effect];
+    
     [GameManager setPause:true];
     [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
     
@@ -599,6 +624,9 @@ CCLabelBMFont* tapStart;
         tapStart.visible=true;
         
         //再開
+        [SoundManager resumeBGM];
+        [SoundManager idling_Effect];
+        
         [GameManager setPause:false];
     }
     //加算
@@ -609,6 +637,9 @@ CCLabelBMFont* tapStart;
 {
     if(!resultLayer.isRunningInActiveScene && !naviLayer.isRunningInActiveScene){
         //全停止
+        [SoundManager pauseBGM];
+        [SoundManager stopAllEffects];
+        
         [GameManager setPause:true];
         touchFlg=false;
         if(!player.physicsBody.sleeping){
@@ -632,6 +663,9 @@ CCLabelBMFont* tapStart;
 -(void)onResumeClick:(id)sender
 {
     //再開
+    [SoundManager resumeBGM];
+    [SoundManager idling_Effect];
+    
     [GameManager setPause:false];
     
     //ボタン切り替え

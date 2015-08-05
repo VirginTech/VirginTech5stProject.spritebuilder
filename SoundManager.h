@@ -13,13 +13,8 @@
     
 }
 
+//プリロード
 +(void)initSoundPreload;
-
-//スイッチ
-+(void)setBgmSwitch:(bool)flg;
-+(bool)getBgmSwitch;
-+(void)setEffectSwitch:(bool)flg;
-+(bool)getEffectSwitch;
 
 //BGM
 +(void)playBGM:(NSString*)fileName;
@@ -27,37 +22,32 @@
 +(void)pauseBGM;
 +(void)resumeBGM;
 
+//スイッチ
++(void)setBgmSwitch:(bool)flg;
++(bool)getBgmSwitch;
++(void)setEffectSwitch:(bool)flg;
++(bool)getEffectSwitch;
+
 //ボリューム
 +(void)setBgmVolume:(float)value;
 +(float)getBgmVolume;
 +(void)setEffectVolume:(float)value;
 +(float)getEffectVolume;
 
-+(void)all_Stop;
++(void)stopAll;
++(void)stopAllEffects;
 
 //エフェクト
-//+(void)pin_Ball_11_Effect;
-//+(void)pin_Ball_12_Effect;
-//+(void)pin_Ball_13_Effect;
-//+(void)pin_Ball_14_Effect;
-//+(void)pin_Ball_15_Effect;
-//+(void)pin_Ball_21_Effect;
-//+(void)pin_Ball_31_Effect;
-
-//+(void)catch_Ball_Effect;
-//+(void)catch_Pin_Effect;
-//+(void)ground_Ball_Effect;
-//+(void)ball_Launch_Effect;
-
-//+(void)high_Score1_Effect;
-//+(void)high_Score2_Effect;
-
-//+(void)game_Finish_Effect;
-//+(void)game_Over_Effect;
++(void)engineAccele_Effect;
++(void)engineStart_Effect;
++(void)idling_Effect;
++(void)coin_Effect;
++(void)checkPoint_Effect;
++(void)crash_Effect;
++(void)gameOver_Effect;
++(void)gameComplete_Effect;
 
 //UIエフェクト
-//+(void)mode_Btn_Click_Effect;
-//+(void)btn_Click_Effect;
-//+(void)game_Start_Effect;
++(void)btnClick_Effect;
 
 @end
