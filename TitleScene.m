@@ -60,7 +60,7 @@ GameCenterLayer* gkLayer;
     winSize=[[CCDirector sharedDirector]viewSize];
     
     //BGM
-    [SoundManager playBGM:@"bgm.mp3"];
+    [SoundManager playBGM:@"openingBgm.mp3"];
     
 #ifdef ANDROID
     

@@ -164,7 +164,7 @@ CCButton* offEffectSwitch;
         onBgmSwitch.visible=true;
         offBgmSwitch.visible=false;
         [SoundManager setBgmSwitch:true];
-        [SoundManager playBGM:@"bgm.mp3"];
+        [SoundManager playBGM:@"openingBgm.mp3"];
     }else{
         onBgmSwitch.visible=false;
         offBgmSwitch.visible=true;

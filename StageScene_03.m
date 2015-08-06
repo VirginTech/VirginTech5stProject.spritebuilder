@@ -75,7 +75,7 @@ CCLabelBMFont* tapStart;
     winSize=[[CCDirector sharedDirector]viewSize];
     
     //BGM
-    [SoundManager playBGM:@"bgm.mp3"];
+    [SoundManager playBGM:@"playBgm.mp3"];
     
 #ifdef ANDROID
     
@@ -389,6 +389,12 @@ CCLabelBMFont* tapStart;
         }
         
         //全停止
+        [SoundManager pauseBGM];
+        [SoundManager stopAllEffects];
+        
+        [SoundManager crash_Effect];
+        [SoundManager gameOver_Effect];
+        
         [GameManager setPause:true];
         touchFlg=false;
         [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
@@ -757,6 +763,7 @@ CCLabelBMFont* tapStart;
         //全停止
         [SoundManager pauseBGM];
         [SoundManager stopAllEffects];
+        [SoundManager btnClick_Effect];
         
         [GameManager setPause:true];
         touchFlg=false;
@@ -797,6 +804,7 @@ CCLabelBMFont* tapStart;
     //再開
     [SoundManager resumeBGM];
     [SoundManager idling_Effect];
+    [SoundManager btnClick_Effect];
     
     [GameManager setPause:false];
     

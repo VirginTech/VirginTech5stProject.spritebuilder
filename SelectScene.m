@@ -44,7 +44,7 @@ CCScrollView* scrollView;
     [self addChild:background];
     
     //BGM
-    [SoundManager playBGM:@"bgm.mp3"];
+    [SoundManager playBGM:@"openingBgm.mp3"];
     
 #ifdef ANDROID
     
@@ -149,7 +149,7 @@ CCScrollView* scrollView;
             selectBtn.enabled=false;
             numLabel.visible=false;
             //Coming soon表示
-            CCLabelBMFont* msg=[CCLabelBMFont labelWithString:CCBLocalize(@"ComingSoon") fntFile:@"message.fnt"];
+            CCLabelBMFont* msg=[CCLabelBMFont labelWithString:CCBLocalize(@"ComingSoon") fntFile:@"comingsoon.fnt"];
             msg.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
             msg.scale=0.5;
             [selectBtn addChild:msg];
@@ -206,6 +206,7 @@ CCScrollView* scrollView;
 
 - (void)onStageLevel:(id)sender
 {
+    [SoundManager stopBGM];
     [SoundManager btnClick_Effect];
     
     CCButton* button=(CCButton*)sender;
