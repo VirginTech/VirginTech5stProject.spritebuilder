@@ -62,6 +62,8 @@ float checkPointDistance;
 
 CCLabelBMFont* tapStart;
 
+CCParticleSystem* checkPointParticle;
+
 - (void)didLoadFromCCB
 {
     self.userInteractionEnabled = TRUE;
@@ -95,6 +97,7 @@ CCLabelBMFont* tapStart;
     [GameManager setMaxCheckPoint:3];//最大チェックポイント数
     bgArray=[[NSMutableArray alloc]init];
     touchFlg=false;
+    checkPointParticle=nil;
     
     //インフォレイヤー
     InfoLayer* infoLayer=[[InfoLayer alloc]init];
@@ -374,6 +377,7 @@ CCLabelBMFont* tapStart;
     if([GameManager getClearPoint]+1 == cPoint.pointNum)
     {
         [SoundManager checkPoint_Effect];
+        [self setCheckPointParticle:cPoint.position];
         
         [GameManager setClearPoint:cPoint.pointNum];
         cPoint.opacity=0.1;
@@ -464,6 +468,20 @@ CCLabelBMFont* tapStart;
         [self addChild:msgBox z:1];
     }
 #endif
+}
+
+//=====================
+// パーティクル
+//=====================
+-(void)setCheckPointParticle:(CGPoint)pos
+{
+    if(checkPointParticle!=nil){//その都度削除
+        [physicWorld removeChild:checkPointParticle cleanup:YES];
+    }
+    checkPointParticle=(CCParticleSystem *)[CCBReader load:@"CheckPointParticle"];
+    checkPointParticle.position=pos;
+    checkPointParticle.scale=0.5;
+    [physicWorld addChild:checkPointParticle];
 }
 
 //=====================

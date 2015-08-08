@@ -2365,8 +2365,6 @@
 								<array/>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -2595,7 +2593,7 @@
 								<key>value</key>
 								<array>
 									<real>666.5</real>
-									<real>345.40896606445312</real>
+									<real>353.40750122070312</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2619,8 +2617,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.31923618912696838</real>
-									<real>0.29892897605895996</real>
+									<real>0.3909296989440918</real>
+									<real>0.36661648750305176</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -2813,8 +2811,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.34793812036514282</real>
-									<real>0.31840178370475769</real>
+									<real>0.391023188829422</real>
+									<real>0.37578666210174561</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -3007,8 +3005,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.31835037469863892</real>
-									<real>0.32844576239585876</real>
+									<real>0.37038671970367432</real>
+									<real>0.36306273937225342</real>
 									<false/>
 									<integer>0</integer>
 								</array>
