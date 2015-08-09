@@ -52,7 +52,8 @@
 			<key>translations</key>
 			<dict>
 				<key>en</key>
-				<string>Free 50 Coins are yours now!</string>
+				<string>Thank you for the very first log-in.
+Free 50 Coins are yours now!</string>
 				<key>ja</key>
 				<string>初回起動ありがとうございます。
 初回ボーナス 50コイン プレゼント！</string>
@@ -86,7 +87,7 @@
 			<key>translations</key>
 			<dict>
 				<key>en</key>
-				<string>Captain! It is from the best flight day!</string>
+				<string>Captain! This looks like fine weather for flying!</string>
 				<key>ja</key>
 				<string>機長！最高のフライト日よりですぜ！</string>
 			</dict>
@@ -155,8 +156,8 @@ to rate it?</string>
 			<key>translations</key>
 			<dict>
 				<key>en</key>
-				<string>Thank you for me to play.
-Please wait for a while concerning more.</string>
+				<string>Thank you for playing through to the end. 
+Please stay tuned for our next installment.</string>
 				<key>ja</key>
 				<string>最後までプレイして頂き誠にありがとうございます。
 続きにつきましてはもうしばらくお待ち下さい。</string>
@@ -179,7 +180,8 @@ Please wait for a while concerning more.</string>
 			<key>translations</key>
 			<dict>
 				<key>en</key>
-				<string>Come take a coin in the stage!</string>
+				<string>Grab all the coins littered throughout 
+the stages!</string>
 				<key>ja</key>
 				<string>ステージにあるコインを取って来てね！</string>
 			</dict>
