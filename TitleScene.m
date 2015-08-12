@@ -339,8 +339,11 @@ GameCenterLayer* gkLayer;
 {
     [SoundManager btnClick_Effect];
     
-    [[CCDirector sharedDirector] replaceScene:[ManualScene scene]
-                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
+    ManualScene* manScene=[[ManualScene alloc]init];
+    [self addChild:manScene];
+    
+    //[[CCDirector sharedDirector] replaceScene:[ManualScene scene]
+    //                           withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
 }
 
 -(void)onPreferencesButtonClicked:(id)sender

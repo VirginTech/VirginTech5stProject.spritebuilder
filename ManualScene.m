@@ -28,38 +28,37 @@ CGSize winSize;
     
     winSize=[[CCDirector sharedDirector]viewSize];
     
+    self.userInteractionEnabled = YES;
+    
     //Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]];
-    [self addChild:background];
+    //CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]];
+    //[self addChild:background];
     
-    //画像読み込み
-    [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"option_default.plist"];
-    
-    //タイトルボタン
-    CCButton *titleButton;
+    CCSprite* man;
     if([GameManager getLocal]==0){
-        titleButton = [CCButton buttonWithTitle:@"" spriteFrame:
-                       [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"titleBtn.png"]];
+        man=[CCSprite spriteWithImageNamed:@"man_jp.png"];
     }else{
-        titleButton = [CCButton buttonWithTitle:@"" spriteFrame:
-                       [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"titleBtn_en.png"]];
+        man=[CCSprite spriteWithImageNamed:@"man_en.png"];
     }
-    titleButton.scale=0.5;
-    titleButton.position = ccp(winSize.width-(titleButton.contentSize.width*titleButton.scale)/2,
-                               winSize.height-(titleButton.contentSize.height*titleButton.scale)/2);
-    [titleButton setTarget:self selector:@selector(onTitleClicked:)];
-    [self addChild:titleButton];
+    man.position=ccp(winSize.width/2,winSize.height/2);
+    man.scale=0.5;
+    [self addChild:man];
     
     return self;
 }
 
-- (void)onTitleClicked:(id)sender
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     [SoundManager btnClick_Effect];
-    
-    [[CCDirector sharedDirector] replaceScene:[TitleScene scene]
-                               withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
+    [self removeFromParentAndCleanup:YES];
+}
+
+-(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+}
+
+-(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
 }
 
 @end

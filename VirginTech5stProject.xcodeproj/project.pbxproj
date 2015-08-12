@@ -319,6 +319,12 @@
 		CFE45DB51B5293D900B772F0 /* IcePillar.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE45DB21B5293D900B772F0 /* IcePillar.m */; };
 		CFF19E8C1B3122BC0021005A /* jet.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF19E8B1B3122BC0021005A /* jet.png */; };
 		CFF19E8F1B3122E10021005A /* Jet.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF19E8E1B3122E10021005A /* Jet.m */; };
+		CFF21AC51B7B470700E4BE3D /* man_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF21AC31B7B470700E4BE3D /* man_en.png */; };
+		CFF21AC61B7B470700E4BE3D /* man_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF21AC31B7B470700E4BE3D /* man_en.png */; };
+		CFF21AC71B7B470700E4BE3D /* man_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF21AC31B7B470700E4BE3D /* man_en.png */; };
+		CFF21AC81B7B470700E4BE3D /* man_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF21AC41B7B470700E4BE3D /* man_jp.png */; };
+		CFF21AC91B7B470700E4BE3D /* man_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF21AC41B7B470700E4BE3D /* man_jp.png */; };
+		CFF21ACA1B7B470700E4BE3D /* man_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF21AC41B7B470700E4BE3D /* man_jp.png */; };
 		CFF4225D1B3502AF004A5F6E /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF4225C1B3502AF004A5F6E /* ResultLayer.m */; };
 		CFF422621B351066004A5F6E /* SelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF422611B351066004A5F6E /* SelectScene.m */; };
 		CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
@@ -576,6 +582,8 @@
 		CFF19E8B1B3122BC0021005A /* jet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jet.png; sourceTree = "<group>"; };
 		CFF19E8D1B3122E10021005A /* Jet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jet.h; sourceTree = "<group>"; };
 		CFF19E8E1B3122E10021005A /* Jet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jet.m; sourceTree = "<group>"; };
+		CFF21AC31B7B470700E4BE3D /* man_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_en.png; sourceTree = "<group>"; };
+		CFF21AC41B7B470700E4BE3D /* man_jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_jp.png; sourceTree = "<group>"; };
 		CFF4225B1B3502AF004A5F6E /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
 		CFF4225C1B3502AF004A5F6E /* ResultLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultLayer.m; sourceTree = "<group>"; };
 		CFF422601B351066004A5F6E /* SelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectScene.h; sourceTree = "<group>"; };
@@ -932,6 +940,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CFF21A981B7AF72F00E4BE3D /* Manual */,
 				CF23075A1B70B90C003E8E20 /* Sound */,
 				CFF0A9E21B303CA3008241A8 /* Images */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
@@ -1140,6 +1149,15 @@
 				CFF19E8B1B3122BC0021005A /* jet.png */,
 			);
 			name = Object;
+			sourceTree = "<group>";
+		};
+		CFF21A981B7AF72F00E4BE3D /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				CFF21AC31B7B470700E4BE3D /* man_en.png */,
+				CFF21AC41B7B470700E4BE3D /* man_jp.png */,
+			);
+			name = Manual;
 			sourceTree = "<group>";
 		};
 		CFF4226B1B35596E004A5F6E /* Sheet */ = {
@@ -1376,6 +1394,7 @@
 				CF95DB251B6694AF001654F4 /* Default-Landscape@2x~ipad.png in Resources */,
 				CFBA23E51B6DD3A90074D170 /* navi_default.plist in Resources */,
 				CF95DB341B6694AF001654F4 /* Default@2x.png in Resources */,
+				CFF21AC71B7B470700E4BE3D /* man_en.png in Resources */,
 				CFC6316E1B609BCE00F4F0F8 /* bgCloud_01.png in Resources */,
 				CFC2268E1B71E87900078FA2 /* gameComplete.mp3 in Resources */,
 				CFBA27861B736130006A8EC8 /* config_default.png in Resources */,
@@ -1410,6 +1429,7 @@
 				CF554A6E1B68F6CE00E3738E /* bg_02.png in Resources */,
 				CF95DB2B1B6694AF001654F4 /* Default-Portrait@2x~ipad.png in Resources */,
 				CFC2267E1B71B4E400078FA2 /* engineStart.mp3 in Resources */,
+				CFF21ACA1B7B470700E4BE3D /* man_jp.png in Resources */,
 				CF2307681B70D6BC003E8E20 /* idling.mp3 in Resources */,
 				CFC8BB041B6F317800760303 /* virgintechLogo.png in Resources */,
 				CFD4324C1B6B64D30049F883 /* tapstart.png in Resources */,
@@ -1431,6 +1451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFBA277D1B73444B006A8EC8 /* gameOver.mp3 in Resources */,
+				CFF21AC61B7B470700E4BE3D /* man_en.png in Resources */,
 				CF95DB271B6694AF001654F4 /* Default-Landscape~ipad.png in Resources */,
 				CFFFE9BD1B48DB6200D0AE09 /* strings.xml in Resources */,
 				CFC2269F1B7203E900078FA2 /* coin.mp3 in Resources */,
@@ -1459,6 +1480,7 @@
 				CF554A6B1B68F6BC00E3738E /* jet.png in Resources */,
 				927F61B1196C771E000F43EF /* iPad-old@2x.png in Resources */,
 				CFBA27821B736130006A8EC8 /* config_default.plist in Resources */,
+				CFF21AC91B7B470700E4BE3D /* man_jp.png in Resources */,
 				927F61B2196C771E000F43EF /* iPhone-old@2x.png in Resources */,
 				CFD432481B6B64D30049F883 /* tapstart.fnt in Resources */,
 				CFC226751B71B01100078FA2 /* checkPoint.mp3 in Resources */,
@@ -1502,6 +1524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD4324A1B6B64D30049F883 /* tapstart.png in Resources */,
+				CFF21AC81B7B470700E4BE3D /* man_jp.png in Resources */,
 				CFC631671B60987B00F4F0F8 /* bg_04.png in Resources */,
 				CF6123721B2690C5008AED91 /* Localizable.strings in Resources */,
 				CF95DB291B6694AF001654F4 /* Default-Portrait@2x~ipad.png in Resources */,
@@ -1544,6 +1567,7 @@
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				CFD432471B6B64D30049F883 /* tapstart.fnt in Resources */,
+				CFF21AC51B7B470700E4BE3D /* man_en.png in Resources */,
 				CFC2268C1B71E87900078FA2 /* gameComplete.mp3 in Resources */,
 				CFBA277C1B73444B006A8EC8 /* gameOver.mp3 in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,

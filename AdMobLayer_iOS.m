@@ -32,7 +32,7 @@ CGSize winSize;
         adBannerView=[[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
     }
 
-    adBannerView.adUnitID = @"ca-app-pub-6893326232013491/6499664761";
+    adBannerView.adUnitID = @"ca-app-pub-6893326232013491/8440619160";
     adBannerView.rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
     
     [[[CCDirector sharedDirector]view]addSubview:adBannerView];
