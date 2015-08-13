@@ -45,21 +45,21 @@
 	<key>publishEnvironment</key>
 	<integer>0</integer>
 	<key>publishResolution_android_phone</key>
-	<true/>
+	<false/>
 	<key>publishResolution_android_phonehd</key>
 	<true/>
 	<key>publishResolution_android_tablet</key>
 	<true/>
 	<key>publishResolution_android_tablethd</key>
-	<true/>
+	<false/>
 	<key>publishResolution_ios_phone</key>
-	<true/>
+	<false/>
 	<key>publishResolution_ios_phonehd</key>
 	<true/>
 	<key>publishResolution_ios_tablet</key>
 	<true/>
 	<key>publishResolution_ios_tablethd</key>
-	<true/>
+	<false/>
 	<key>publishToZipFile</key>
 	<false/>
 	<key>resourceAutoScaleFactor</key>
@@ -83,6 +83,20 @@
 			<key>previewFolderHidden</key>
 			<false/>
 		</dict>
+		<key>Sprites/CheckPoint</key>
+		<dict/>
+		<key>Sprites/Cloud</key>
+		<dict/>
+		<key>Sprites/Grounds/01</key>
+		<dict/>
+		<key>Sprites/Grounds/02</key>
+		<dict/>
+		<key>Sprites/Grounds/03</key>
+		<dict/>
+		<key>Sprites/Grounds/04</key>
+		<dict/>
+		<key>Sprites/Object</key>
+		<dict/>
 		<key>ccbResources</key>
 		<dict>
 			<key>previewFolderHidden</key>

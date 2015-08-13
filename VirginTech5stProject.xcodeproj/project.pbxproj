@@ -1898,6 +1898,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ANDROID_KEYSTORE = /Users/virgintech/Documents/Certificates/Android/VirginTech5stProject.keystore;
+				ANDROID_KEYSTORE_PASS = kenji4416;
+				ANDROID_KEY_NAME = VirginTech5stProject;
 				ANDROID_MANIFEST = "$(SRCROOT)/Source/Resources/Platforms/Android/AndroidManifest.xml";
 				ANDROID_RES_DIRS = "$(SRCROOT)/Source/Resources/res $(SRCROOT)/Source/Resources/GooglePlayServices";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1949,6 +1952,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ANDROID_KEYSTORE = /Users/virgintech/Documents/Certificates/Android/VirginTech5stProject.keystore;
+				ANDROID_KEYSTORE_PASS = kenji4416;
+				ANDROID_KEY_NAME = VirginTech5stProject;
 				ANDROID_MANIFEST = "$(SRCROOT)/Source/Resources/Platforms/Android/AndroidManifest.xml";
 				ANDROID_RES_DIRS = "$(SRCROOT)/Source/Resources/res $(SRCROOT)/Source/Resources/GooglePlayServices";
 				CLANG_ENABLE_OBJC_ARC = YES;
