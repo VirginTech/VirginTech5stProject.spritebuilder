@@ -131,7 +131,7 @@ CCScrollView* scrollView;
             selectBtn.enabled=false;
             numLabel.visible=false;
             
-            if(btnCnt>=32){
+            if(btnCnt>=STAGE_FINAL_MAX+1){
                 //Coming soon表示
                 CCLabelBMFont* msg=[CCLabelBMFont labelWithString:CCBLocalize(@"ComingSoon") fntFile:@"comingsoon.fnt"];
                 msg.position=ccp(selectBtn.contentSize.width/2,selectBtn.contentSize.height/2);
@@ -145,7 +145,7 @@ CCScrollView* scrollView;
                 lock.scale=0.5;
                 [selectBtn addChild:lock];
             }
-        }else if(btnCnt==32){
+        }else if(btnCnt==STAGE_FINAL_MAX+1){
             selectBtn.enabled=false;
             numLabel.visible=false;
             //Coming soon表示
@@ -214,7 +214,7 @@ CCScrollView* scrollView;
     [GameManager setCurrentStage:stageNum];
     NSString* stageStr=[NSString stringWithFormat:@"StageScene_%02d",stageNum];
     
-    if(stageNum<=31){
+    if(stageNum<=STAGE_FINAL_MAX){
         [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:stageStr]
                                 withTransition:[CCTransition transitionCrossFadeWithDuration:0.5]];
     }else{

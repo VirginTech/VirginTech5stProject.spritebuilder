@@ -153,7 +153,7 @@ CGSize winSize;
     
     //エンディング
     if(judgFlg){
-        if([GameManager getCurrentStage]==31){
+        if([GameManager getCurrentStage]==STAGE_FINAL_MAX){
             [[CCDirector sharedDirector] replaceScene:[EndingLayer scene]
                                        withTransition:[CCTransition transitionCrossFadeWithDuration:3.0]];
         }

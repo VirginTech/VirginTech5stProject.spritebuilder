@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+//===============
+// グローバル定数
+//===============
+#define STAGE_FINAL_MAX 32
+
+
 @interface GameManager : NSObject
 
 +(float)getOsVersion;
