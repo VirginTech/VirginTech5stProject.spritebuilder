@@ -366,7 +366,7 @@ CCParticleSystem* checkPointParticle;
     //ポーズ脱出
     if([GameManager getPause]){
         [self unschedule:@selector(icePillar_Schedule:)];
-        iceFallFlg=false;
+        //iceFallFlg=false;
         return;
     }
     
@@ -447,22 +447,33 @@ CCParticleSystem* checkPointParticle;
         [player.physicsBody setType:CCPhysicsBodyTypeStatic];//プレイヤーを静的にして停止
         //physicWorld.paused=YES;//物理ワールド停止 → アニメーションも止まってしまう
         
-        //氷柱コリジョン無効化（２重当たり判定防止に:レイヤーが２枚出てしまう）
-        //＊注 落下開始後→ポーズ→レジューム→氷柱以外に衝突→エラーになる！）
+        //氷柱コリジョン無効化（２重当たり判定防止:リザルトレイヤーが２枚出てしまう）
+        //アニメーション的に面白い手法（プレイヤーが墜落しても落下中の氷柱が落ちてくる）
         if([GameManager getCurrentStage]==22){
             if([GameManager getClearPoint]==1){
                 for(IcePillar* _icePillar in icePillarArray){
-                    _icePillar.physicsBody.collisionType=@"";
+                    if(!_icePillar.physicsBody.sleeping){
+                        _icePillar.physicsBody.collisionType=@"";
+                    }
                 }
             }
         }else if([GameManager getCurrentStage]==30){
             if([GameManager getClearPoint]==0){
                 for(IcePillar* _icePillar in icePillarArray){
-                    _icePillar.physicsBody.collisionType=@"";
+                    if(!_icePillar.physicsBody.sleeping){
+                        _icePillar.physicsBody.collisionType=@"";
+                    }
                 }
             }
         }
         
+        /*/氷柱を全停止させるならコチラ（落下中の氷柱も停止させる）
+        for(IcePillar* _icePillar in icePillarArray){
+            if(!_icePillar.physicsBody.sleeping){
+                [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+            }
+        }*/
+
         //地面振動スケジュール
         gVibCnt=0;
         [self schedule:@selector(ground_Vibration_Schedule:) interval:0.05 repeat:5 delay:0.0];
@@ -792,16 +803,22 @@ CCParticleSystem* checkPointParticle;
         if([GameManager getCurrentStage]==22){
             if([GameManager getClearPoint]==1){
                 for(IcePillar* _icePillar in icePillarArray){
-                    [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+                    if(!_icePillar.physicsBody.sleeping){
+                        [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+                    }
                 }
             }
         }else if([GameManager getCurrentStage]==30){
             if([GameManager getClearPoint]==0){
                 for(IcePillar* _icePillar in icePillarArray){
-                    [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+                    if(!_icePillar.physicsBody.sleeping){
+                        [_icePillar.physicsBody setType:CCPhysicsBodyTypeStatic];
+                    }
                 }
             }
         }
+        //氷柱落下フラグ
+        iceFallFlg=false;
         
         //ボタン切り替え
         pauseButton.visible=false;
