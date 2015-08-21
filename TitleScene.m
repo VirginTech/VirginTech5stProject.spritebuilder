@@ -85,8 +85,8 @@ GameCenterLayer* gkLayer;
 #endif
     
     //Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
-    [self addChild:background];
+    //CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
+    //[self addChild:background];
     
     //初回ログインボーナス
     if(![GameManager load_First_Login])
@@ -118,7 +118,7 @@ GameCenterLayer* gkLayer;
 #endif*/
     
     //タイトル画面
-    CCSprite* backGround=[CCSprite spriteWithImageNamed:@"bg_01.png"];
+    CCSprite* backGround=[CCSprite spriteWithImageNamed:@"title.png"];
     backGround.position=ccp(winSize.width/2,winSize.height/2);
     [self addChild:backGround];
     
@@ -147,9 +147,9 @@ GameCenterLayer* gkLayer;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"title_default.plist"];
     
     //タイトルロゴ
-    CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:30];
-    titleLogo.position=ccp(winSize.width/2,winSize.height/2+50);
-    [self addChild:titleLogo];
+    //CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:30];
+    //titleLogo.position=ccp(winSize.width/2,winSize.height/2+50);
+    //[self addChild:titleLogo];
     
     //プレイボタン
     CCSpriteFrame* spFrm_a;
@@ -163,8 +163,9 @@ GameCenterLayer* gkLayer;
     }
     CCButton* playButton=[CCButton buttonWithTitle:@""
                             spriteFrame:spFrm_a highlightedSpriteFrame:spFrm_b disabledSpriteFrame:spFrm_a];
-    playButton.position=ccp(winSize.width/2,winSize.height/2-80);
     playButton.scale=0.5;
+    playButton.positionType = CCPositionTypeNormalized;
+    playButton.position = ccp(0.50f, 0.25f);
     [playButton setTarget:self selector:@selector(onPlayClick:)];
     [self addChild:playButton];
     

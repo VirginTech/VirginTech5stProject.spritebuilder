@@ -842,7 +842,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>279</real>
+									<real>267</real>
 									<real>129.5</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -950,7 +950,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>282</real>
+									<real>268</real>
 									<real>142.54400634765625</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -22333,6 +22333,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

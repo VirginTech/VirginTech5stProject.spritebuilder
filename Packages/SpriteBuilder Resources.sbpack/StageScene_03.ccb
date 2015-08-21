@@ -310,7 +310,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>532.363525390625</real>
+									<real>439.363525390625</real>
 									<real>159</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -418,7 +418,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>533</real>
+									<real>440</real>
 									<real>171</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -455,7 +455,7 @@
 								<key>type</key>
 								<string>Degrees</string>
 								<key>value</key>
-								<real>-105.98657989501953</real>
+								<real>-90</real>
 							</dict>
 							<dict>
 								<key>name</key>

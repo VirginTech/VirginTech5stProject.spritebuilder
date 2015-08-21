@@ -518,7 +518,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>290.1612548828125</real>
+									<real>257.1612548828125</real>
 									<real>130.137939453125</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -626,7 +626,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>293.1612548828125</real>
+									<real>260.1612548828125</real>
 									<real>142.42138671875</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -13968,6 +13968,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
