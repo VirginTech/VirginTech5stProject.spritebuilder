@@ -236,6 +236,12 @@ GameCenterLayer* gkLayer;
     [creditButton setTarget:self selector:@selector(onCreditButtonClicked:)];
     [self addChild:creditButton];
     
+    //バージョン表記
+    CCLabelTTF* versionLabel=[CCLabelTTF labelWithString:@"©VirginTech v1.0.0" fontName:@"Verdana-Bold" fontSize:10];
+    versionLabel.position=ccp(winSize.width-versionLabel.contentSize.width/2,
+                              winSize.height-versionLabel.contentSize.height/2);
+    [self addChild:versionLabel];
+    
     return self;
 }
 
