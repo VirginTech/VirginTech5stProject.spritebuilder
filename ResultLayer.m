@@ -57,11 +57,20 @@ CGSize winSize;
         }
     }
     CCSprite* result=[CCSprite spriteWithSpriteFrame:resultFrame];
-    result.position=ccp(winSize.width/2,winSize.height/2 +50);
+    result.position=ccp(winSize.width/2,winSize.height/2 +20);
     if(!judgFlg){
         result.rotation=7.0;
     }
     [self addChild:result];
+
+    //ウィン画像表示
+    if(judgFlg){
+        CCSprite* winImage=[CCSprite spriteWithSpriteFrame:
+                        [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"win.png"]];
+        winImage.scale=0.5;
+        winImage.position=ccp(winSize.width/2,result.position.y+(result.contentSize.height*result.scale)/2+(winImage.contentSize.height*winImage.scale)/2 -20);
+        [self addChild:winImage];
+    }
     
     //タイトルへ
     CCButton* titleButton=[CCButton buttonWithTitle:@""
