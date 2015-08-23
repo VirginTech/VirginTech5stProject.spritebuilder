@@ -20,6 +20,8 @@
 
 CGSize winSize;
 
+CCSprite* result;
+
 + (ResultLayer *)scene
 {
     return [[self alloc] init];
@@ -51,7 +53,6 @@ CGSize winSize;
     }
     
     //リザルトメッセージ
-    CCSprite* result;
     CCSpriteFrame* resultFrame;
     if(judgFlg){
         if([GameManager getLocal]==0){
@@ -68,8 +69,9 @@ CGSize winSize;
             resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"failed_en.png"];
         }
         result=[CCSprite spriteWithSpriteFrame:resultFrame];
-        result.position=ccp(winSize.width/2,winSize.height/2 +20);
-        result.rotation=7.0;
+        result.position=ccp(winSize.width/2-(result.contentSize.width*result.scale)/2,winSize.height/2 +30);
+        result.anchorPoint=ccp(0.0,0.5);
+        //result.rotation=7.0;
     }
     [self addChild:result];
 
@@ -161,6 +163,11 @@ CGSize winSize;
         [self addChild:continueLabel];
     }
     
+    //コテっ！アニメ
+    if(!judgFlg){
+        [self scheduleOnce:@selector(kote_Anime_Schedule:) delay:0.5];
+    }
+    
     //エンディング
     if(judgFlg){
         if([GameManager getCurrentStage]==STAGE_FINAL_MAX){
@@ -170,6 +177,11 @@ CGSize winSize;
     }
     
     return self;
+}
+
+-(void)kote_Anime_Schedule:(CCTime)dt
+{
+    result.rotation=7.0;
 }
 
 -(void)onReplayClick:(id)sender
