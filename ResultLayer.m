@@ -41,7 +41,17 @@ CGSize winSize;
     [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"navi_default.plist"];
     
+    //ウィン画像表示
+    if(judgFlg){
+        CCSprite* winImage=[CCSprite spriteWithSpriteFrame:
+                            [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"win.png"]];
+        winImage.scale=0.7;
+        winImage.position=ccp(winSize.width/2,winSize.height-(winImage.contentSize.height*winImage.scale)/2 -10);
+        [self addChild:winImage];
+    }
+    
     //リザルトメッセージ
+    CCSprite* result;
     CCSpriteFrame* resultFrame;
     if(judgFlg){
         if([GameManager getLocal]==0){
@@ -49,29 +59,20 @@ CGSize winSize;
         }else{
             resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"complete_en.png"];
         }
+        result=[CCSprite spriteWithSpriteFrame:resultFrame];
+        result.position=ccp(winSize.width/2,winSize.height/2);
     }else{
         if([GameManager getLocal]==0){
             resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"failed_jp.png"];
         }else{
             resultFrame=[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"failed_en.png"];
         }
-    }
-    CCSprite* result=[CCSprite spriteWithSpriteFrame:resultFrame];
-    result.position=ccp(winSize.width/2,winSize.height/2 +20);
-    if(!judgFlg){
+        result=[CCSprite spriteWithSpriteFrame:resultFrame];
+        result.position=ccp(winSize.width/2,winSize.height/2 +20);
         result.rotation=7.0;
     }
     [self addChild:result];
 
-    //ウィン画像表示
-    if(judgFlg){
-        CCSprite* winImage=[CCSprite spriteWithSpriteFrame:
-                        [[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"win.png"]];
-        winImage.scale=0.5;
-        winImage.position=ccp(winSize.width/2,result.position.y+(result.contentSize.height*result.scale)/2+(winImage.contentSize.height*winImage.scale)/2 -20);
-        [self addChild:winImage];
-    }
-    
     //タイトルへ
     CCButton* titleButton=[CCButton buttonWithTitle:@""
                 spriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:@"home_a.png"]
