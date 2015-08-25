@@ -147,9 +147,9 @@ GameCenterLayer* gkLayer;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"title_default.plist"];
     
     //タイトルロゴ
-    //CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:30];
-    //titleLogo.position=ccp(winSize.width/2,winSize.height/2+50);
-    //[self addChild:titleLogo];
+    CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:50];
+    titleLogo.position=ccp(winSize.width/2,winSize.height/2 -20);
+    [self addChild:titleLogo];
     
     //プレイボタン
     CCSpriteFrame* spFrm_a;
