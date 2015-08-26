@@ -15,6 +15,9 @@
 
 - (void)didLoadFromCCB
 {
+    self.scale=0.4;
+    self.rotation=-10.0;
+    
     self.physicsBody.collisionType = @"cPoint";
     self.physicsBody.sensor = TRUE;
 }
