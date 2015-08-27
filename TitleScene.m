@@ -118,9 +118,21 @@ GameCenterLayer* gkLayer;
 #endif*/
     
     //タイトル画面
-    CCSprite* backGround=[CCSprite spriteWithImageNamed:@"title.png"];
-    backGround.position=ccp(winSize.width/2,winSize.height/2);
-    [self addChild:backGround];
+    CCSprite* title=[CCSprite spriteWithImageNamed:@"title.png"];
+    title.scale=0.7;
+    title.position=ccp(winSize.width/2,winSize.height/2);
+    [self addChild:title];
+    
+    //タイトルロゴ
+    CCSprite* titleLogo;
+    if([GameManager getLocal]==0){
+        titleLogo=[CCSprite spriteWithImageNamed:@"logo_jp.png"];
+    }else{
+        titleLogo=[CCSprite spriteWithImageNamed:@"logo_en.png"];
+    }
+    titleLogo.scale=0.5;
+    titleLogo.position=ccp(winSize.width/2,winSize.height/2 -10);
+    [self addChild:titleLogo];
     
     //画像読み込み
     [[CCSpriteFrameCache sharedSpriteFrameCache]removeSpriteFrames];
@@ -147,9 +159,9 @@ GameCenterLayer* gkLayer;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"title_default.plist"];
     
     //タイトルロゴ
-    CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:50];
-    titleLogo.position=ccp(winSize.width/2,winSize.height/2 -20);
-    [self addChild:titleLogo];
+    //CCLabelTTF* titleLogo=[CCLabelTTF labelWithString:CCBLocalize(@"Title") fontName:@"Verdana-Bold" fontSize:50];
+    //titleLogo.position=ccp(winSize.width/2,winSize.height/2 -20);
+    //[self addChild:titleLogo];
     
     //プレイボタン
     CCSpriteFrame* spFrm_a;

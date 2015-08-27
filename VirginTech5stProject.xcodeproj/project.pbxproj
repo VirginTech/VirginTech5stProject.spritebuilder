@@ -82,6 +82,15 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		CF04F7611B8EECCD0079E268 /* logo_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F75F1B8EECCD0079E268 /* logo_en.png */; };
+		CF04F7621B8EECCD0079E268 /* logo_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F75F1B8EECCD0079E268 /* logo_en.png */; };
+		CF04F7631B8EECCD0079E268 /* logo_en.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F75F1B8EECCD0079E268 /* logo_en.png */; };
+		CF04F7641B8EECCD0079E268 /* logo_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F7601B8EECCD0079E268 /* logo_jp.png */; };
+		CF04F7651B8EECCD0079E268 /* logo_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F7601B8EECCD0079E268 /* logo_jp.png */; };
+		CF04F7661B8EECCD0079E268 /* logo_jp.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F7601B8EECCD0079E268 /* logo_jp.png */; };
+		CF04F7701B8EF0040079E268 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F76F1B8EF0040079E268 /* title.png */; };
+		CF04F7711B8EF0040079E268 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F76F1B8EF0040079E268 /* title.png */; };
+		CF04F7721B8EF0040079E268 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04F76F1B8EF0040079E268 /* title.png */; };
 		CF086E9A1B7D64CB0093C7CC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CF086E941B7D64CB0093C7CC /* Icon-72.png */; };
 		CF086E9B1B7D64CB0093C7CC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CF086E941B7D64CB0093C7CC /* Icon-72.png */; };
 		CF086E9C1B7D64CB0093C7CC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CF086E941B7D64CB0093C7CC /* Icon-72.png */; };
@@ -348,9 +357,6 @@
 		CFF515E31B33C55A00D0BB88 /* CheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515E21B33C55A00D0BB88 /* CheckPoint.m */; };
 		CFF515F41B33D16C00D0BB88 /* CollisionSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */; };
 		CFF515F81B33E14600D0BB88 /* NaviLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF515F71B33E14600D0BB88 /* NaviLayer.m */; };
-		CFFDD4401B8B282100EDAE79 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDD43F1B8B282100EDAE79 /* title.png */; };
-		CFFDD4411B8B282100EDAE79 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDD43F1B8B282100EDAE79 /* title.png */; };
-		CFFDD4421B8B282100EDAE79 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDD43F1B8B282100EDAE79 /* title.png */; };
 		CFFFE9B71B48D5B500D0AE09 /* strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = CFFFE9B61B48D5B500D0AE09 /* strings.xml */; };
 		CFFFE9BD1B48DB6200D0AE09 /* strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = CFFFE9BC1B48DB6200D0AE09 /* strings.xml */; };
 /* End PBXBuildFile section */
@@ -487,6 +493,9 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		CF04F75F1B8EECCD0079E268 /* logo_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_en.png; sourceTree = "<group>"; };
+		CF04F7601B8EECCD0079E268 /* logo_jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_jp.png; sourceTree = "<group>"; };
+		CF04F76F1B8EF0040079E268 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		CF086E941B7D64CB0093C7CC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../../../../Resources/VirginTech5stProject/アイコン/iOS/Icon-72.png"; sourceTree = "<group>"; };
 		CF086E951B7D64CB0093C7CC /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "../../../../Resources/VirginTech5stProject/アイコン/iOS/Icon-Small-50.png"; sourceTree = "<group>"; };
 		CF086E961B7D64CB0093C7CC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../../../../Resources/VirginTech5stProject/アイコン/iOS/Icon-Small.png"; sourceTree = "<group>"; };
@@ -621,7 +630,6 @@
 		CFF515F31B33D16C00D0BB88 /* CollisionSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionSurface.m; sourceTree = "<group>"; };
 		CFF515F61B33E14600D0BB88 /* NaviLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviLayer.h; sourceTree = "<group>"; };
 		CFF515F71B33E14600D0BB88 /* NaviLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviLayer.m; sourceTree = "<group>"; };
-		CFFDD43F1B8B282100EDAE79 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
 		CFFFE9B61B48D5B500D0AE09 /* strings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = strings.xml; sourceTree = "<group>"; };
 		CFFFE9BC1B48DB6200D0AE09 /* strings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = strings.xml; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -1091,7 +1099,9 @@
 		CFBB55541B8706F8008F1E46 /* Title */ = {
 			isa = PBXGroup;
 			children = (
-				CFFDD43F1B8B282100EDAE79 /* title.png */,
+				CF04F76F1B8EF0040079E268 /* title.png */,
+				CF04F75F1B8EECCD0079E268 /* logo_en.png */,
+				CF04F7601B8EECCD0079E268 /* logo_jp.png */,
 			);
 			name = Title;
 			sourceTree = "<group>";
@@ -1431,9 +1441,11 @@
 				CF1718BA1B89AFAF0082C347 /* navi_default.plist in Resources */,
 				7A4036F819DE401F007B6E8F /* iPad-old@2x.png in Resources */,
 				CFC8BB091B6F322E00760303 /* option_default.plist in Resources */,
+				CF04F7631B8EECCD0079E268 /* logo_en.png in Resources */,
 				CF554A681B68F6B500E3738E /* compass.png in Resources */,
 				CF086EAB1B7D64CB0093C7CC /* Icon@2x.png in Resources */,
 				CF086EA81B7D64CB0093C7CC /* Icon.png in Resources */,
+				CF04F7721B8EF0040079E268 /* title.png in Resources */,
 				CF554A801B69089800E3738E /* score.fnt in Resources */,
 				CFBA27771B734375006A8EC8 /* crash.mp3 in Resources */,
 				7A4036F919DE401F007B6E8F /* iPad.png in Resources */,
@@ -1452,7 +1464,6 @@
 				7A4036FC19DE401F007B6E8F /* iPhone-old@2x.png in Resources */,
 				CFC8BB0C1B6F322E00760303 /* option_default.png in Resources */,
 				CF2307641B70D3E8003E8E20 /* engine.mp3 in Resources */,
-				CFFDD4421B8B282100EDAE79 /* title.png in Resources */,
 				CFC226A01B7203E900078FA2 /* coin.mp3 in Resources */,
 				CFD4325C1B6B6EE90049F883 /* info_default.png in Resources */,
 				CFC8BAF41B6F2BDC00760303 /* cloud_default.png in Resources */,
@@ -1468,6 +1479,7 @@
 				CFCF6DD41B89D3BA00E00BE5 /* title_default.png in Resources */,
 				CF554A701B68F6D400E3738E /* bg_01.png in Resources */,
 				7A4036FE19DE401F007B6E8F /* iPhone@2x.png in Resources */,
+				CF04F7661B8EECCD0079E268 /* logo_jp.png in Resources */,
 				CF6450E61B77569600805B4A /* bgLayer_1000.png in Resources */,
 				CFD432491B6B64D30049F883 /* tapstart.fnt in Resources */,
 				7A4036FF19DE401F007B6E8F /* Settings.png in Resources */,
@@ -1513,7 +1525,6 @@
 				927F61AD196C771E000F43EF /* Settings.png in Resources */,
 				CFE2D9E71B69B20E00F4A420 /* message_default.png in Resources */,
 				CFBA27761B734375006A8EC8 /* crash.mp3 in Resources */,
-				CFFDD4411B8B282100EDAE79 /* title.png in Resources */,
 				CF2307671B70D6BC003E8E20 /* idling.mp3 in Resources */,
 				CFC8BB0B1B6F322E00760303 /* option_default.png in Resources */,
 				CF086EA41B7D64CB0093C7CC /* Icon-Small@2x.png in Resources */,
@@ -1527,6 +1538,7 @@
 				CF1718BC1B89AFAF0082C347 /* navi_default.png in Resources */,
 				CFC8BB081B6F322E00760303 /* option_default.plist in Resources */,
 				927F61B0196C771E000F43EF /* iPad.png in Resources */,
+				CF04F7621B8EECCD0079E268 /* logo_en.png in Resources */,
 				CFBA27711B7319D5006A8EC8 /* playBgm.mp3 in Resources */,
 				CF554A6F1B68F6D300E3738E /* bg_01.png in Resources */,
 				CF554A6D1B68F6CD00E3738E /* bg_02.png in Resources */,
@@ -1565,6 +1577,7 @@
 				CF95DB241B6694AF001654F4 /* Default-Landscape@2x~ipad.png in Resources */,
 				CFC8BB031B6F317800760303 /* virgintechLogo.png in Resources */,
 				CF95DB301B6694AF001654F4 /* Default.png in Resources */,
+				CF04F7651B8EECCD0079E268 /* logo_jp.png in Resources */,
 				927F61B6196C771E000F43EF /* iPhone-old.png in Resources */,
 				CFE2D9E41B69B20E00F4A420 /* message_default.plist in Resources */,
 				927F61B7196C771E000F43EF /* iPhone.png in Resources */,
@@ -1573,6 +1586,7 @@
 				CFBA27851B736130006A8EC8 /* config_default.png in Resources */,
 				CF086E9B1B7D64CB0093C7CC /* Icon-72.png in Resources */,
 				CF086EA11B7D64CB0093C7CC /* Icon-Small.png in Resources */,
+				CF04F7711B8EF0040079E268 /* title.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1585,6 +1599,7 @@
 				CFCF6DCF1B89D3BA00E00BE5 /* title_default.plist in Resources */,
 				CFC631671B60987B00F4F0F8 /* bg_04.png in Resources */,
 				CF6123721B2690C5008AED91 /* Localizable.strings in Resources */,
+				CF04F7611B8EECCD0079E268 /* logo_en.png in Resources */,
 				CF95DB291B6694AF001654F4 /* Default-Portrait@2x~ipad.png in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				CFC2269E1B7203E900078FA2 /* coin.mp3 in Resources */,
@@ -1625,8 +1640,10 @@
 				CFBA276C1B73191B006A8EC8 /* openingBgm.mp3 in Resources */,
 				CFD4324F1B6B67A20049F883 /* comingsoon.fnt in Resources */,
 				CFC6317F1B60A4F900F4F0F8 /* bgCloud_02.png in Resources */,
+				CF04F7701B8EF0040079E268 /* title.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
+				CF04F7641B8EECCD0079E268 /* logo_jp.png in Resources */,
 				CF086EA01B7D64CB0093C7CC /* Icon-Small.png in Resources */,
 				CFD432471B6B64D30049F883 /* tapstart.fnt in Resources */,
 				CFF21AC51B7B470700E4BE3D /* man_en.png in Resources */,
@@ -1642,7 +1659,6 @@
 				CF95DB321B6694AF001654F4 /* Default@2x.png in Resources */,
 				CFC8BB021B6F317800760303 /* virgintechLogo.png in Resources */,
 				CF95DB261B6694AF001654F4 /* Default-Landscape~ipad.png in Resources */,
-				CFFDD4401B8B282100EDAE79 /* title.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				CFC6316C1B609BCE00F4F0F8 /* bgCloud_01.png in Resources */,
 				CFBA27881B7377E6006A8EC8 /* btnClick.mp3 in Resources */,
