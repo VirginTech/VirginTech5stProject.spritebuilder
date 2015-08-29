@@ -11,7 +11,7 @@
 //===============
 // グローバル定数
 //===============
-#define STAGE_FINAL_MAX 34
+#define STAGE_FINAL_MAX 35
 
 
 @interface GameManager : NSObject

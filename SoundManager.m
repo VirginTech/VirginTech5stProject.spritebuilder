@@ -22,7 +22,8 @@ float effectValue;
 +(void)initSoundPreload
 {
     //BGM
-    [[OALSimpleAudio sharedInstance]preloadBg:@"bgm.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadBg:@"playBgm.mp3"];
+    [[OALSimpleAudio sharedInstance]preloadBg:@"openingBgm.mp3"];
     
     //エフェクト
     [[OALSimpleAudio sharedInstance]preloadEffect:@"engine.mp3"];
